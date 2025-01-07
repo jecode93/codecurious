@@ -1,6 +1,6 @@
 # Code Curious Tech
 
-## Exploring the Whys of Software Development
+## Where Code Questions Get Answered
 A journey through the questions every software engineer asks. You'll find clear and practical answers here if you’re curious about a tricky concept, a new term, or best practices. Ideal for beginners and lifelong learners in tech.
 
 ## Authors
