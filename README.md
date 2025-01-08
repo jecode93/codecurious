@@ -1,6 +1,6 @@
 # codecurious.tech
 
-## Where Code Questions Get Answered
+## Where code questions get answered
 A journey through the questions every software engineer asks. You'll find clear and practical answers here if you’re curious about a tricky concept, a new term, or best practices. Ideal for beginners and lifelong learners in tech.
 
 ## Authors
