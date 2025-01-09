@@ -1,7 +1,8 @@
 # codecurious.tech
 
 ## Where code questions get answered
-A journey through the questions every software engineer asks. You'll find clear and practical answers here if you’re curious about a tricky concept, a new term, or best practices. Ideal for beginners and lifelong learners in tech.
+
+Welcome to my personal coding dictionary! This blog is where I document answers to my software engineering questions. Whenever I forget a concept, need clarity on a term, or want to revisit a lesson, I turn here. It is ideal for anyone who wants a go-to guide for solving coding problems and understanding key concepts.
 
 ## Authors
 
