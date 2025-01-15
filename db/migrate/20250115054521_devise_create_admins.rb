@@ -33,7 +33,6 @@ class DeviseCreateAdmins < ActiveRecord::Migration[8.0]
       # t.datetime :locked_at
 
       t.string :name
-      t.attachment :photo
       t.string :bio
 
       t.timestamps null: false
