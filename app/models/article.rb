@@ -16,6 +16,10 @@
 #
 
 class Article < ApplicationRecord
+  extend FriendlyId
+
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
   has_one_attached :featured_image
+
+  friendly_id :title, use: %i[slugged history finders]
 end
