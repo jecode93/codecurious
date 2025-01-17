@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+admin = Admin.where(email: "admin@jecode93.com").first_or_initialize
+admin.update!(
+  password: Rails.application.credentials.dig(:admin_password),
+  password_confirmation: Rails.application.credentials.dig(:admin_password),
+  name: "Jean Emmanuel Cadet",
+  bio: "I specialize in designing, building, and deploying innovative software solutions for businesses as a Full-stack software engineer."
+)
