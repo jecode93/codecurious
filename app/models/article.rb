@@ -20,6 +20,9 @@ class Article < ApplicationRecord
 
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
   has_one_attached :featured_image
+  has_rich_text :content
+
+  validates :title, :author, :slug, :content, presence: true
 
   friendly_id :title, use: %i[slugged history finders]
 
