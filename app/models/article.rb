@@ -29,4 +29,6 @@ class Article < ApplicationRecord
   def should_generate_new_friendly_id?
     title_changed? || slug.blank?
   end
+
+  scope :descending_order, -> { order(created_at: :desc) }
 end
