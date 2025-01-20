@@ -1,2 +1,13 @@
-<h1>Articles#show</h1>
-<p>Find me in app/views/articles/show.html.erb</p>
+<%= content_for :title, "#{@article.title} - Code Curious" %>
+<p class="text-secondary">
+  <%= show_date(@article) %>
+</p>
+<h1 class="mb-4"><%= @article.title %></h1>
+<% if @article.featured_image.attached? %>
+  <%= image_tag @article.featured_image, class: "rounded-2 mb-3" %>
+<% else %>
+  <%= image_tag "placeholder.jpg", class: "rounded-2 mb-3" %>
+<% end %>
+<p class="text-secondary">By: <%= @article.author.name %> • <%= time_ago_in_words(@article.created_at) %> ago</p>
+<span class="border-bottom border-primary border-3"></span>
+<p><%= @article.content %></p>
