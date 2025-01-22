@@ -1,10 +1,8 @@
 module ArticlesHelper
   def hero_text = [
     {
-      title: "Where code questions get answered",
-      description: "Welcome to my personal coding dictionary! This blog is where I document answers to my software engineering
-    questions. Whenever I forget a concept, need clarity on a term, or want to revisit a lesson, I turn here. It is
-    ideal for anyone who wants a go-to guide for solving coding problems and understanding key concepts."
+      title: "Answers to My Coding Curiosities",
+      description: "Welcome to my personal coding journal! Here, I share answers to the questions I’ve faced on my coding journey. It’s my way of keeping track of lessons learned, and I hope it becomes a helpful guide for beginners and curious coders alike."
     }
   ]
 
