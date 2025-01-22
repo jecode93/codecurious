@@ -16,4 +16,16 @@ module ArticlesHelper
     when "alert" then "danger"
     end
   end
+
+  def reading_time(article)
+    words_per_minute = 200
+    word_count = article.body.to_s.split(/\s+/).size
+    time = (word_count / words_per_minute.to_f).ceil
+
+    if time == 1
+      "#{time} minute"
+    else
+      "#{time} minutes"
+    end
+  end
 end
