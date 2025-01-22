@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [ :show ]
+  before_action :set_article, only: [:show]
 
   def index
-    @articles = Article.descending_order
+    @pagy, @articles = pagy(Article.descending_order, limit: 12)
   end
 
   def show
