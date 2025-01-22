@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
 
   def index
     @pagy, @articles = pagy(Article.descending_order, limit: 12)
+  rescue Pagy::OverflowError
+    redirect_to root_path(page: 1)
   end
 
   def show
