@@ -9,4 +9,11 @@ module ArticlesHelper
   def show_date(article_date)
     article_date.created_at.strftime("%b %d, %Y")
   end
+
+  def bootstrap_class_for(flash_type)
+    case flash_type
+    when "notice" then "success"
+    when "alert" then "danger"
+    end
+  end
 end
