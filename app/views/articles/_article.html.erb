@@ -1,16 +1,17 @@
-<div class="col-md-6 col-lg-4 mb-3">
-  <article>
-    <%= link_to article_path(article), class: "link-underline link-underline-opacity-0" do %>
-      <div class="card">
+<div class="col-md-6 col-lg-4 mb-4">
+  <article class="shadow-sm">
+    <%= link_to article_path(article), class: "text-decoration-none" do %>
+      <div class="card border-0">
         <% if article.featured_image.attached? %>
           <%= image_tag article.featured_image, class: "card-img-top" %>
         <% else %>
           <%= image_tag "placeholder.jpg", class: "card-img-top" %>
         <% end %>
         <div class="card-body">
-          <h2 class="card-title fs-5"><%= article.title %></h2>
-          <p class="card-text text-secondary"><%= truncate(strip_tags(article.content.to_s), length: 70) %></p>
-          <p class="text-secondary"><%= show_date(article) %></p>
+          <h2 class="card-title fs-5 fw-semibold"><%= article.title %></h2>
+          <p class="card-text text-body"><%= truncate(strip_tags(article.content.to_s), length: 70) %></p>
+          <p class="text-body-tertiary" style="font-size: 0.8rem"><%= show_date(article) %>
+            • <%= reading_time(article.content) %> read</p>
         </div>
       </div>
     <% end %>
