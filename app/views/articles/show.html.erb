@@ -1,13 +1,15 @@
 <%= content_for :title, "#{@article.title} - Code Curious" %>
-<p class="text-secondary">
-  <%= show_date(@article) %>
-</p>
-<h1 class="mb-4"><%= @article.title %></h1>
-<% if @article.featured_image.attached? %>
-  <%= image_tag @article.featured_image, class: "rounded-2 mb-3" %>
-<% else %>
-  <%= image_tag "placeholder.jpg", class: "rounded-2 mb-3" %>
-<% end %>
-<p class="text-secondary">By: <%= @article.author.name %> • <%= time_ago_in_words(@article.created_at) %> ago</p>
-<span class="border-bottom border-primary border-3"></span>
-<p><%= @article.content %></p>
+<div class="container my-5">
+  <p class="text-body-tertiary">
+    <%= show_date(@article) %>
+  </p>
+  <h1 class="mb-4"><%= @article.title %></h1>
+  <% if @article.featured_image.attached? %>
+    <%= image_tag @article.featured_image, class: "rounded-2 mb-3" %>
+  <% else %>
+    <%= image_tag "placeholder.jpg", class: "rounded-2 mb-3" %>
+  <% end %>
+  <p class="text-body-tertiary"><%= reading_time(@article.content) %> read • By: <%= @article.author.name %></p>
+  <div class="border-bottom border-black-50 border-1 mt-5"></div>
+  <p class="text-body"><%= @article.content %></p>
+</div>
