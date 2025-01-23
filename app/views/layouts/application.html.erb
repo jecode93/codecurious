@@ -24,9 +24,11 @@
 </head>
 
 <body>
-<div class="container">
-  <%= link_to 'CC.tech', root_path, class: "m-5" %>
-  <%= render "layouts/flash_messages" %>
+<div>
+  <%= render "layouts/nav" %>
+  <div class="container">
+    <%= render "layouts/flash_messages" %>
+  </div>
   <%= yield %>
 </div>
 </body>
