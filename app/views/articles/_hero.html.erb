@@ -1,12 +1,10 @@
-<div class="container" style="padding: 8rem 8rem">
+<div class="container py-8" style='background-image: url("<%= asset_path("noise-bg.webp") %>");'>
   <div class="row">
     <% hero_text.each do |hero| %>
-      <div class="col-md-2"></div>
-      <div class="col-md-8 text-center">
-        <h1 class="mb-4 fw-bold"><%= hero[:title].gsub('Coding', '<span class="text-primary">Coding</span>').html_safe %></h1>
-        <p class="text-secondary"><%= hero[:description].gsub('!', '<span>!<br></span>').html_safe %></p>
+      <div class="col-lg-8 mx-auto text-center">
+        <h1 class="mb-4 fw-bold"><%= hero[:title].gsub('Coding', '<span class="text-secondary">Coding</span>').html_safe %></h1>
+        <p class="text-body"><%= hero[:description].gsub('!', '<span>!<br></span>').html_safe %></p>
       </div>
-      <div class="col-md-2"></div>
     <% end %>
   </div>
 </div>
