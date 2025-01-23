@@ -6,6 +6,21 @@ module ArticlesHelper
     }
   ]
 
+  def links = [
+    {
+      title: "Home",
+      link: root_path
+    },
+    {
+      title: "About",
+      link: "/about"
+    },
+    {
+      title: "Contact",
+      link: "/contact"
+    }
+  ]
+
   def show_date(article_date)
     article_date.created_at.strftime("%b %d, %Y")
   end
