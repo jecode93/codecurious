@@ -1,11 +1,19 @@
 <div class="bg-white">
   <div class="container py-8" style='background-image: url("<%= asset_path("noise-bg.webp") %>");'>
-    <div class="row">
+    <div class="row my-4">
       <% hero_text.each do |hero| %>
         <div class="col-lg-8 mx-auto text-center">
           <h1 class="mb-4 fw-bold"><%= hero[:title].gsub('Coding', '<span class="text-primary">Coding</span>').html_safe %></h1>
           <p class="text-body"><%= hero[:description].gsub('!', '<span>!<br></span>').html_safe %></p>
         </div>
+      <% end %>
+    </div>
+
+    <!-- handle search for an article -->
+    <div class="col-5 mx-auto">
+      <%= search_form_for @q, url: root_path, html: { class: "d-flex", role: "search" } do |f| %>
+        <%= f.search_field :title_or_slug_cont, class: "form-control me-2", placeholder: "Ex: Ruby on Rails", aria: { label: "Search" } %>
+        <%= f.submit "Search", class: "btn btn-outline-primary" %>
       <% end %>
     </div>
   </div>

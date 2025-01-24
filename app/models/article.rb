@@ -31,4 +31,12 @@ class Article < ApplicationRecord
   end
 
   scope :descending_order, -> { order(created_at: :desc) }
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["title", "slug"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end

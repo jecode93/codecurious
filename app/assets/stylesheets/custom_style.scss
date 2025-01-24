@@ -14,8 +14,11 @@ body {
   border: 2px solid $secondary !important;
 }
 
-
 svg {
   height: 1.5rem;
   width: 1.5rem;
+}
+
+::placeholder {
+  color: rgba(128, 128, 128, 0.6) !important;
 }
