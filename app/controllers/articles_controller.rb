@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [ :show ]
+  before_action :set_article, only: [:show]
 
   def index
     @q = Article.ransack(params[:q])
@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
     # Handle the case when there is no record found
     if @articles.empty?
-      flash[:alert] = "No records found for your search criteria."
+      flash[:alert] = "No article found for your search criteria."
       redirect_to root_path
     end
 
