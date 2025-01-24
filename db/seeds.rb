@@ -18,18 +18,18 @@ admin.update!(
 )
 puts "Done creating admin user"
 
-puts "Creating new articles"
-ActiveRecord::Base.transaction do
-  30.times do |i|
-    puts "Creating article #{i + 1}"
-    Article.create!(
-      title: Faker::Company.name,
-      author: admin,
-      content: Faker::Lorem.sentence,
-    )
-  rescue => e
-    puts "Error on article #{i + 1}: #{e.message}"
-    raise
-  end
-end
-puts "Done creating new articles"
+# puts "Creating new articles"
+# ActiveRecord::Base.transaction do
+#   30.times do |i|
+#     puts "Creating article #{i + 1}"
+#     Article.create!(
+#       title: Faker::Company.name,
+#       author: admin,
+#       content: Faker::Lorem.sentence,
+#     )
+#   rescue => e
+#     puts "Error on article #{i + 1}: #{e.message}"
+#     raise
+#   end
+# end
+# puts "Done creating new articles"
