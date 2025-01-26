@@ -1,16 +1,18 @@
 <% content_for :title, "#{@article.title} - Code Curious" %>
 
 <% content_for :primary_content do %>
-  <div class="m-5">
+  <div>
     <p class="text-body-tertiary">
       <%= show_date(@article) %>
     </p>
     <h1 class="mb-4"><%= @article.title %></h1>
-    <% if @article.featured_image.attached? %>
-      <%= image_tag @article.featured_image, class: "rounded-2 mb-3 w-100" %>
-    <% else %>
-      <%= image_tag "placeholder.jpg", class: "rounded-2 mb-3 w-100" %>
-    <% end %>
+    <div>
+      <% if @article.featured_image.attached? %>
+        <%= image_tag @article.featured_image, class: "rounded-2 mb-3 w-100" %>
+      <% else %>
+        <%= image_tag "placeholder.jpg", class: "rounded-2 mb-3 w-100" %>
+      <% end %>
+    </div>
     <p class="text-body-tertiary"><%= reading_time(@article.content) %> read • By: <%= @article.author.name %></p>
     <div class="border-bottom border-black-50 border-1 mt-5"></div>
     <p class="text-body"><%= @article.content %></p>
@@ -18,10 +20,10 @@
 <% end %>
 
 <% content_for :secondary_content do %>
-  <div class="m-5 text-center">
+  <div class="mt-5 mb-3 text-center">
     <%= image_tag "placeholder.jpg", class: "rounded-circle w-50 mb-4" %>
     <h1 class="fs-5 fw-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
-    <p class="text-body-tertiary"><%= @article.author.bio %></p>
+    <p class="text-body-tertiary fs-6"><%= @article.author.bio %></p>
     <div class="border-bottom border-black-50 border-1 mt-5"></div>
   </div>
 <% end %>
