@@ -10,9 +10,9 @@
     </div>
 
     <!-- handle search for an article -->
-    <div class="col-5 mx-auto">
+    <div class="col-10 col-md-6 col-lg-5 mx-auto">
       <%= search_form_for @q, url: root_path, html: { class: "d-flex", role: "search" } do |f| %>
-        <%= f.search_field :title_or_slug_cont, class: "form-control me-2", placeholder: "Ex: Ruby on Rails", aria: { label: "Search" } %>
+        <%= f.search_field :title_or_slug_cont, class: "form-control me-2", placeholder: "Ex: Ruby on Rails, Github, Docker", aria: { label: "Search" } %>
         <%= f.submit "Search", class: "btn btn-outline-primary" %>
       <% end %>
     </div>
