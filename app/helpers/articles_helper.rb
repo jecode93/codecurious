@@ -7,10 +7,10 @@ module ArticlesHelper
   ]
 
   def links = [
-    {
-      title: "Home",
-      link: root_path
-    },
+    # {
+    #   title: "Home",
+    #   link: root_path
+    # },
     {
       title: "About",
       link: "/about"
@@ -21,8 +21,35 @@ module ArticlesHelper
     }
   ]
 
+  def services = [
+    {
+      icon: "/icons/web.svg", # A combined icon for both services
+      title: "Web & Mobile Development",
+      href: "https://jeanemmanuelcadet.com/services#web-mobile",
+      description:
+        "I provide top-notch development services for both web and mobile platforms. From dynamic landing pages and sophisticated web applications to sleek and robust mobile apps for Android and iOS, I deliver custom solutions that captivate and engage your audience.",
+      price: "20" # Adjust price to reflect combined services, if applicable
+    },
+    {
+      icon: "/icons/api.svg",
+      title: "API development",
+      href: "https://jeanemmanuelcadet.com/services#api",
+      description:
+        "Integrate and streamline your systems with secure, scalable APIs designed to meet your specific requirements.",
+      price: "25"
+    },
+    {
+      icon: "/icons/database.svg",
+      title: "Database design and management",
+      href: "https://jeanemmanuelcadet.com/services#database",
+      description:
+        "Design and manage robust databases that efficiently store and organize your critical data, ensuring optimal performance and reliability.",
+      price: "35"
+    }
+  ]
+
   def show_date(article_date)
-    article_date.created_at.strftime("%b %d, %Y")
+    article_date.updated_at.strftime("%b %d, %Y")
   end
 
   def bootstrap_class_for(flash_type)
