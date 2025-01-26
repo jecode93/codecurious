@@ -2,19 +2,19 @@
 
 <% content_for :primary_content do %>
   <div>
-    <p class="text-body-tertiary">
-      <%= show_date(@article) %>
+    <p class="text-body-tertiary" style="font-size: 0.875rem;">
+      Last updated: <%= show_date(@article) %>
     </p>
     <h1 class="mb-4"><%= @article.title %></h1>
     <div>
       <% if @article.featured_image.attached? %>
         <%= image_tag @article.featured_image, class: "rounded-2 mb-3 w-100" %>
       <% else %>
-        <%= image_tag "placeholder.jpg", class: "rounded-2 mb-3 w-100" %>
+        <%= image_tag "placeholder.png", class: "rounded-2 mb-3 w-100" %>
       <% end %>
     </div>
     <p class="text-body-tertiary"><%= reading_time(@article.content) %> read • By: <%= @article.author.name %></p>
-    <div class="border-bottom border-black-50 border-1 mt-5"></div>
+    <div class="border-bottom border-black-50 border-1 my-5"></div>
     <p class="text-body"><%= @article.content %></p>
   </div>
 <% end %>
@@ -23,8 +23,24 @@
   <div class="mt-5 mb-3 text-center">
     <%= image_tag "placeholder.jpg", class: "rounded-circle w-50 mb-4" %>
     <h1 class="fs-5 fw-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
-    <p class="text-body-tertiary fs-6"><%= @article.author.bio %></p>
+    <p class="text-body-tertiary fs-6" style="text-align: justify"><%= @article.author.bio %></p>
     <div class="border-bottom border-black-50 border-1 mt-5"></div>
+  </div>
+
+  <div class="my-4">
+    <p>Here's how I can help you:</p>
+  </div>
+
+  <div>
+    <% services.each do |service| %>
+      <a href="<%= service[:href] %>" class="text-decoration-none" target="_blank">
+        <div class="mb-5">
+          <h5 class="mb-2 fs-6"><%= service[:title] %></h5>
+          <p class="text-body-tertiary" style="text-align: justify"><%= service[:description] %></p>
+          <span class="btn btn-sm btn-primary">Check it out</span>
+        </div>
+      </a>
+    <% end %>
   </div>
 <% end %>
 <%= render "layouts/basic_layout" %>
