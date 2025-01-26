@@ -28,3 +28,11 @@ svg {
   box-shadow: $box-shadow;
   transition-duration: 300ms;
 }
+
+.trix-content {
+  font-size: 1.1rem;
+}
+
+.nav-link.is-current-page {
+  color: $secondary;
+}

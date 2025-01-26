@@ -10,7 +10,9 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% links.each do |link| %>
           <li class="nav-item">
-            <%= link_to link[:title], link[:link], class: "nav-link hover-text-info fw-medium" %>
+            <%= link_to({ controller: 'pages', action: link[:title].downcase }, { class: "nav-link hover-text-info fw-medium #{'is-current-page' if current_page?(controller: 'pages', action: link[:title].downcase)}" }) do %>
+              <%= link[:title] %>
+            <% end %>
           </li>
         <% end %>
       </ul>
