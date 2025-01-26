@@ -5,7 +5,7 @@
         <% if article.featured_image.attached? %>
           <%= image_tag article.featured_image, class: "card-img-top", alt: article.title %>
         <% else %>
-          <%= image_tag "placeholder.jpg", class: "card-img-top", alt: article.title %>
+          <%= image_tag "placeholder.png", class: "card-img-top", alt: article.title %>
         <% end %>
         <div class="card-body">
           <h2 class="card-title fs-5 fw-semibold"><%= article.title %></h2>
