@@ -8,6 +8,7 @@ body {
 
 .hover-text-info:hover {
   color: $secondary;
+  transition-duration: 300ms;
 }
 
 .navbar-toggler {
@@ -21,4 +22,9 @@ svg {
 
 ::placeholder {
   color: rgba(128, 128, 128, 0.6) !important;
+}
+
+.card:hover {
+  box-shadow: $box-shadow;
+  transition-duration: 300ms;
 }
