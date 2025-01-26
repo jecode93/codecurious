@@ -3,15 +3,15 @@
     <%= link_to article_path(article), class: "text-decoration-none" do %>
       <div class="card border-0">
         <% if article.featured_image.attached? %>
-          <%= image_tag article.featured_image, class: "card-img-top" %>
+          <%= image_tag article.featured_image, class: "card-img-top", alt: article.title %>
         <% else %>
-          <%= image_tag "placeholder.jpg", class: "card-img-top" %>
+          <%= image_tag "placeholder.jpg", class: "card-img-top", alt: article.title %>
         <% end %>
         <div class="card-body">
           <h2 class="card-title fs-5 fw-semibold"><%= article.title %></h2>
           <p class="card-text text-body"><%= truncate(strip_tags(article.content.to_s), length: 70) %></p>
-          <p class="text-body-tertiary" style="font-size: 0.8rem"><%= show_date(article) %>
-            • <%= reading_time(article.content) %> read</p>
+          <span class="text-body-tertiary" style="font-size: 0.875rem"><%= show_date(article) %>
+            • <%= reading_time(article.content) %> read</span>
         </div>
       </div>
     <% end %>
