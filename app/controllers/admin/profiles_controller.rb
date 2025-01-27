@@ -1,6 +1,6 @@
 class Admin::ProfilesController < ApplicationController
   before_action :authenticate_admin!
-  before_action :set_admin, only: [:edit, :update, :index]
+  before_action :set_admin, only: %i[edit update index ]
 
   def index
     @admin_articles = current_admin.articles.order(created_at: :desc)
