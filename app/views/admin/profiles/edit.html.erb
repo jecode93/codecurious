@@ -1,0 +1,36 @@
+<h1>Update Information</h1>
+
+<%= form_with model: @admin, url: admin_profile_path, method: :patch do |f| %>
+  <div>
+    <% if @admin.profile_picture.attached? %>
+      <%= image_tag @admin.profile_picture, class: "", style: "width: 5rem" %>
+    <% end %>
+    <%= f.label :profile_picture %>
+    <%= f.file_field :profile_picture %>
+  </div>
+  <div>
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+  </div>
+  <div>
+    <%= f.label :whatsapp_number %>
+    <%= f.text_field :whatsapp_number %>
+  </div>
+  <div>
+    <%= f.label :github %>
+    <%= f.text_field :github %>
+  </div>
+  <div>
+    <%= f.label :facebook %>
+    <%= f.text_field :facebook %>
+  </div>
+  <div>
+    <%= f.label :linkedin %>
+    <%= f.text_field :linkedin %>
+  </div>
+  <div>
+    <%= f.label :instagram %>
+    <%= f.text_field :instagram %>
+  </div>
+  <%= f.submit %>
+<% end %>
