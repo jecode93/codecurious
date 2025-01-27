@@ -7,6 +7,7 @@ class Admin < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :articles, foreign_key: "author_id", dependent: :destroy
+  has_one_attached :profile_picture
 
   friendly_id :name, use: %i[slugged history finders]
 
