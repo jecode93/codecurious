@@ -1,0 +1,11 @@
+<div>
+  <h1>
+    <%= @admin.name %>
+    <span>
+      <%= link_to "Edit Profile", edit_admin_profile_path(@admin) %>
+    </span>
+  </h1>
+</div>
+<% @admin_articles.each do |admin_article| %>
+  <h3><%= admin_article.title %></h3>
+<% end %>
