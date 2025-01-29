@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
 
   namespace :admin do
-    resources :profiles, only: %i[index edit update]
+    resources :profiles, only: %i[show edit update]
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

@@ -16,7 +16,7 @@
         </li>
         <% if admin_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Profile", admin_profiles_path, class: "nav-link hover-text-info" %>
+            <%= link_to "Profile", admin_profile_path(current_admin), class: "nav-link hover-text-info" %>
           </li>
           <li class="nav-item">
             <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "nav-link hover-text-info" %>
