@@ -1,0 +1,8 @@
+<div>
+  <h1>
+    <%= @author.name %>
+  </h1>
+</div>
+<% @articles.each do |article| %>
+  <h3><%= link_to article.title, article_path(article), class: "text-decoration-none" %></h3>
+<% end %>
