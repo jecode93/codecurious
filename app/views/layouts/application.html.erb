@@ -25,14 +25,14 @@
 
 <body>
 <div>
-  <%= render "layouts/nav" %>
+  <%= render "layouts/shared/nav" %>
   <div class="bg-white">
     <div class="container">
-      <%= render "layouts/flash_messages" %>
+      <%= render "layouts/shared/flash_messages" %>
     </div>
   </div>
   <%= yield %>
-  <%= render "layouts/footer" %>
+  <%= render "layouts/shared/footer" %>
 </div>
 </body>
 </html>
