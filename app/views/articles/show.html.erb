@@ -22,17 +22,20 @@
 
 <% content_for :secondary_content do %>
   <div class="mt-5 mb-3 text-center">
-    <% if @article.author.profile_picture.attached? %>
-      <%= image_tag @article.author.profile_picture, style: "border-radius: 50%; width: 8rem; height: 8rem; margin-bottom: 2rem" %>
-    <% else %>
-      <%= image_tag "placeholder.png", class: "rounded-2 mb-3 w-100" %>
-    <% end %>
-    <h1 class="fs-5 fw-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
-    <p class="text-body-tertiary fs-6" style="text-align: justify"><%= @article.author.bio %></p>
+    <div class="mb-4">
+      <% if @article.author.profile_picture.attached? %>
+        <%= image_tag @article.author.profile_picture, style: "border-radius: 50%; width: 8rem; height: 8rem; margin-bottom: 2rem" %>
+      <% else %>
+        <%= image_tag "placeholder.png", class: "rounded-2 mb-3 w-100" %>
+      <% end %>
+      <h1 class="fs-5 fw-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
+      <p class="text-body-tertiary fs-6" style="text-align: justify"><%= @article.author.bio %></p>
+    </div>
+    <%= render "layouts/shared/social_links", whatsapp: @article.author.whatsapp_number, github: @article.author.github, linkedin: @article.author.linkedin, facebook: @article.author.facebook, instagram: @article.author.instagram %>
     <div class="border-bottom border-black-50 border-1 mt-5"></div>
   </div>
 
-  <div class="my-4">
+  <div class="my-5">
     <p>Here's how I can help you:</p>
   </div>
 
@@ -48,4 +51,4 @@
     <% end %>
   </div>
 <% end %>
-<%= render "layouts/basic_layout" %>
+<%= render "layouts/shared/basic_layout" %>
