@@ -14,7 +14,7 @@ admin.update!(
   password: Rails.application.credentials.dig(:admin, :password),
   password_confirmation: Rails.application.credentials.dig(:admin, :password),
   name: "Jean Emmanuel Cadet",
-  bio: "I specialize in designing, building, and deploying innovative software solutions for businesses as a Full-stack software engineer."
+  bio: "As a Full-stack software engineer, I specialize in designing, building, and deploying innovative software solutions for businesses."
 )
 puts "Done creating admin user"
 
