@@ -11,7 +11,7 @@ class Admin::ProfilesController < ApplicationController
 
   def update
     if @admin.update(set_params)
-      redirect_to admin_profile_path(@admin), notice: "Admin index was successfully updated."
+      redirect_to admin_profile_path(@admin), notice: "Admin info was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -24,6 +24,6 @@ class Admin::ProfilesController < ApplicationController
   end
 
   def set_params
-    params.require(:admin).permit(:profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram)
+    params.require(:admin).permit(:bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram)
   end
 end
