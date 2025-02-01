@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary" style="height: 50px;">
+<nav class="navbar navbar-expand-lg bg-primary" style="height: 60px;">
   <div class="container align-middle">
     <%= link_to "Code Curious", root_path, class: "navbar-brand fw-bold text-white fs-2 me-5" %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +16,7 @@
         </li>
         <% if admin_signed_in? %>
           <li class="nav-item">
-            <%= link_to "Profile", admin_profile_path(current_admin), class: "nav-link hover-text-info" %>
+            <%= link_to "Profile", profile_path(current_admin), class: "nav-link hover-text-info" %>
           </li>
           <li class="nav-item">
             <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "nav-link hover-text-info" %>
