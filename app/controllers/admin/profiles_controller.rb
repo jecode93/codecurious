@@ -1,5 +1,4 @@
-class Admin::ProfilesController < ApplicationController
-  before_action :authenticate_admin!
+class Admin::ProfilesController < Admin::AdminController
   before_action :set_admin, only: %i[show edit update]
 
   def show
@@ -11,7 +10,7 @@ class Admin::ProfilesController < ApplicationController
 
   def update
     if @admin.update(set_params)
-      redirect_to admin_profile_path(@admin), notice: "Admin info was successfully updated."
+      redirect_to profile_path(@admin), notice: "Admin info was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
