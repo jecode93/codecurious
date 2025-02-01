@@ -1,6 +1,6 @@
 <h1>Update Information</h1>
 
-<%= form_with model: @admin, url: admin_profile_path, method: :patch do |f| %>
+<%= form_with model: @admin, url: profile_path, method: :patch do |f| %>
   <div>
     <% if @admin.profile_picture.attached? %>
       <%= image_tag @admin.profile_picture, class: "", style: "width: 5rem" %>
