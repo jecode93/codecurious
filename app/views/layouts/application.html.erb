@@ -25,11 +25,11 @@
 
 <body>
 <div>
-  <%= render "layouts/shared/nav" %>
-  <div class="bg-white">
-    <div class="container">
-      <%= render "layouts/shared/flash_messages" %>
-    </div>
+  <% unless devise_controller? && controller_name == "sessions" && action_name == "new" %>
+    <%= render "layouts/shared/nav" %>
+  <% end %>
+  <div class="flash">
+    <%= render "layouts/shared/flash_messages" %>
   </div>
   <%= yield %>
   <%= render "layouts/shared/footer" %>
