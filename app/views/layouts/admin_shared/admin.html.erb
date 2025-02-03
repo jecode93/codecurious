@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for(:title) || "Code Curious" %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= yield :head %>
+
+  <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+  <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+  <link rel="icon" href="/icon.png" type="image/png">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon.png">
+
+  <%# Includes all stylesheet files in app/assets/stylesheets %>
+  <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+</head>
+
+<body>
+<div>
+  <div class="flash">
+    <%= render "layouts/shared/flash_messages" %>
+  </div>
+  <div class="row">
+    <div class="col-md-2 bg-primary p-3 position-fixed start-0 end-0 vh-100">
+      <% unless devise_controller? && controller_name == "sessions" && action_name == "new" %>
+        <%= render "layouts/admin_shared/nav" %>
+      <% end %>
+    </div>
+    <div class="col-md-10 position-absolute end-0">
+      <%= yield %>
+    </div>
+  </div>
+  <%= render "layouts/shared/footer" %>
+</div>
+</body>
+</html>
