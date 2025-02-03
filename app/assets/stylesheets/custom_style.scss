@@ -1,5 +1,6 @@
 body {
   background-color: $body-tertiary-bg;
+  font-family: "Montserrat", "Poppins", sans-serif !important;
 }
 
 .nav-link {
@@ -25,7 +26,7 @@ svg {
 }
 
 .card:hover {
-  box-shadow: $box-shadow;
+  box-shadow: $box-shadow-sm;
   transition-duration: 300ms;
 }
 
@@ -35,4 +36,20 @@ svg {
 
 .nav-link.is-current-page {
   color: $secondary;
+}
+
+hr.hr-dashed {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px dashed #333;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  background-color: transparent;
+}
+
+.media {
+  display: flex;
+  align-items: flex-start;
 }
