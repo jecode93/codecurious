@@ -1,0 +1,22 @@
+<nav class="bg-primary h-100">
+  <div class="container h-100">
+    <%= link_to "Code Curious", root_path, class: "navbar-brand fw-bold text-white fs-2 mb-5" %>
+    <div>
+      <% if admin_signed_in? %>
+        <div class="nav d-flex flex-column align-content-between mb-2 mb-lg-0 h-100">
+          <div class="list-group w-100">
+            <a href="#" class="list-group-item list-group-item-action active text-decoration-none pt-3 ps-3 text-white" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false" aria-controls="submenu">
+              Profile
+              <i class="bi bi-caret-down-fill"></i>
+            </a>
+            <div id="submenu" class="collapse ps-3">
+              <%= link_to "Profile", profile_path(current_admin), class: "nav-lin hover-text-info list-group-item list-group-item-action submenu-item" %>
+              <%= link_to "Edit Profile", edit_profile_path(@admin), class: "nav-lin hover-text-info list-group-item list-group-item-action submenu-item" %>
+            </div>
+            <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "nav-link hover-text-info align-self-bottom" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</nav>
