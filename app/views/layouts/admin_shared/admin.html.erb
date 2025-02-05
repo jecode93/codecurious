@@ -23,22 +23,26 @@
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 </head>
 
-<body>
-<div>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
   <div class="flash">
     <%= render "layouts/shared/flash_messages" %>
   </div>
-  <div class="row">
-    <div class="col-md-2 bg-primary p-3 position-fixed start-0 end-0 vh-100">
-      <% unless devise_controller? && controller_name == "sessions" && action_name == "new" %>
-        <%= render "layouts/admin_shared/nav" %>
-      <% end %>
+  <%= render "layouts/admin_shared/base/header" %>
+  <%= render "layouts/admin_shared/base/sidebar" %>
+
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <div class="content">
+      <div class="container-fluid">
+        <%= yield %>
+      </div><!-- /.container-fluid -->
     </div>
-    <div class="col-md-10 position-absolute end-0">
-      <%= yield %>
-    </div>
+    <!-- /.content -->
   </div>
-  <%= render "layouts/shared/footer" %>
+  <%= render "layouts/admin_shared/base/control_sidebar" %>
+  <%= render "layouts/admin_shared/base/footer" %>
+
 </div>
 </body>
 </html>
