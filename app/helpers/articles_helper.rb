@@ -52,10 +52,10 @@ module ArticlesHelper
     article_date.updated_at.strftime("%b %d, %Y")
   end
 
-  def bootstrap_class_for(flash_type)
+  def tailwind_class_for(flash_type)
     case flash_type
-    when "notice" then "success"
-    when "alert" then "danger"
+    when "notice" then "bg-green-100 text-green-800 border border-green-300"
+    when "alert" then "bg-red-100 text-red-800 border border-red-300"
     end
   end
 
