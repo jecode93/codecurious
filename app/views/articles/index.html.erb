@@ -1,13 +1,12 @@
 <%= render "hero" %>
 
-<div class="bg-body-tertiary py-7">
-  <div class="container mx-auto row align-items-center">
+<div class="bg-gray-100 py-18">
+  <div class="container mx-auto flex flex-wrap justify-center">
     <% @articles.each do |article| %>
       <%= render article %>
     <% end %>
-    <div class="my-3">
-      <%== pagy_bootstrap_nav(@pagy) if @pagy.pages > 1 %>
+    <div class="w-full my-3">
+      <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
     </div>
   </div>
 </div>
-
