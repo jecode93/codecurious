@@ -1,40 +1,48 @@
-<h1>Update Information</h1>
+<h1 class="text-2xl font-bold mb-4">Update Information</h1>
 
-<%= form_with model: @admin, url: profile_path, method: :patch do |f| %>
-  <div>
+<%= form_with model: @admin, url: profile_path, method: :patch, class: "space-y-4" do |f| %>
+  <div class="flex flex-col">
     <% if @admin.profile_picture.attached? %>
-      <%= image_tag @admin.profile_picture, class: "", style: "width: 5rem" %>
+      <%= image_tag @admin.profile_picture, class: "w-20 h-20 rounded-full", style: "object-fit: cover;" %>
     <% end %>
-    <%= f.label :profile_picture %>
-    <%= f.file_field :profile_picture %>
+    <%= f.label :profile_picture, class: "text-lg font-semibold mt-4" %>
+    <%= f.file_field :profile_picture, class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <div>
-    <%= f.label :bio %>
-    <%= f.text_area :bio, cols: "50", rows: "5" %>
+
+  <div class="flex flex-col">
+    <%= f.label :bio, class: "text-lg font-semibold" %>
+    <%= f.text_area :bio, cols: "50", rows: "5", class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <div>
-    <%= f.label :website %>
-    <%= f.text_field :website %>
+
+  <div class="flex flex-col">
+    <%= f.label :website, class: "text-lg font-semibold" %>
+    <%= f.text_field :website, class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <div>
-    <%= f.label :whatsapp_number %>
-    <%= f.text_field :whatsapp_number %>
+
+  <div class="flex flex-col">
+    <%= f.label :whatsapp_number, class: "text-lg font-semibold" %>
+    <%= f.text_field :whatsapp_number, class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <div>
-    <%= f.label :github %>
-    <%= f.text_field :github %>
+
+  <div class="flex flex-col">
+    <%= f.label :github, class: "text-lg font-semibold" %>
+    <%= f.text_field :github, class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <div>
-    <%= f.label :facebook %>
-    <%= f.text_field :facebook %>
+
+  <div class="flex flex-col">
+    <%= f.label :facebook, class: "text-lg font-semibold" %>
+    <%= f.text_field :facebook, class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <div>
-    <%= f.label :linkedin %>
-    <%= f.text_field :linkedin %>
+
+  <div class="flex flex-col">
+    <%= f.label :linkedin, class: "text-lg font-semibold" %>
+    <%= f.text_field :linkedin, class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <div>
-    <%= f.label :instagram %>
-    <%= f.text_field :instagram %>
+
+  <div class="flex flex-col">
+    <%= f.label :instagram, class: "text-lg font-semibold" %>
+    <%= f.text_field :instagram, class: "mt-2 p-2 border border-gray-300 rounded-md" %>
   </div>
-  <%= f.submit %>
+
+  <%= f.submit "Update Information", class: "mt-4 bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition duration-300" %>
 <% end %>
