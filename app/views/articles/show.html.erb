@@ -2,21 +2,23 @@
 
 <% content_for :primary_content do %>
   <div>
-    <p class="text-body-tertiary" style="font-size: 0.875rem;">
+    <p class="text-sm text-gray-500">
       Last updated: <%= show_date(@article) %>
     </p>
-    <h1 class="mb-4"><%= @article.title %></h1>
+    <h1 class="mb-4 text-3xl font-bold"><%= @article.title %></h1>
     <div>
       <% if @article.featured_image.attached? %>
-        <%= image_tag @article.featured_image, class: "rounded-2 mb-3 w-100" %>
+        <%= image_tag @article.featured_image, class: "rounded-lg mb-3 w-full" %>
       <% else %>
-        <%= image_tag "placeholder.png", class: "rounded-2 mb-3 w-100" %>
+        <%= image_tag "placeholder.png", class: "rounded-lg mb-3 w-full" %>
       <% end %>
     </div>
-    <p class="text-body-tertiary"><%= reading_time(@article.content) %> read •
-      By: <%= link_to @article.author.name, author_path(@article.author.slug) %></p>
-    <div class="border-bottom border-black-50 border-1 my-5"></div>
-    <p class="text-body"><%= @article.content %></p>
+    <p class="text-sm text-gray-500">
+      <%= reading_time(@article.content) %> read • By:
+      <%= link_to @article.author.name, author_path(@article.author.slug), class: "text-blue-500 hover:underline" %>
+    </p>
+    <div class="border-b border-gray-300 my-5"></div>
+    <p class="text-lg"><%= @article.content %></p>
   </div>
 <% end %>
 
@@ -24,31 +26,32 @@
   <div class="mt-5 mb-3 text-center">
     <div class="mb-4">
       <% if @article.author.profile_picture.attached? %>
-        <%= image_tag @article.author.profile_picture, style: "border-radius: 50%; width: 8rem; height: 8rem; margin-bottom: 2rem" %>
+        <%= image_tag @article.author.profile_picture, class: "rounded-full w-32 h-32 mb-8" %>
       <% else %>
-        <%= image_tag "placeholder.png", class: "rounded-2 mb-3 w-100" %>
+        <%= image_tag "placeholder.png", class: "rounded-full w-32 h-32 mb-8" %>
       <% end %>
-      <h1 class="fs-5 fw-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
-      <p class="text-body-tertiary fs-6" style="text-align: justify"><%= @article.author.bio %></p>
+      <h1 class="text-xl font-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
+      <p class="text-sm text-gray-500 text-justify"><%= @article.author.bio %></p>
     </div>
     <%= render "layouts/shared/social_links", whatsapp: @article.author.whatsapp_number, github: @article.author.github, linkedin: @article.author.linkedin, facebook: @article.author.facebook, instagram: @article.author.instagram %>
-    <div class="border-bottom border-black-50 border-1 mt-5"></div>
+    <div class="border-b border-gray-300 mt-5"></div>
   </div>
 
   <div class="my-5">
-    <p>Here's how I can help you:</p>
+    <p class="text-lg">Here's how I can help you:</p>
   </div>
 
   <div>
     <% services.each do |service| %>
       <a href="<%= service[:href] %>" class="text-decoration-none" target="_blank">
         <div class="mb-5">
-          <h5 class="mb-2 fs-6"><%= service[:title] %></h5>
-          <p class="text-body-tertiary" style="text-align: justify"><%= service[:description] %></p>
+          <h5 class="mb-2 text-lg font-semibold"><%= service[:title] %></h5>
+          <p class="text-sm text-gray-500 text-justify"><%= service[:description] %></p>
           <span class="btn btn-sm btn-primary">Check it out</span>
         </div>
       </a>
     <% end %>
   </div>
 <% end %>
+
 <%= render "layouts/shared/basic_layout" %>
