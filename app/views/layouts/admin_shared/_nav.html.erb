@@ -1,19 +1,19 @@
-<nav class="bg-primary h-100">
-  <div class="container h-100">
-    <%= link_to "Code Curious", root_path, class: "navbar-brand fw-bold text-white fs-2 mb-5" %>
+<nav class="bg-blue-600 h-full">
+  <div class="container h-full">
+    <%= link_to "Code Curious", root_path, class: "text-white font-bold text-2xl mb-5" %>
     <div>
       <% if admin_signed_in? %>
-        <div class="nav d-flex flex-column align-content-between mb-2 mb-lg-0 h-100">
-          <div class="list-group w-100">
-            <a href="#" class="list-group-item list-group-item-action active text-decoration-none pt-3 ps-3 text-white" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false" aria-controls="submenu">
+        <div class="flex flex-col h-full mb-2 lg:mb-0">
+          <div class="w-full">
+            <a href="#" class="block py-3 px-3 text-white bg-blue-700 hover:bg-blue-800 rounded-lg text-left flex items-center justify-between" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false" aria-controls="submenu">
               Profile
               <i class="bi bi-caret-down-fill"></i>
             </a>
             <div id="submenu" class="collapse ps-3">
-              <%= link_to "Profile", profile_path(current_admin), class: "nav-lin hover-text-info list-group-item list-group-item-action submenu-item" %>
-              <%= link_to "Edit Profile", edit_profile_path(@admin), class: "nav-lin hover-text-info list-group-item list-group-item-action submenu-item" %>
+              <%= link_to "Profile", profile_path(current_admin), class: "text-gray-800 hover:text-blue-600 py-2 px-3 block" %>
+              <%= link_to "Edit Profile", edit_profile_path(@admin), class: "text-gray-800 hover:text-blue-600 py-2 px-3 block" %>
             </div>
-            <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "nav-link hover-text-info align-self-bottom" %>
+            <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-gray-800 hover:text-blue-600 py-2 px-3 block mt-auto" %>
           </div>
         </div>
       <% end %>
