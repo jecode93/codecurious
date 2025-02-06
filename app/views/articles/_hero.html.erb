@@ -1,19 +1,23 @@
-<div class="bg-white">
-  <div class="container py-8" style='background-image: url("<%= asset_path("noise-bg.webp") %>");'>
-    <div class="row my-4">
+<div class="bg-white h-full">
+  <div class="py-26 bg-cover bg-center" style="background-image: url('<%= asset_path("noise-bg.webp") %>');">
+    <div class="my-4">
       <% hero_text.each do |hero| %>
-        <div class="col-lg-8 mx-auto text-center">
-          <h1 class="mb-4 fw-bold"><%= hero[:title].gsub('Coding', '<span class="text-primary">Coding</span>').html_safe %></h1>
-          <p class="text-body"><%= hero[:description].gsub('!', '<span>!<br></span>').html_safe %></p>
+        <div class="max-w-2xl mx-auto text-center">
+          <h1 class="mb-4 font-bold text-3xl md:text-4xl">
+            <%= hero[:title].gsub('Coding', '<span class="text-blue-600">Coding</span>').html_safe %>
+          </h1>
+          <p class="text-gray-700 text-lg">
+            <%= hero[:description].gsub('!', '<span>!<br></span>').html_safe %>
+          </p>
         </div>
       <% end %>
     </div>
 
-    <!-- handle search for an article -->
-    <div class="col-10 col-md-6 col-lg-5 mx-auto">
-      <%= search_form_for @q, url: root_path, html: { class: "d-flex", role: "search" } do |f| %>
-        <%= f.search_field :title_or_slug_cont, class: "form-control me-2", placeholder: "Ex: Ruby on Rails, Github, Docker", aria: { label: "Search" } %>
-        <%= f.submit "Search", class: "btn btn-outline-primary" %>
+    <!-- Handle search for an article -->
+    <div class="w-11/12 md:w-3/5 lg:w-2/5 mx-auto">
+      <%= search_form_for @q, url: root_path, html: { class: "flex space-x-2", role: "search" } do |f| %>
+        <%= f.search_field :title_or_slug_cont, class: "flex-1 p-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300", placeholder: "Ex: Ruby on Rails, Github, Docker", aria: { label: "Search" } %>
+        <%= f.submit "Search", class: "px-4 py-2 border border-blue-600 text-blue-600 rounded-md hover:bg-blue-600 hover:text-white transition duration-200" %>
       <% end %>
     </div>
   </div>
