@@ -75,3 +75,5 @@ gem "faker", "~> 3.5"
 
 gem "tailwindcss-ruby", "~> 4.0"
 gem "tailwindcss-rails", "~> 4.0"
+
+gem "font-awesome-sass", "~> 6.7"
