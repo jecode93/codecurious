@@ -5,7 +5,7 @@
     <p class="text-sm text-gray-500">
       Last updated: <%= show_date(@article) %>
     </p>
-    <h1 class="mb-4 text-3xl font-bold"><%= @article.title %></h1>
+    <h1 class="h1"><%= @article.title %></h1>
     <div>
       <% if @article.featured_image.attached? %>
         <%= image_tag @article.featured_image, class: "rounded-lg mb-3 w-full" %>
@@ -23,12 +23,12 @@
 <% end %>
 
 <% content_for :secondary_content do %>
-  <div class="mt-5 mb-3 text-center">
+  <div class="mb-3">
     <div class="mb-4">
       <% if @article.author.profile_picture.attached? %>
-        <%= image_tag @article.author.profile_picture, class: "mx-auto rounded-full w-32 h-32 mb-8" %>
+        <%= image_tag @article.author.profile_picture, class: "rounded-full w-32 h-32 mb-8" %>
       <% else %>
-        <%= image_tag "placeholder.png", class: "mx-auto rounded-full w-32 h-32 mb-8" %>
+        <%= image_tag "placeholder.png", class: "rounded-full w-32 h-32 mb-8" %>
       <% end %>
       <h1 class="text-xl font-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
       <p class="text-sm text-gray-500 text-justify"><%= @article.author.bio %></p>
