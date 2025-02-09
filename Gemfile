@@ -77,3 +77,5 @@ gem "tailwindcss-ruby", "~> 4.0"
 gem "tailwindcss-rails", "~> 4.0"
 
 gem "font-awesome-sass", "~> 6.7"
+
+gem "inline_svg", "~> 1.10"
