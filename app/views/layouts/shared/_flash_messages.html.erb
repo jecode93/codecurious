@@ -1,8 +1,8 @@
 <% flash.each do |type, message| %>
   <div class="flash__message" data-controller="removals" data-action="animationend->removals#remove">
-    <div class="text-center alert alert-<%= tailwind_class_for(type) %> alert-dismissible fade show" role="alert">
+    <div class="text-center alert alert-<%= tailwind_class_for(type) %> alert-dismissible fade show px-5 py-2" role="alert">
       <div class="alert alert-<%= tailwind_class_for(type) %>">
-        <p class="text-sm"><%= message %></p>
+        <p><%= message %></p>
       </div>
     </div>
   </div>
