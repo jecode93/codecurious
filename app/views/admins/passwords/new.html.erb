@@ -1,17 +1,17 @@
 <% content_for :form_wrap do %>
 
-  <h2 class="mb-5 text-center fw-semibold">Forgot your password?</h2>
+  <h2 class="h2">Forgot your password?</h2>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "admins/shared/error_messages", resource: resource %>
 
     <div class="mb-3">
-      <%= f.label :email, class: "block text-lg font-medium text-gray-700" %><br/>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500", placeholder: "Enter your email address" %>
+      <%= f.label :email, class: "form-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input", placeholder: "Enter your email address" %>
     </div>
 
     <div class="mb-3">
-      <%= f.submit "Send me reset password instructions", class: "w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300" %>
+      <%= f.submit "Send me reset password instructions", class: "button" %>
     </div>
   <% end %>
 
