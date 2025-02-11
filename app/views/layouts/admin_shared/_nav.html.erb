@@ -1,4 +1,4 @@
-<nav class="bg-blue-600 h-full">
+<nav class="bg-primary h-full">
   <div class="container h-full">
     <%= link_to "Code Curious", root_path, class: "text-white font-bold text-2xl mb-5" %>
     <div>
@@ -10,10 +10,10 @@
               <i class="bi bi-caret-down-fill"></i>
             </a>
             <div id="submenu" class="collapse ps-3">
-              <%= link_to "Profile", profile_path(current_admin), class: "text-gray-800 hover:text-blue-600 py-2 px-3 block" %>
-              <%= link_to "Edit Profile", edit_profile_path(@admin), class: "text-gray-800 hover:text-blue-600 py-2 px-3 block" %>
+              <%= link_to "Profile", profile_path(current_admin), class: "text-gray-800 hover:text-primary py-2 px-3 block" %>
+              <%= link_to "Edit Profile", edit_profile_path(@admin), class: "text-gray-800 hover:text-primary py-2 px-3 block" %>
             </div>
-            <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-gray-800 hover:text-blue-600 py-2 px-3 block mt-auto" %>
+            <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-gray-800 hover:text-primary py-2 px-3 block mt-auto" %>
           </div>
         </div>
       <% end %>
