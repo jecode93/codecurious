@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "./pagy.css";
 @import "./animations.css";
 @import "./flash.css";
@@ -6,14 +9,20 @@
 @tailwind utilities;
 
 @theme {
-    --color-primary: #2563eb;
-    --color-secondary: #3b82f6;
+    --color-primary: #ec3535;
+    --color-secondary: rgba(236, 53, 53, 0.9);
     --color-third: #d1d5db;
     --color-fourth: #374151;
+    --color-red-pale: #fee2e2;
+    --font-pt-serif: "PT Serif"
+}
+
+body {
+    font-family: "Roboto";
 }
 
 .logo {
-    @apply font-bold text-white text-2xl mx-5
+    @apply font-bold italic text-white text-2xl md:text-4xl mx-5 font-pt-serif
 }
 
 .form-label {
@@ -25,7 +34,7 @@
 }
 
 .button {
-    @apply w-full text-sm md:text-lg bg-secondary text-white py-2 px-4 rounded-md hover:bg-primary focus:outline-none focus:ring-2 focus:ring-secondary transition duration-300 cursor-pointer my-5
+    @apply w-full text-sm md:text-lg bg-primary text-white py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:ring-secondary transition duration-300 cursor-pointer my-3
 }
 
 .outline-button {
@@ -41,7 +50,7 @@
 }
 
 .nav_link {
-    @apply text-white hover:text-blue-300 transition duration-200
+    @apply text-white font-semibold hover:underline transition duration-300
 }
 
 .h1 {
@@ -61,5 +70,5 @@
 }
 
 .badge {
-    @apply px-2 py-1 text-blue-800 bg-blue-100 border border-blue-200 rounded-md text-xs
+    @apply px-2 py-1 text-red-800 bg-red-pale border border-red-200 rounded-md text-xs
 }
