@@ -1,7 +1,7 @@
 <% content_for :title, "#{@article.title} - Code Curious" %>
 
 <% content_for :primary_content do %>
-  <div>
+  <div class="mb-20">
     <p class="text-sm text-gray-500">
       Last updated: <%= show_date(@article) %>
     </p>
@@ -15,10 +15,10 @@
     </div>
     <p class="text-sm text-gray-500">
       <%= reading_time(@article.content) %> read • By:
-      <%= link_to @article.author.name, author_path(@article.author.slug), class: "text-secondary hover:underline" %>
+      <%= link_to @article.author.name, author_path(@article.author.slug), class: "text-primary hover:underline" %>
     </p>
     <div class="border-b border-third my-5"></div>
-    <p class="text-lg"><%= @article.content %></p>
+    <p class="text-base"><%= @article.content %></p>
   </div>
 <% end %>
 
@@ -46,8 +46,8 @@
       <a href="<%= service[:href] %>" class="text-decoration-none" target="_blank">
         <div class="mb-5">
           <h5 class="mb-2 text-lg font-semibold"><%= service[:title] %></h5>
-          <p class="text-sm text-gray-500 text-justify"><%= service[:description] %></p>
-          <span class="button">Check it out</span>
+          <p class="text-sm md:text-base text-gray-500 text-justify"><%= service[:description] %></p>
+          <button class="button">Check it out</button>
         </div>
       </a>
     <% end %>
