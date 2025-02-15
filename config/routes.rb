@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
     scope module: "admin" do
       resources :profiles, only: %i[show edit update]
+      root "dashboard#index", as: "admin_dashboard"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
