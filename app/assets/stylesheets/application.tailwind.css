@@ -22,7 +22,11 @@ body {
 }
 
 .logo {
-    @apply font-bold italic text-white text-2xl md:text-4xl mx-5 font-pt-serif
+    @apply font-bold italic text-white text-2xl md:text-3xl mx-5 font-pt-serif
+}
+
+.logo_admin {
+    @apply font-bold italic text-white text-2xl md:text-2xl font-pt-serif
 }
 
 .form-label {
@@ -34,7 +38,7 @@ body {
 }
 
 .button {
-    @apply w-full text-sm md:text-lg bg-primary text-white py-2 px-4 rounded hover:bg-secondary focus:outline-none focus:ring-secondary transition duration-300 cursor-pointer my-3
+    @apply text-sm md:text-lg bg-primary text-white py-1 px-5 rounded hover:bg-secondary focus:outline-none focus:ring-secondary transition duration-300 cursor-pointer my-3
 }
 
 .outline-button {
@@ -50,11 +54,11 @@ body {
 }
 
 .nav_link {
-    @apply text-white font-semibold hover:underline transition duration-300
+    @apply text-white hover:text-slate-950 duration-300
 }
 
 .h1 {
-    @apply mb-4 font-bold text-2xl md:text-4xl py-2
+    @apply font-bold text-2xl md:text-3xl py-2
 }
 
 .h2 {
@@ -71,4 +75,12 @@ body {
 
 .badge {
     @apply px-2 py-1 text-red-800 bg-red-pale border border-red-200 rounded-md text-xs
+}
+
+.sidebar_link {
+    @apply hover:text-slate-950 px-5 py-1 rounded w-full duration-300
+}
+
+.dropdown_link {
+    @apply hover:text-primary px-5 py-1 block w-full duration-300
 }
