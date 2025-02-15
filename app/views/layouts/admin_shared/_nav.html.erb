@@ -16,10 +16,10 @@
           >
             <ul class="space-y-2 divide-y divide-gray-100">
               <li>
-                <%= link_to "Profile", profile_path(current_admin), class: "link" %>
+                <%= link_to "Profile", profile_path(current_admin), class: "dropdown_link" %>
               </li>
               <li>
-                <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "link" %>
+                <%= link_to "Log out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "dropdown_link" %>
               </li>
             </ul>
           </div>
