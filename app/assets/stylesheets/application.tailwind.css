@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-@import "./pagy.css";
+@import "./pagy.tailwind.css";
 @import "./animations.css";
 @import "./flash.css";
 @import "tailwindcss";
@@ -10,7 +10,7 @@
 
 @theme {
     --color-primary: #ec3535;
-    --color-secondary: rgba(236, 53, 53, 0.9);
+    --color-secondary: rgba(236, 53, 53, 0.85);
     --color-third: #d1d5db;
     --color-fourth: #374151;
     --color-red-pale: #fee2e2;
@@ -26,7 +26,7 @@ body {
 }
 
 .logo_admin {
-    @apply font-bold italic text-white text-2xl md:text-2xl font-pt-serif
+    @apply font-bold italic text-primary dark:text-white text-xl md:text-3xl font-pt-serif
 }
 
 .form-label {
@@ -54,11 +54,11 @@ body {
 }
 
 .nav_link {
-    @apply text-white hover:text-slate-950 duration-300
+    @apply text-white hover:text-slate-950 duration-300 dark:text-red-pale
 }
 
 .h1 {
-    @apply font-bold text-2xl md:text-3xl py-2
+    @apply font-bold text-2xl md:text-3xl py-2 mb-3
 }
 
 .h2 {
@@ -78,9 +78,9 @@ body {
 }
 
 .sidebar_link {
-    @apply hover:text-slate-950 px-5 py-1 rounded w-full duration-300
+    @apply hover:text-slate-950 px-5 py-1 rounded w-full duration-300 text-2xl
 }
 
 .dropdown_link {
-    @apply hover:text-primary px-5 py-1 block w-full duration-300
+    @apply hover:text-primary px-5 py-1 block w-full duration-300 text-sm
 }
