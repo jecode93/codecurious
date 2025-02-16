@@ -22,6 +22,7 @@
   <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.turbo.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -29,21 +30,13 @@
   <div class="flash">
     <%= render "layouts/shared/flash_messages" %>
   </div>
-  <% content_for :admin_aside do %>
-    <%= render "layouts/admin_shared/base/sidebar" %>
-  <% end %>
-  <% content_for :admin_content do %>
-    <div>
-      <%= render "layouts/admin_shared/nav" %>
-      <!-- Main content -->
-      <div class="content py-5 px-10">
-        <%= yield %>
-      </div>
-      <!-- End Main Content -->
+  <%= render "layouts/admin_shared/base/sidebar/sidebar" %>
+  <div class="p-4 sm:ml-64">
+    <div class="p-4 rounded-lg dark:border-gray-700 mt-14">
+      <%= yield %>
     </div>
-    <%= render "layouts/admin_shared/base/footer" %>
-  <% end %>
-  <%= render "layouts/admin_shared/admin_layout" %>
+  </div>
+  <%= render "layouts/admin_shared/base/footer" %>
 </div>
 </body>
 </html>
