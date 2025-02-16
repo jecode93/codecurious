@@ -1,0 +1,27 @@
+.pagy {
+    @apply flex space-x-1 font-semibold text-sm text-primary;
+
+    a:not(.gap) {
+        @apply block px-3 py-1 bg-red-pale;
+
+        &:hover {
+            @apply bg-primary text-white;
+        }
+
+        &:not([href]) { /* disabled links */
+            @apply text-gray-300 bg-gray-100 cursor-default;
+        }
+
+        &.current {
+            @apply text-white bg-primary;
+        }
+    }
+
+    label {
+        @apply inline-block whitespace-nowrap bg-gray-200 px-3 py-0.5;
+
+        input {
+            @apply bg-gray-100 border ;
+        }
+    }
+}
