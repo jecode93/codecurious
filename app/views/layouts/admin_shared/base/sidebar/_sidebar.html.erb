@@ -15,7 +15,11 @@
           <div>
             <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
               <span class="sr-only">Open user menu</span>
-              <%= image_tag current_admin.profile_picture, class: "w-10 h-10 rounded-full cursor-pointer" %>
+              <% if current_admin.profile_picture.present? %>
+                <%= image_tag current_admin.profile_picture, class: "w-10 h-10 rounded-full cursor-pointer" %>
+              <% else %>
+                <%= image_tag "user.jpg", class: "w-10 h-10 rounded-full cursor-pointer" %>
+              <% end %>
             </button>
           </div>
           <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
@@ -28,8 +32,14 @@
               </p>
             </div>
             <ul class="py-1" role="none">
-              <%= render "layouts/admin_shared/base/dropdown_link", path: admin_dashboard_path, text: "Dashboard" %>
-              <%= render "layouts/admin_shared/base/dropdown_link", path: profile_path(current_admin), text: "Profile" %>
+              <%= render "layouts/admin_shared/base/dropdown_link",
+                         path: admin_dashboard_path,
+                         text: "Dashboard"
+              %>
+              <%= render "layouts/admin_shared/base/dropdown_link",
+                         path: profile_path(current_admin),
+                         text: "Profile"
+              %>
               <li>
                 <%= link_to "Sign out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" %>
               </li>
@@ -44,12 +54,16 @@
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
   <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
     <ul class="space-y-2 font-medium">
-      <%= render "layouts/admin_shared/base/sidebar/sidebar_link", path: admin_dashboard_path, text: "Dashboard", icon: render("layouts/admin_shared/base/icons/dashboard") %>
-      <%= render "layouts/admin_shared/base/sidebar/sidebar_dropdown_link", link_name: "Articles", submenus:
-        [
-          { path: "#", text: "Add New Article" },
-          { path: "#", text: "View All Articles" }
-        ]
+      <%= render "layouts/admin_shared/base/sidebar/sidebar_link",
+                 path: admin_dashboard_path, text: "Dashboard",
+                 icon: render("layouts/admin_shared/base/icons/dashboard") %>
+      <%= render "layouts/admin_shared/base/sidebar/sidebar_dropdown_link",
+                 link_name: "Articles",
+                 submenus:
+                   [
+                     { path: "#", text: "Add New Article" },
+                     { path: "#", text: "View All Articles" }
+                   ]
       %>
     </ul>
   </div>
