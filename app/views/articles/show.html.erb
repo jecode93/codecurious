@@ -17,7 +17,7 @@
       <%= reading_time(@article.content) %> read • By:
       <%= link_to @article.author.name, author_path(@article.author.slug), class: "text-primary hover:underline" %>
     </p>
-    <div class="border-b border-third my-5"></div>
+    <div class="border-b border-gray-100 my-5"></div>
     <p class="text-base"><%= @article.content %></p>
   </div>
 <% end %>
@@ -33,7 +33,9 @@
       <h1 class="text-xl font-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
       <p class="text-sm text-gray-500 text-justify"><%= @article.author.bio %></p>
     </div>
-    <%= render "layouts/shared/social_links", whatsapp: @article.author.whatsapp_number, github: @article.author.github, linkedin: @article.author.linkedin, facebook: @article.author.facebook, instagram: @article.author.instagram %>
+    <% if @article.author.whatsapp_number.present? || @article.author.github.present? || @article.author.linkedin.present? || @article.author.facebook.present? || @article.author.instagram.present? %>
+      <%= render "layouts/shared/social_links", whatsapp: @article.author.whatsapp_number, github: @article.author.github, linkedin: @article.author.linkedin, facebook: @article.author.facebook, instagram: @article.author.instagram %>
+    <% end %>
     <div class="border-b border-third mt-5"></div>
   </div>
 
