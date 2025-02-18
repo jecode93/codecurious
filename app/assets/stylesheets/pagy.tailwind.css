@@ -2,10 +2,10 @@
     @apply flex space-x-1 font-semibold text-sm text-primary;
 
     a:not(.gap) {
-        @apply block px-3 py-1 bg-red-pale;
+        @apply block px-3 py-1 bg-red-pale dark:bg-gray-700 dark:text-white;
 
         &:hover {
-            @apply bg-primary text-white;
+            @apply bg-primary text-white dark:bg-gray-800;
         }
 
         &:not([href]) { /* disabled links */
@@ -13,7 +13,7 @@
         }
 
         &.current {
-            @apply text-white bg-primary;
+            @apply text-white bg-primary dark:bg-gray-800;
         }
     }
 
