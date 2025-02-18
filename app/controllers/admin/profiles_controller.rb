@@ -23,6 +23,6 @@ class Admin::ProfilesController < Admin::AdminController
   end
 
   def set_params
-    params.require(:admin).permit(:bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram)
+    params.require(:admin).permit(:name, :bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram)
   end
 end
