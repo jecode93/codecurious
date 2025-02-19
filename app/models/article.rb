@@ -23,6 +23,8 @@ class Article < ApplicationRecord
   has_rich_text :content
 
   validates :title, :author, :slug, :content, presence: true
+  validates :title, uniqueness: true
+  validates :title, length: { maximum: 60, too_long: "%{count} characters is the maximum allowed" }
 
   friendly_id :title, use: %i[slugged history finders]
 
@@ -33,7 +35,7 @@ class Article < ApplicationRecord
   scope :descending_order, -> { order(created_at: :desc) }
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "title", "slug" ]
+    ["title", "slug"]
   end
 
   def self.ransackable_associations(auth_object = nil)
