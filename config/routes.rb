@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   constraints subdomain: "admin" do
     devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
     scope module: "admin" do
-      resources :profiles, only: %i[show edit update]
       root "dashboard#index", as: "admin_dashboard"
+      resources :profiles, only: %i[show edit update]
+      resources :articles, as: "admin_articles"
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
