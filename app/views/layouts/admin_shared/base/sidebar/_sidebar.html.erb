@@ -32,6 +32,7 @@
               </p>
             </div>
             <ul class="py-1" role="none">
+
               <%= render "layouts/admin_shared/base/dropdown_link",
                          path: admin_dashboard_path,
                          text: "Dashboard"
@@ -40,8 +41,8 @@
                          path: profile_path(current_admin),
                          text: "Profile"
               %>
-              <li>
-                <%= link_to "Sign out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" %>
+              <li class="p-3 border-t border-gray-100 dark:border-gray-600">
+                <%= link_to "Sign out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-center text-sm block outline-button" %>
               </li>
             </ul>
           </div>
