@@ -3,7 +3,8 @@ class Admin::ProfilesController < Admin::AdminController
   before_action :set_admin_profile, only: %i[edit update]
 
   def show
-    @admin_articles = Article.order(created_at: :desc)
+    @articles = Article.order(created_at: :desc)
+    @admin_articles = current_admin.articles.order(created_at: :desc)
   end
 
   def edit
