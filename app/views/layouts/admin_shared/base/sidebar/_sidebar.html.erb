@@ -32,7 +32,6 @@
               </p>
             </div>
             <ul class="py-1" role="none">
-
               <%= render "layouts/admin_shared/base/dropdown_link",
                          path: admin_dashboard_path,
                          text: "Dashboard"
@@ -63,7 +62,7 @@
                  submenus:
                    [
                      { path: "#", text: "Add New Article" },
-                     { path: "#", text: "View All Articles" }
+                     { path: admin_articles_path, text: "View All Articles" }
                    ]
       %>
     </ul>
