@@ -13,7 +13,7 @@
         <% end %>
       </div>
     </div>
-    <% if params[:id] == current_admin.friendly_id %>
+    <% if policy(@admin).manage? %>
       <%= link_to "Edit", edit_profile_path(@admin), class: "button w-fit" %>
     <% end %>
   </div>
