@@ -1,16 +1,18 @@
 class Admin::ProfilesController < Admin::AdminController
   before_action :set_admin, only: %i[show edit update]
-  before_action :set_admin_profile, only: %i[edit update]
 
   def show
     @articles = Article.order(created_at: :desc)
-    @admin_articles = current_admin.articles.order(created_at: :desc)
+    @admin_articles = Article.where(author_id: @admin.id).order(created_at: :desc)
   end
 
   def edit
+    authorize @admin, :manage?
   end
 
   def update
+    authorize @admin, :manage?
+
     if @admin.update(set_params)
       redirect_to profile_path(@admin), notice: "Admin info was successfully updated."
     else
@@ -24,13 +26,11 @@ class Admin::ProfilesController < Admin::AdminController
     @admin = Admin.find(params[:id])
   end
 
-  def set_admin_profile
-    if params[:id] != current_admin.friendly_id
-      redirect_to profile_path, alert: "You do not have permission to do this action." and return
-    end
-  end
-
   def set_params
     params.require(:admin).permit(:name, :bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram)
+  end
+
+  def pundit_user
+    current_admin
   end
 end
