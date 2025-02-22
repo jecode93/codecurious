@@ -35,21 +35,25 @@
             <% end %>
           </td>
           <td class="td">
-            <%= link_to article.title, article_url(article, host: "lvh.me", port: 3000), target: "_blank" %>
+            <%= link_to article.title, article_url(article, host: "lvh.me", port: 3000), target: "_blank", class: "hover:underline" %>
           </td>
           <td class="px-6 py-4">
-            <%= link_to article.slug, article_url(article, host: "lvh.me", port: 3000), target: "_blank" %>
+            <%= link_to article.slug, article_url(article, host: "lvh.me", port: 3000), target: "_blank", class: " hover:underline" %>
           </td>
           <td class="td">
-            <%= link_to article.author.name, profile_path(article.author) %>
+            <%= link_to article.author.name, profile_path(article.author), class: " hover:underline" %>
           </td>
           <td class="td">
             <%= show_date(article) %>
           </td>
           <td class="px-6 py-4 space-x-4 text-center">
-            <%= link_to "Show", "#", class: "font-medium text-green-600 dark:text-green-500 hover:underline" %>
-            <%= link_to "Edit", "#", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
-            <%= link_to "Delete", "#", class: "font-medium text-red-600 dark:text-red-500 hover:underline" %>
+            <% if policy(article).manage? %>
+              <%= link_to "Show", "#", class: "font-medium text-green-600 dark:text-green-500 hover:underline" %>
+              <%= link_to "Edit", "#", class: "font-medium text-blue-600 dark:text-blue-500 hover:underline" %>
+              <%= link_to "Delete", "#", class: "font-medium text-red-600 dark:text-red-500 hover:underline" %>
+            <% else %>
+              <p>Not authorized</p>
+            <% end %>
           </td>
         </tr>
       <% end %>
