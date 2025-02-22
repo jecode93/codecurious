@@ -41,7 +41,7 @@
                          text: "Profile"
               %>
               <li class="p-3 border-t border-gray-100 dark:border-gray-600">
-                <%= link_to "Sign out", destroy_admin_session_path, method: :delete, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-center text-sm block outline-button" %>
+                <%= link_to "Sign out", destroy_admin_session_path, data: { turbo_confirm: "Are you sure?", turbo_method: :delete }, class: "text-center text-sm block outline-button" %>
               </li>
             </ul>
           </div>
