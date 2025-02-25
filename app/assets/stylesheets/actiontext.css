@@ -480,13 +480,13 @@ trix-editor .attachment__metadata .attachment__size {
 
 .trix-content pre {
     display: inline-block;
-    width: 50%;
+    width: 100%;
     vertical-align: top;
     font-family: monospace;
     font-size: 0.9em;
     padding: 0.5em;
     white-space: pre;
-    background-color: #eee;
+    /*background-color: #151b23;*/
     overflow-x: auto;
 }
 
