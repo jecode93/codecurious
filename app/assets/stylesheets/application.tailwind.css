@@ -21,6 +21,14 @@ body {
     font-family: "Roboto";
 }
 
+pre {
+    overflow-x: auto;
+    background-color: #011627;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
 .logo {
     @apply font-bold italic text-white text-2xl md:text-3xl mx-5 font-pt-serif
 }
@@ -38,11 +46,11 @@ body {
 }
 
 .button {
-    @apply text-sm md:text-lg bg-primary text-white py-1 px-5 rounded hover:bg-secondary focus:outline-none focus:ring-secondary transition duration-300 cursor-pointer my-3
+    @apply text-sm md:text-lg bg-primary text-white py-2 px-5 rounded hover:bg-secondary focus:outline-none focus:ring-secondary transition duration-300 cursor-pointer my-3
 }
 
 .outline-button {
-    @apply cursor-pointer px-4 py-2 border border-primary dark:border-white text-primary dark:text-white rounded-md hover:bg-primary dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition duration-200
+    @apply text-sm md:text-lg cursor-pointer py-2 px-5 border border-primary dark:border-white text-primary dark:text-white rounded-md hover:bg-primary dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition duration-200
 }
 
 .checkbox {
@@ -74,7 +82,7 @@ body {
 }
 
 .p {
-    @apply text-gray-600 dark:text-white text-sm my-3
+    @apply text-gray-900 dark:text-white text-sm md:text-lg my-3
 }
 
 .hero-p {
