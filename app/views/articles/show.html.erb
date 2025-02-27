@@ -18,7 +18,7 @@
       <%= link_to @article.author.name, author_path(@article.author.slug), class: "text-primary hover:underline" %>
     </p>
     <div class="border-b border-gray-100 my-5"></div>
-    <p class="text-base"><%= @article.content %></p>
+    <%= @article.content %>
   </div>
 <% end %>
 
@@ -30,7 +30,8 @@
       <% else %>
         <%= image_tag "placeholder.png", class: "rounded-full w-32 h-32 mb-8" %>
       <% end %>
-      <h1 class="text-xl font-semibold mb-3">Hey, I'm <%= @article.author.name %></h1>
+      <h1 class="text-xl font-semibold mb-3">Hey,
+        I'm <%= link_to @article.author.name, author_path(@article.author) %></h1>
       <p class="text-sm text-gray-500 text-justify"><%= @article.author.bio %></p>
     </div>
     <% if @article.author.whatsapp_number.present? || @article.author.github.present? || @article.author.linkedin.present? || @article.author.facebook.present? || @article.author.instagram.present? %>
