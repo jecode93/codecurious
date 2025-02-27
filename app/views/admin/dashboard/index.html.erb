@@ -1,4 +1,21 @@
+<div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 p-5 mb-10">
+  <%= link_to "List Articles", admin_articles_path, class: "outline-button" %>
+  <%= link_to "New Article", new_admin_article_path, class: "button" %>
+</div>
+
+<div class="flex justify-evenly my-10 border-b border-gray-200 dark:border-gray-700 p-10">
+  <div class="p-5 w-1/5 rounded bg-gray-200 dark:bg-gray-800 text-center">
+    <h3 class="text-xl md:text-6xl text-primary dark:text-white font-extrabold mb-3"><%= @article_count %></h3>
+    <p class="p">Number of <%= pluralize(@article_count, "Article") %></p>
+  </div>
+
+  <div class="p-5 w-1/5 rounded bg-gray-200 dark:bg-gray-800 text-center">
+    <h3 class="text-xl md:text-6xl text-primary dark:text-white font-extrabold mb-3"><%= @author_count %></h3>
+    <p class="p">Number of <%= pluralize(@author_count, "Author") %></p>
+  </div>
+</div>
+
 <div>
-  <h1 class="h1">Admin::Dashboard#index</h1>
-  <p>Find me in app/views/admin/dashboard/index.html.erb</p>
+  <h2 class="h2 !text-left !-mb-5">6 Most recent article</h2>
+  <%= render "admin/articles/article", articles: @articles %>
 </div>
