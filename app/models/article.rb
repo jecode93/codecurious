@@ -29,13 +29,13 @@ class Article < ApplicationRecord
   friendly_id :title, use: %i[slugged history finders]
 
   def should_generate_new_friendly_id?
-    title_changed? || slug.blank?
+    slug.blank? || title_changed?
   end
 
   scope :descending_order, -> { order(created_at: :desc) }
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "title", "slug" ]
+    ["title", "slug"]
   end
 
   def self.ransackable_associations(auth_object = nil)
