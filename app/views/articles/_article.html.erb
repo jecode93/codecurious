@@ -1,6 +1,6 @@
 <article>
   <%= link_to article_path(article) do %>
-    <div class="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden hover:shadow-sm transition-shadow duration-300">
+    <div class="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden hover:shadow-sm transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
       <% if article.featured_image.attached? %>
         <%= image_tag article.featured_image, class: "w-full h-48 object-cover", alt: article.title %>
       <% else %>
@@ -12,7 +12,7 @@
         </small>
         <h4 class="h4 dark:text-white"><%= article.title %></h4>
         <p class="p !text-base"><%= truncate(strip_tags(article.content.to_s), length: 140) %></p>
-        <hr class="border-dashed border-gray-200 my-3">
+        <hr class="border-dashed border-gray-200 dark:border-gray-700 my-3">
         <div class="flex justify-between items-center">
           <div class="flex items-center">
             <% if article.author.profile_picture.present? %>
