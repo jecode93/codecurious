@@ -42,6 +42,6 @@ class Admin < ApplicationRecord
   friendly_id :name, use: %i[slugged history finders]
 
   def should_generate_new_friendly_id?
-    name_changed? || slug.blank?
+    slug.blank? || name_changed?
   end
 end
