@@ -17,7 +17,7 @@
       <!--      Article Title-->
       <div class="my-10">
         <%= form.label :title, class: "form-label" %>
-        <%= form.text_field :title, class: "form-input", placeholder: "Enter article title" %>
+        <%= form.text_field :title, class: "form-input", placeholder: "Enter article title", autofocus: true %>
       </div>
 
       <!--      File Upload-->
@@ -25,7 +25,7 @@
         <%= form.label "Add a featured Image", class: "form-label", for: "file_input" %>
 
         <div class="my-5">
-          <%= image_tag @article.featured_image.variant(resize_to_limit: [150, 150]), class: "my-5 rounded" if @article.featured_image.attached? %>
+          <%= image_tag @article.featured_image.variant(resize_to_limit: [300, 300]), class: "my-5 rounded" if @article.featured_image.attached? %>
         </div>
         <%= form.file_field :featured_image, class: "form-input", id: "file_input" %>
       </div>
