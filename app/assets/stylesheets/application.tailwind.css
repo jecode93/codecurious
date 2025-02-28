@@ -38,11 +38,15 @@ pre {
 }
 
 .form-label {
-    @apply block text-lg font-medium text-fourth mb-2 dark:text-white
+    @apply block text-lg font-medium text-gray-900 mb-2 dark:text-white
 }
 
 .form-input {
-    @apply w-full p-3 border border-gray-200 rounded focus:outline-none text-gray-900 dark:text-white
+    @apply w-full p-2 focus:outline-none text-gray-900 dark:text-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 bg-gray-50 border border-gray-300 rounded-lg
+}
+
+.form-textarea {
+    @apply block w-full text-lg text-gray-800 bg-white dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 border border-gray-300 dark:border-gray-600 mt-3
 }
 
 .button {
@@ -66,7 +70,7 @@ pre {
 }
 
 .h1 {
-    @apply font-bold text-2xl md:text-3xl py-2 mb-3 dark:text-white
+    @apply font-bold text-2xl md:text-4xl py-2 mb-3 dark:text-white
 }
 
 .h2 {
@@ -103,4 +107,24 @@ pre {
 
 .td {
     @apply px-6 py-4 font-semibold text-gray-900 dark:text-white text-[14px]
+}
+
+
+/* TRIX EDITOR CSS Overriding tailwind defaults */
+
+trix-editor h1, .trix-content h1 {
+    font-size: 1.5em !important;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+trix-editor ul, .trix-content ul {
+    list-style-type: disc !important;
+    margin-left: 1rem !important;
+}
+
+trix-editor ol, .trix-content ol {
+    list-style-type: decimal !important;
+    margin-left: 1rem !important;
 }
