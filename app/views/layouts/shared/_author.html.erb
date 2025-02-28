@@ -1,0 +1,34 @@
+<div class="sticky top-10">
+  <div class="mb-3">
+    <div class="mb-4">
+      <% if article.author.profile_picture.attached? %>
+        <%= image_tag article.author.profile_picture, class: "rounded-full w-32 h-32 mb-8" %>
+      <% else %>
+        <%= image_tag "placeholder.png", class: "rounded-full w-32 h-32 mb-8" %>
+      <% end %>
+      <h1 class="text-xl font-semibold mb-3">Hey,
+        I'm <%= link_to article.author.name, author_path(article.author) %></h1>
+      <p class="text-sm text-gray-500 text-justify"><%= article.author.bio %></p>
+    </div>
+    <% if article.author.whatsapp_number.present? || article.author.github.present? || article.author.linkedin.present? || article.author.facebook.present? || article.author.instagram.present? %>
+      <%= render "layouts/shared/social_links", whatsapp: article.author.whatsapp_number, github: article.author.github, linkedin: article.author.linkedin, facebook: article.author.facebook, instagram: article.author.instagram %>
+    <% end %>
+    <div class="border-b border-third mt-5"></div>
+  </div>
+
+  <div class="my-5">
+    <p class="text-lg">Here's how I can help you:</p>
+  </div>
+
+  <div>
+    <% services.each do |service| %>
+      <a href="<%= service[:href] %>" class="text-decoration-none" target="_blank">
+        <div class="mb-5">
+          <h5 class="mb-2 text-lg font-semibold"><%= service[:title] %></h5>
+          <p class="text-sm md:text-base text-gray-500 text-justify"><%= service[:description] %></p>
+          <button class="button">Check it out</button>
+        </div>
+      </a>
+    <% end %>
+  </div>
+</div>
