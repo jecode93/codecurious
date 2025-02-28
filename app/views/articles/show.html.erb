@@ -17,7 +17,7 @@
       <%= reading_time(@article.content) %> read • By:
       <%= link_to @article.author.name, author_path(@article.author.slug), class: "text-primary hover:underline" %>
     </p>
-    <div class="border-b border-gray-100 my-5"></div>
+    <div class="border-b border-gray-200 dark:border-gray-700 my-5"></div>
     <%= @article.content %>
   </div>
 <% end %>
