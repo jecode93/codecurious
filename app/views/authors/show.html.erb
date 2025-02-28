@@ -1,8 +1,16 @@
-<div>
-  <h1>
-    <%= @author.name %>
-  </h1>
-</div>
-<% @articles.each do |article| %>
-  <h3><%= link_to article.title, article_path(article), class: "text-decoration-none" %></h3>
+<% content_for :primary_content do %>
+  <div>
+    <h1>
+      <%= @author.name %>
+    </h1>
+  </div>
+  <% @articles.each do |article| %>
+    <h3><%= link_to article.title, article_path(article), class: "text-decoration-none" %></h3>
+  <% end %>
 <% end %>
+
+<% content_for :secondary_content do %>
+  <%#= render "layouts/shared/author", article: @articles %>
+<% end %>
+
+<%= render 'layouts/shared/basic_layout' %>
