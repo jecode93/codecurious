@@ -1,5 +1,5 @@
-<section class="dark:bg-gray-900">
-  <div class="py-8 px-4 max-w-3xl lg:py-16">
+<section class="articles_form">
+  <div class="lg:py-16">
 
     <%= form_with model: @article do |form| %>
 
@@ -16,24 +16,24 @@
 
       <!--      Article Title-->
       <div class="my-10">
-        <%= form.label :title, class: "block mb-2 text-base font-medium text-gray-900 dark:text-white" %>
-        <%= form.text_field :title, class: "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500", placeholder: "Enter article title" %>
+        <%= form.label :title, class: "form-label" %>
+        <%= form.text_field :title, class: "form-input", placeholder: "Enter article title" %>
       </div>
 
       <!--      File Upload-->
       <div class="my-10">
-        <%= form.label "Add a featured Image", class: "block mb-2 text-lg font-medium text-gray-900 dark:text-white" %>
+        <%= form.label "Add a featured Image", class: "form-label", for: "file_input" %>
 
         <div class="my-5">
-          <%= image_tag @article.featured_image.variant(resize_to_limit: [150, 150]), class: "mb-3 rounded" if @article.featured_image.attached? %>
+          <%= image_tag @article.featured_image.variant(resize_to_limit: [150, 150]), class: "my-5 rounded" if @article.featured_image.attached? %>
         </div>
-        <%= form.file_field :featured_image, class: "rounded-md block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-gray-800 dark:file:text-white bg-gray-100 text-gray-900 hover:file:bg-gray-900" %>
+        <%= form.file_field :featured_image, class: "form-input", id: "file_input" %>
       </div>
 
       <!--      Write Content-->
       <div class="my-10 w-full">
-        <%= form.label "Write your article", class: "block mb-2 text-base font-medium text-gray-900 dark:text-white" %>
-        <%= form.rich_text_area :content, placeholder: "Share your thoughts." %>
+        <%#= form.label "Write your article", class: "form-label" %>
+        <%= form.rich_text_area :content, placeholder: "Write an article...", class: "form-textarea" %>
       </div>
 
       <!--      Submit button-->
