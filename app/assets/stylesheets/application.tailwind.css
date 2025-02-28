@@ -23,7 +23,7 @@ body {
 
 pre {
     overflow-x: auto;
-    background-color: #011627;
+    background-color: #112240;
     color: #ffffff;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -86,7 +86,7 @@ pre {
 }
 
 .p {
-    @apply text-gray-900 dark:text-white text-sm md:text-lg my-3
+    @apply text-gray-900 dark:text-gray-400 text-sm md:text-base my-3
 }
 
 .hero-p {
