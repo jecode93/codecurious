@@ -8,9 +8,7 @@
         <%= @admin.bio %>
       </p>
       <div class="mt-3">
-        <% if @admin.whatsapp_number.present? || @admin.github.present? || @admin.linkedin.present? || @admin.facebook.present? || @admin.instagram.present? %>
-          <%= render "layouts/shared/social_links", whatsapp: @admin.whatsapp_number, github: @admin.github, linkedin: @admin.linkedin, facebook: @admin.facebook, instagram: @admin.instagram %>
-        <% end %>
+        <%= render "layouts/shared/social_links", whatsapp: @admin.whatsapp_number, github: @admin.github, linkedin: @admin.linkedin, facebook: @admin.facebook, instagram: @admin.instagram %>
       </div>
     </div>
     <% if policy(@admin).manage? %>
@@ -19,8 +17,8 @@
   </div>
 </div>
 
-<div class="my-10"></div>
+<div class="my-10 border-b border-gray-200 dark:border-gray-700"></div>
 
-<h2 class="h2 !text-left">My articles</h2>
+<h2 class="h2 !text-left">Articles</h2>
 
 <%= render "admin/articles/article", articles: @admin_articles %>
