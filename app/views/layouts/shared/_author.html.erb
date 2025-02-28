@@ -8,11 +8,9 @@
       <% end %>
       <h1 class="text-xl font-semibold mb-3">Hey,
         I'm <%= link_to article.author.name, author_path(article.author) %></h1>
-      <p class="text-sm text-gray-500 text-justify"><%= article.author.bio %></p>
+      <p class="p"><%= article.author.bio %></p>
     </div>
-    <% if article.author.whatsapp_number.present? || article.author.github.present? || article.author.linkedin.present? || article.author.facebook.present? || article.author.instagram.present? %>
-      <%= render "layouts/shared/social_links", whatsapp: article.author.whatsapp_number, github: article.author.github, linkedin: article.author.linkedin, facebook: article.author.facebook, instagram: article.author.instagram %>
-    <% end %>
+    <%= render "layouts/shared/social_links", whatsapp: article.author.whatsapp_number, github: article.author.github, linkedin: article.author.linkedin, facebook: article.author.facebook, instagram: article.author.instagram %>
     <div class="border-b border-third mt-5"></div>
   </div>
 
@@ -25,7 +23,7 @@
       <a href="<%= service[:href] %>" class="text-decoration-none" target="_blank">
         <div class="mb-5">
           <h5 class="mb-2 text-lg font-semibold"><%= service[:title] %></h5>
-          <p class="text-sm md:text-base text-gray-500 text-justify"><%= service[:description] %></p>
+          <p class="p"><%= service[:description] %></p>
           <button class="button">Check it out</button>
         </div>
       </a>
