@@ -2,7 +2,7 @@ module ArticlesHelper
   def hero_text = [
     {
       title: "Answers to My Coding Curiosities",
-      description: "Welcome to my personal coding journal! Here, I share answers to the questions I’ve faced on my coding journey. It’s my way of keeping track of lessons learned, and I hope it becomes a helpful guide for beginners and curious coders alike."
+      description: "Welcome to my coding journal! I share answers to challenges I’ve faced, keeping track of lessons learned while helping beginners and curious coders."
     }
   ]
 
