@@ -30,7 +30,7 @@ pre {
 }
 
 .logo {
-    @apply font-bold italic text-white text-2xl md:text-3xl mx-5 font-pt-serif
+    @apply font-bold italic text-white text-2xl md:text-3xl font-pt-serif
 }
 
 .logo_admin {
