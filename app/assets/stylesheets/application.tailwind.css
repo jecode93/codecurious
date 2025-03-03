@@ -128,3 +128,7 @@ trix-editor ol, .trix-content ol {
     list-style-type: decimal !important;
     margin-left: 1rem !important;
 }
+
+trix-editor a, .trix-content a {
+    text-decoration: underline;
+}
