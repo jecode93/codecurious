@@ -1,5 +1,5 @@
 <section class="bg-white dark:bg-gray-800">
-  <div class="grid container px-4 py-15 mx-auto lg:gap-8 xl:gap-0 lg:py-26 lg:grid-cols-12" style="background-image: url('<%= asset_path("noise-bg.webp") %>');">
+  <div class="grid justify-center text-center lg:text-start container px-4 py-15 mx-auto lg:gap-8 xl:gap-0 lg:py-26 lg:grid-cols-12" style="background-image: url('<%= asset_path("noise-bg.webp") %>');">
     <div class="mr-auto place-self-center lg:col-span-7">
       <% hero_text.each do |hero| %>
         <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
@@ -11,7 +11,7 @@
       <% end %>
 
       <!-- Handle search for an article -->
-      <div class="w-[90%] my-10 dark:text-white">
+      <div class="w-[90%] lg:w-2/3 my-10 mx-auto lg:mx-0 dark:text-white">
         <%= search_form_for @q, url: root_path, html: { class: "flex space-x-2", role: "search" } do |f| %>
           <%= f.search_field :title_or_slug_cont, class: "flex-1 p-2 border border-third rounded-md focus:ring focus:ring-blue-300", placeholder: "Ex: Ruby on Rails, Github, Docker", aria: { label: "Search" } %>
           <%= f.submit "Search", class: "outline-button" %>
