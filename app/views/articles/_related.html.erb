@@ -1,0 +1,18 @@
+<article class="max-w-xs">
+  <%= link_to article_path(article) do %>
+    <% if article.featured_image.attached? %>
+      <%= image_tag article.featured_image, class: "mb-5 rounded-lg" %>
+    <% else %>
+      <%= image_tag "placeholder.png", class: "mb-5 rounded-lg", alt: article.title %>
+    <% end %>
+  <% end %>
+
+  <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
+    <%= link_to article.title, article_path(article) %>
+  </h2>
+  <p class="mb-4 text-gray-500 dark:text-gray-400"><%= truncate(strip_tags(article.content.to_s), length: 140) %></p>
+
+  <div>
+    <%= link_to "Read more...", article_path(article), class: "text-primary dark:text-gray-300 hover:text-secondary cursor-pointer" %>
+  </div>
+</article>
