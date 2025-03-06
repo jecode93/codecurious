@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @related_articles = Article.order(created_at: :asc).limit(4)
+    @related_articles = Article.where.not(id: @article.id).descending_order.limit(4)
   end
 
   private
