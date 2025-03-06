@@ -1,22 +1,7 @@
-<% content_for :primary_content do %>
-  <div>
-    <div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 p-5 mb-10">
-      <% if policy(@article).manage? %>
-        <%= link_to "Edit Article", edit_admin_article_path(@article), class: "button" %>
-      <% end %>
-    </div>
-    <h1 class="h1 mb-5">
-      <%= @article.title %>
-    </h1>
-    <div class="my-6">
-      <% if @article.featured_image.present? %>
-        <%= image_tag @article.featured_image, class: "w-full rounded-lg" %>
-      <% else %>
-        <%= image_tag "placeholder.png", class: "w-full" %>
-      <% end %>
-    </div>
-    <%= @article.content %>
+<% if policy(@article).manage? %>
+  <div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 p-5 mb-10">
+    <%= link_to "Edit Article", edit_admin_article_path(@article), class: "button" %>
   </div>
 <% end %>
 
-<%= render 'layouts/admin_shared/basic_layout' %>
+<%= render 'layouts/show_article_template' %>
