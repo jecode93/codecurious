@@ -1,0 +1,56 @@
+<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+  <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+    <article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+      <header class="mb-4 lg:mb-6 not-format">
+        <h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl dark:text-white"> <%= @article.title %></h1>
+
+        <!-- Address section-->
+        <address class="flex items-center mb-6 not-italic">
+          <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+
+            <!-- Author profile picture-->
+            <%= link_to author_path(@article.author) do %>
+              <% if @article.author.profile_picture.attached? %>
+                <%= image_tag @article.author.profile_picture, class: "mr-5 w-16 h-16 rounded-full" %>
+              <% else %>
+                <%= image_tag "user.jpg", class: "mr-5 w-16 h-16 rounded-full" %>
+              <% end %>
+            <% end %>
+            <!-- End author profile picture-->
+
+            <!-- Author bio & article data -->
+            <div class="space-y-2">
+              <%= link_to @article.author.name, author_path(@article.author), class: "text-xl font-bold text-gray-900 dark:text-white", rel: "author" %>
+              <p class="text-base text-gray-500 dark:text-gray-400"><%= @article.author.bio %></p>
+              <p class="text-sm text-gray-500 dark:text-gray-400">
+                <%= reading_time(@article.content) %> read •
+                <time pubdate datetime="<%= show_date(@article) %>" title="<%= show_date(@article) %>"><%= show_date(@article) %></time>
+              </p>
+            </div>
+            <!-- End author bio & article data -->
+          </div>
+        </address>
+        <!-- End Address Section-->
+
+        <!-- Article featured mage section-->
+        <div>
+          <% if @article.featured_image.attached? %>
+            <%= image_tag @article.featured_image, class: "rounded-lg mb-3 w-full h-[360px]" %>
+          <% else %>
+            <%= image_tag "placeholder.png", class: "rounded-lg mb-3 w-full h-[360px]" %>
+          <% end %>
+        </div>
+        <!-- End article featured image-->
+      </header>
+
+      <!-- Article content-->
+      <%= @article.content %>
+      <!-- End article contents-->
+
+
+      <div class="flex items-center space-x-4 my-10">
+        <%= render "layouts/shared/social_links", whatsapp: @article.author.whatsapp_number, github: @article.author.github, linkedin: @article.author.linkedin, facebook: @article.author.facebook, instagram: @article.author.instagram %>
+      </div>
+    </article>
+  </div>
+</main>
