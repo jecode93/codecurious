@@ -1,29 +1,14 @@
 <% content_for :title, "#{@article.title} - Code Curious" %>
 
-<% content_for :primary_content do %>
-  <div class="mb-20">
-    <p class="text-sm text-gray-500">
-      Last updated: <%= show_date(@article) %>
-    </p>
-    <h1 class="h1"><%= @article.title %></h1>
-    <div>
-      <% if @article.featured_image.attached? %>
-        <%= image_tag @article.featured_image, class: "rounded-lg mb-3 w-full" %>
-      <% else %>
-        <%= image_tag "placeholder.png", class: "rounded-lg mb-3 w-full" %>
+<%= render 'layouts/show_article_template' %>
+
+<aside aria-label="Related articles" class="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
+  <div class="px-4 mx-auto max-w-screen-xl">
+    <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
+    <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+      <% @related_articles.each do |related| %>
+        <%= render "articles/related", article: related %>
       <% end %>
     </div>
-    <p class="text-sm text-gray-500">
-      <%= reading_time(@article.content) %> read • By:
-      <%= link_to @article.author.name, author_path(@article.author.slug), class: "text-primary hover:underline" %>
-    </p>
-    <div class="border-b border-gray-200 dark:border-gray-700 my-5"></div>
-    <%= @article.content %>
   </div>
-<% end %>
-
-<% content_for :secondary_content do %>
-  <%= render "layouts/shared/author", article: @article %>
-<% end %>
-
-<%= render "layouts/shared/basic_layout" %>
+</aside>
