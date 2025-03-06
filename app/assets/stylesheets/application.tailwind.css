@@ -4,6 +4,7 @@
 @import "./pagy.tailwind.css";
 @import "./animations.css";
 @import "./flash.css";
+@import "./custom_style.css";
 @import "tailwindcss";
 
 @tailwind utilities;
@@ -23,10 +24,11 @@ body {
 
 pre {
     overflow-x: auto;
-    background-color: #112240;
-    color: #ffffff;
+    background-color: light-dark(var(--light-bg), var(--dark-bg));
+    color: light-dark(var(--light-color), var(--dark-color));
     padding: 1rem;
     border-radius: 0.5rem;
+    font-size: 1rem
 }
 
 .logo {
@@ -117,6 +119,16 @@ trix-editor h1, .trix-content h1 {
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 0.5rem;
+    color: light-dark(var(--light-code), var(--dark-code));
+}
+
+trix-editor strong, .trix-content strong {
+    color: light-dark(var(--light-code), var(--dark-code));
+}
+
+.trix-content {
+    font-size: 1.2rem;
+    color: light-dark(var(--light-color), var(--dark-color));
 }
 
 trix-editor ul, .trix-content ul {
