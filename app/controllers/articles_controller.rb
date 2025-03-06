@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [ :show ]
+  before_action :set_article, only: [:show]
 
   def index
     @q = Article.ransack(params[:q])
@@ -16,11 +16,14 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @related_articles = Article.order(created_at: :asc).limit(4)
   end
 
   private
 
   def set_article
     @article = Article.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path, notice: "Article not found."
   end
 end
