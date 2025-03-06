@@ -37,8 +37,11 @@
       </div>
 
       <!--      Submit button-->
-      <div>
+      <div class="space-x-3">
         <%= form.submit class: "button" %>
+        <% if @article.persisted? %>
+          <%= link_to "Cancel", admin_article_path(@article), class: "outline-button" %>
+        <% end %>
       </div>
     <% end %>
   </div>
