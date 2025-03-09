@@ -2,7 +2,7 @@ class Admin::ArticlesController < Admin::AdminController
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @pagy, @articles = pagy(Article.descending_order, limit: 15)
   end
 
   def show
