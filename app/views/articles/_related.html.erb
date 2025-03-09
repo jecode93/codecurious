@@ -1,5 +1,5 @@
 <article class="max-w-xs">
-  <%= link_to article_path(article) do %>
+  <%= link_to article_path(article), data: { turbo: false } do %>
     <% if article.featured_image.attached? %>
       <%= image_tag article.featured_image, class: "mb-5 rounded-lg" %>
     <% else %>
