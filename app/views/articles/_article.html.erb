@@ -1,5 +1,5 @@
 <article>
-  <%= link_to article_path(article) do %>
+  <%= link_to article_path(article), data: { turbo: false } do %>
     <div class="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden hover:shadow-sm transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
       <% if article.featured_image.attached? %>
         <%= image_tag article.featured_image, class: "w-full h-48 object-cover", alt: article.title %>
