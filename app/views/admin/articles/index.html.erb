@@ -1,5 +1,9 @@
-<div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 p-5 mb-10">
-  <h1 class="h1 mb-5">Articles</h1>
+<div class="flex justify-between items-center p-5">
+  <h1 class="h1">Articles</h1>
   <%= link_to "New Article", new_admin_article_path, class: "button" %>
 </div>
 <%= render "admin/articles/article", articles: @articles %>
+
+<div class="container mx-auto my-10">
+  <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+</div>
