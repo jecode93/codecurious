@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show]
+  before_action :set_article, only: [ :show ]
 
   def index
     @q = Article.ransack(params[:q])
@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 
   def show
     @related_articles = Article.where.not(id: @article.id).descending_order.limit(4)
+    @article.increment!(:read_count)
   end
 
   private
