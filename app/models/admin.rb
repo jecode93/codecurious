@@ -6,6 +6,8 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :trackable,
          :recoverable, :rememberable, :validatable
 
+  enum :role, { super_admin: "super_admin", admin: "admin", editor: "editor" }, default: :editor
+
   has_many :articles, foreign_key: "author_id", dependent: :destroy
   has_one_attached :profile_picture
 
