@@ -13,10 +13,18 @@ class Admin::ProfilesController < Admin::AdminController
   def update
     authorize @admin, :manage?
 
-    if @admin.update(set_params)
+    # Prevent regular admins from changing the role
+    if current_admin.super_admin? && @admin.update(set_params)
       redirect_to profile_path(@admin), notice: "Admin info was successfully updated."
     else
-      render :edit, status: :unprocessable_entity
+      # If a regular admin is trying to change the role, strip it from the params
+      @admin.assign_attributes(set_params.except(:role))
+
+      if @admin.save
+        redirect_to profile_path(@admin), notice: "Profile updated successfully."
+      else
+        render :edit, status: :unprocessable_entity
+      end
     end
   end
 
