@@ -13,6 +13,8 @@ class ArticlePolicy < ApplicationPolicy
   end
 
   def manage?
-    user.present? && record.author_id == user.id
+    return false unless user.present?
+
+    user.super_admin? || record.author_id == user.id
   end
 end
