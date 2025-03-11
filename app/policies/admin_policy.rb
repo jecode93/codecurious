@@ -12,7 +12,13 @@ class AdminPolicy < ApplicationPolicy
     # end
   end
 
+  def super_admin?
+    user.super_admin?
+  end
+
   def manage?
-    user.present? && record.id == user.id
+    return false unless user.present?
+
+    user.super_admin? || record.id == user.id
   end
 end
