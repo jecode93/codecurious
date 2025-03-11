@@ -32,6 +32,13 @@
     <%= f.text_area :bio, cols: "50", rows: "5", class: "mt-2 p-2 border border-third rounded-md" %>
   </div>
 
+  <% if policy(@admin).super_admin? %>
+    <div class="flex flex-col">
+      <%= f.label :role, class: "text-lg font-semibold" %>
+      <%= f.select :role, Admin.roles.keys.map { |role| [role.humanize, role] }, {}, { :class => "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" } %>
+    </div>
+  <% end %>
+
   <div class="flex flex-col">
     <%= f.label :website, class: "text-lg font-semibold" %>
     <%= f.text_field :website, class: "mt-2 p-2 border border-third rounded-md" %>
