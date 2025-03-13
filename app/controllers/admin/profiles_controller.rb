@@ -1,9 +1,28 @@
 class Admin::ProfilesController < Admin::AdminController
-  before_action :set_admin, only: %i[show edit update]
+  before_action :set_admin, only: %i[show edit update destroy]
+
+  def index
+    @admins = Admin.all
+  end
 
   def show
     @articles = Article.order(created_at: :desc)
     @admin_articles = Article.where(author_id: @admin.id).order(created_at: :desc)
+  end
+
+  def new
+    authorize current_admin, :super_admin?
+    @admin = Admin.new
+  end
+
+  def create
+    authorize current_admin, :super_admin?
+    @admin = Admin.new(set_params)
+    if @admin.save
+      redirect_to profiles_path, notice: "Admin was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -28,6 +47,12 @@ class Admin::ProfilesController < Admin::AdminController
     end
   end
 
+  def destroy
+    authorize @admin, :super_admin?
+    @admin.destroy
+    redirect_to profile_path, notice: "Account was successfully destroyed."
+  end
+
   private
 
   def set_admin
@@ -35,7 +60,7 @@ class Admin::ProfilesController < Admin::AdminController
   end
 
   def set_params
-    params.require(:admin).permit(:name, :bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram, :role)
+    params.require(:admin).permit(:email, :password, :name, :bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram, :role)
   end
 
   def pundit_user
