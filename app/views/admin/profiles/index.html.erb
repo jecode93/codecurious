@@ -1,6 +1,8 @@
 <div class="flex justify-between items-center p-5">
-  <h1 class="h1 !mb-0">Profiles</h1>
-  <%= link_to "New Account", new_profile_path, class: "button" %>
+  <h1 class="h1 !mb-0">Users</h1>
+  <% if policy(:admin).super_admin? %>
+    <%= link_to "New user account", new_profile_path, class: "button" %>
+  <% end %>
 </div>
 
 <%= render "layouts/admin_shared/base/hr" %>
