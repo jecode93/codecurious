@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
     scope module: "admin" do
       root "dashboard#index", as: "admin_dashboard"
-      resources :profiles, only: %i[show edit update]
+      resources :profiles
       resources :articles, as: "admin_articles"
     end
   end
