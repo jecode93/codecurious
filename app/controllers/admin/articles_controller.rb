@@ -2,7 +2,7 @@ class Admin::ArticlesController < Admin::AdminController
   before_action :set_article, only: %i[show edit update destroy]
 
   def index
-    @pagy, @articles = pagy(Article.descending_order, limit: 15)
+    @pagy, @articles = pagy(Article.published.descending_order, limit: 15)
   end
 
   def show
@@ -15,7 +15,7 @@ class Admin::ArticlesController < Admin::AdminController
   def create
     @article = current_admin.articles.build(article_params)
     if @article.save
-      redirect_to [ :admin, @article ], notice: "Article was successfully created."
+      redirect_to [:admin, @article], notice: "Article was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class Admin::ArticlesController < Admin::AdminController
   def update
     authorize @article, :manage?
     if @article.update(article_params)
-      redirect_to [ :admin, @article ], notice: "Article was successfully updated."
+      redirect_to [:admin, @article], notice: "Article was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -49,7 +49,7 @@ class Admin::ArticlesController < Admin::AdminController
   end
 
   def article_params
-    params.require(:article).permit(:title, :featured_image, :content)
+    params.require(:article).permit(:title, :featured_image, :content, :status)
   end
 
   def pundit_user
