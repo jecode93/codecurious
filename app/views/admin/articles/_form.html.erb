@@ -30,9 +30,14 @@
         <%= form.file_field :featured_image, class: "form-input", id: "file_input" %>
       </div>
 
+      <div class="my-10">
+        <%= form.label :status, class: "form-label" %>
+        <%= form.select :status, Article.statuses.keys.map { |status| [status.humanize, status] }, {}, class: "form-input" %>
+      </div>
+
       <!--      Write Content-->
       <div class="my-10 w-full">
-        <%#= form.label "Write your article", class: "form-label" %>
+        <%= form.label "Write an article", class: "form-label" %>
         <%= form.rich_text_area :content, placeholder: "Write an article...", class: "form-textarea" %>
       </div>
 
