@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [ :show ]
+  before_action :set_article, only: [:show]
 
   def index
     @q = Article.ransack(params[:q])
-    @pagy, @articles = pagy(@q.result.descending_order)
+    @pagy, @articles = pagy(@q.result.published.descending_order)
 
     # Handle the case when there is no record found
     if @articles.empty?
