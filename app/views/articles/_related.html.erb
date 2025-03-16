@@ -1,10 +1,6 @@
 <article class="max-w-xs">
   <%= link_to article_path(article), data: { turbo: false } do %>
-    <% if article.featured_image.attached? %>
-      <%= image_tag article.featured_image, class: "mb-5 rounded-lg" %>
-    <% else %>
-      <%= image_tag "placeholder.png", class: "mb-5 rounded-lg", alt: article.title %>
-    <% end %>
+    <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-48 mb-5 rounded-lg" %>
   <% end %>
 
   <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
