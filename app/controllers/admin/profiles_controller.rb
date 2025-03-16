@@ -7,7 +7,7 @@ class Admin::ProfilesController < Admin::AdminController
 
   def show
     @articles = Article.order(created_at: :desc)
-    @admin_articles = Article.where(author_id: @admin.id).order(created_at: :desc)
+    @pagy, @admin_articles = pagy(Article.where(author_id: @admin.id).order(created_at: :desc), limit: 10)
   end
 
   def new
