@@ -13,11 +13,7 @@
   </div>
 
   <div class="flex flex-col">
-    <% if @admin.profile_picture.attached? %>
-      <%= image_tag @admin.profile_picture, class: "w-20 h-20 rounded-full", style: "object-fit: cover;" %>
-    <% else %>
-      <%= image_tag "user.jpg", class: "w-20 h-20 rounded-full", style: "object-fit: cover;" %>
-    <% end %>
+    <%= render "layouts/shared/profile_picture", resource: @admin, other_classes: "w-20 h-20 rounded-full" %>
     <%= f.label :profile_picture, class: "form-label mt-4" %>
     <%= f.file_field :profile_picture, class: "form-input" %>
   </div>
