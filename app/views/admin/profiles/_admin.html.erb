@@ -16,11 +16,7 @@
           <% admins.each do |admin| %>
             <tr class="border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
               <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <% if admin.profile_picture.present? %>
-                  <%= image_tag admin.profile_picture, alt: admin.name, class: "w-16 max-w-full max-h-full rounded" %>
-                <% else %>
-                  <%= image_tag "user.jpg", alt: admin.name, class: "w-16 max-w-full max-h-full rounded" %>
-                <% end %>
+                <%= render "layouts/shared/profile_picture", resource: admin, other_classes: "w-16 max-w-full max-h-full rounded" %>
               </td>
               <td class="px-4 py-3">
                 <%= link_to admin.name, profile_path(admin), class: "hover:underline" %>
