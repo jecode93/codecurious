@@ -6,7 +6,5 @@
       <%= render article %>
     <% end %>
   </div>
-  <div class="container mx-auto my-10">
-    <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
-  </div>
+  <%= render "layouts/shared/pagy" %>
 </div>
