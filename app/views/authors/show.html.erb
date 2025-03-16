@@ -1,16 +1,70 @@
-<% content_for :primary_content do %>
-  <div>
-    <h1>
-      <%= @author.name %>
-    </h1>
+<section class="bg-white dark:bg-gray-800">
+  <div class="text-center lg:text-start container px-4 py-15 mx-auto lg:py-26" style="background-image: url('<%= asset_path("noise-bg.webp") %>');">
+    <div class="space-y-5">
+      <div class="flex justify-center lg:block">
+        <%= render "layouts/shared/profile_picture", resource: @author, w: 26, h: 26, other_classes: "w-26 h-26 rounded-full" %>
+      </div>
+      <div>
+        <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-6xl dark:text-white">
+          Articles by <%= @author.name %>
+        </h1>
+        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
+          <%= @author.bio %>
+        </p>
+      </div>
+      <div class="flex justify-center lg:block">
+        <%= render "layouts/shared/socials", resource: @author %>
+      </div>
+    </div>
   </div>
-  <% @articles.each do |article| %>
-    <h3><%= link_to article.title, article_path(article), class: "text-decoration-none" %></h3>
-  <% end %>
+</section>
+
+<% content_for :primary_content do %>
+  <div class="space-y-16">
+    <% @articles.each do |article| %>
+      <article class="flex flex-col md:flex-row items-center rounded-md bg-white dark:bg-gray-800">
+        <div class="w-full mx-auto md:w-1/4">
+          <%= link_to article_path(article), data: { turbo: false } do %>
+            <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-48 rounded-t-md md:rounded-s-md md:rounded-e-none" %>
+          <% end %>
+        </div>
+        <div class="space-y-3 w-full px-5 my-5 md:my-0 md:w-3/4">
+          <div class="content">
+            <%= link_to article_path(article), data: { turbo: false } do %>
+              <h3 class="h3"><%= article.title %></h3>
+              <p class="p !text-[18px] !m-0"><%= truncate(strip_tags(article.content.to_s), length: 100) %></p>
+            <% end %>
+          </div>
+          <div class="flex items-center">
+            <%= render "layouts/shared/profile_picture", resource: @author, w: 6, h: 6, other_classes: "w-6 h-6 mr-2 rounded-full" %>
+            <p class="p">By <%= link_to article.author.name.titleize, {}, class: "text-primary" %>
+              • <%= show_date(article) %></p>
+          </div>
+        </div>
+      </article>
+    <% end %>
+    <%= render "layouts/shared/pagy" %>
+  </div>
 <% end %>
 
 <% content_for :secondary_content do %>
-  <%#= render "layouts/shared/author", article: @articles %>
+  <div class="sticky top-10">
+    <h2 class="h2 !text-start !mb-2">Our Services</h2>
+    <hr class="border-gray-200 dark:border-gray-700 mb-10">
+    <div class="space-y-16">
+      <% services.each do |service| %>
+        <div>
+          <a href="<%= service[:href] %>" class="text-decoration-none" target="_blank">
+            <div class="mb-5">
+              <h5 class="mb-2 text-lg font-semibold"><%= service[:title] %></h5>
+              <p class="p"><%= service[:description] %></p>
+              <button class="button">Check it out</button>
+            </div>
+          </a>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
 <%= render 'layouts/shared/basic_layout' %>
