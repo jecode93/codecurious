@@ -11,6 +11,7 @@
               <th scope="col" class="px-6 py-3 w-80">Title</th>
               <th scope="col" class="px-6 py-3 w-80">Slug</th>
               <th scope="col" class="px-6 py-3">Author</th>
+              <th scope="col" class="px-6 py-3">Status</th>
               <th scope="col" class="px-6 py-3 w-40">Date</th>
               <th scope="col" class="px-6 py-3 text-center">Action</th>
             </tr>
@@ -19,11 +20,7 @@
             <% articles.each do |article| %>
               <tr class="border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700">
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <% if article.featured_image.present? %>
-                    <%= image_tag article.featured_image, alt: article.title, class: "w-16 max-w-full max-h-full rounded" %>
-                  <% else %>
-                    <%= image_tag "placeholder.png", alt: article.title, class: "w-16 max-w-full max-h-full rounded" %>
-                  <% end %>
+                  <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-16 h-16 max-w-full max-h-full rounded" %>
                 </td>
                 <td class="px-4 py-3">
                   <%= link_to article.title, article_path(article), class: "hover:underline" %>
@@ -33,6 +30,9 @@
                 </td>
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <%= link_to article.author.name, profile_path(article.author), class: " hover:underline" %>
+                </td>
+                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                  <%= article.status.humanize %>
                 </td>
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <%= show_date(article) %>
@@ -75,6 +75,7 @@
               <th scope="col" class="px-6 py-3 w-80">Title</th>
               <th scope="col" class="px-6 py-3 w-80">Slug</th>
               <th scope="col" class="px-6 py-3">Author</th>
+              <th scope="col" class="px-6 py-3">Status</th>
               <th scope="col" class="px-6 py-3 w-40">Date</th>
               <th scope="col" class="px-6 py-3 text-center">Action</th>
             </tr>
