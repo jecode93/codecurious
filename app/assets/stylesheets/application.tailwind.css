@@ -79,6 +79,10 @@ pre {
     @apply text-2xl font-semibold mb-6 text-center
 }
 
+.h3 {
+    @apply font-bold text-gray-900 text-lg md:text-[22px] dark:text-white
+}
+
 .h4 {
     @apply font-semibold my-3 text-gray-900 text-lg md:text-xl dark:text-white
 }
