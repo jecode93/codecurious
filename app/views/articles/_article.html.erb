@@ -1,25 +1,17 @@
 <article>
   <%= link_to article_path(article), data: { turbo: false } do %>
     <div class="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden hover:shadow-sm transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
-      <% if article.featured_image.attached? %>
-        <%= image_tag article.featured_image, class: "w-full h-48 object-cover", alt: article.title %>
-      <% else %>
-        <%= image_tag "placeholder.png", class: "w-full h-48 object-cover", alt: article.title %>
-      <% end %>
+      <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-64" %>
       <div class="p-4 dark:text-white">
         <small class="badge">
           Ruby on Rails
         </small>
-        <h4 class="h4 dark:text-white"><%= article.title %></h4>
+        <h4 class="h4"><%= article.title %></h4>
         <p class="p !text-base"><%= truncate(strip_tags(article.content.to_s), length: 140) %></p>
         <hr class="border-dashed border-gray-200 dark:border-gray-700 my-3">
         <div class="flex justify-between items-center">
           <div class="flex items-center">
-            <% if article.author.profile_picture.present? %>
-              <%= image_tag article.author.profile_picture, class: "w-6 h-6 rounded-full mr-2", alt: article.author.name %>
-            <% else %>
-              <%= image_tag "user.jpg", class: "w-6 h-6 rounded-full mr-2", alt: article.author.name %>
-            <% end %>
+            <%= render "layouts/shared/profile_picture", resource: article.author, other_classes: "w-6 h-6 mr-3 rounded-full" %>
             <div class="text-sm">
               <h6 class="h6 dark:text-white"><%= article.author.name %></h6>
               <span class="text-gray-500 dark:text-white text-xs"><%= show_date(article) %></span>
