@@ -1,0 +1,7 @@
+<% other_classes = other_classes || "" %>
+
+<% if resource.profile_picture.attached? %>
+  <%= image_tag resource.profile_picture, class: "#{other_classes}", alt: resource.name %>
+<% else %>
+  <%= image_tag "user.jpg", class: "#{other_classes}" %>
+<% end %>
