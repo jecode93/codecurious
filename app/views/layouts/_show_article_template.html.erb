@@ -10,11 +10,7 @@
 
             <!-- Author profile picture-->
             <%= link_to author_path(@article.author) do %>
-              <% if @article.author.profile_picture.attached? %>
-                <%= image_tag @article.author.profile_picture, class: "mr-5 w-16 h-16 rounded-full" %>
-              <% else %>
-                <%= image_tag "user.jpg", class: "mr-5 w-16 h-16 rounded-full" %>
-              <% end %>
+              <%= render "layouts/shared/profile_picture", resource: @article.author, other_classes: "w-16 h-16 mr-5 rounded-full" %>
             <% end %>
             <!-- End author profile picture-->
 
@@ -34,11 +30,7 @@
 
         <!-- Article featured mage section-->
         <div>
-          <% if @article.featured_image.attached? %>
-            <%= image_tag @article.featured_image, class: "rounded-lg mb-3 w-full h-[360px]" %>
-          <% else %>
-            <%= image_tag "placeholder.png", class: "rounded-lg mb-3 w-full h-[360px]" %>
-          <% end %>
+          <%= render "layouts/shared/featured_image", resource: @article, other_classes: "rounded-lg mb-3 w-full h-[360px]" %>
         </div>
         <!-- End article featured image-->
       </header>
