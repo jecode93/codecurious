@@ -1,4 +1,4 @@
-<article class="max-w-xs">
+<article>
   <%= link_to article_path(article), data: { turbo: false } do %>
     <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-48 mb-5 rounded-lg" %>
   <% end %>
