@@ -1,0 +1,25 @@
+<div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+  <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+    <li class="me-2" role="presentation">
+      <button class="inline-block p-4 border-b-2 rounded-t-lg" id="published-tab" data-tabs-target="#published" type="button" role="tab" aria-controls="published" aria-selected="false">Published</button>
+    </li>
+    <li class="me-2" role="presentation">
+      <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="draft-tab" data-tabs-target="#draft" type="button" role="tab" aria-controls="draft" aria-selected="false">Draft</button>
+    </li>
+    <li role="presentation">
+      <button class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="archived-tab" data-tabs-target="#archived" type="button" role="tab" aria-controls="archived" aria-selected="false">Archived</button>
+    </li>
+  </ul>
+</div>
+
+<div id="default-tab-content">
+  <div class="hidden rounded-lg bg-gray-50 dark:bg-gray-800" id="published" role="tabpanel" aria-labelledby="published-tab">
+    <%= render "admin/articles/article", articles: resources %>
+  </div>
+  <div class="hidden rounded-lg bg-gray-50 dark:bg-gray-800" id="draft" role="tabpanel" aria-labelledby="draft-tab">
+    <%= render "admin/articles/article", articles: draft_resources %>
+  </div>
+  <div class="hidden rounded-lg bg-gray-50 dark:bg-gray-800" id="archived" role="tabpanel" aria-labelledby="archived-tab">
+    <%= render "admin/articles/article", articles: archived_resources %>
+  </div>
+</div>
