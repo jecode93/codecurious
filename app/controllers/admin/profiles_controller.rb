@@ -34,13 +34,13 @@ class Admin::ProfilesController < Admin::AdminController
 
     # Prevent regular admins from changing the role
     if current_admin.super_admin? && @admin.update(set_params)
-      redirect_to profile_path(@admin), notice: "Admin info was successfully updated."
+      redirect_to profiles_path, notice: "Admin info was successfully updated."
     else
       # If a regular admin is trying to change the role, strip it from the params
       @admin.assign_attributes(set_params.except(:role))
 
       if @admin.save
-        redirect_to profile_path(@admin), notice: "Profile updated successfully."
+        redirect_to profiles_path, notice: "Profile updated successfully."
       else
         render :edit, status: :unprocessable_entity
       end
