@@ -21,8 +21,10 @@
               <td class="px-4 py-3">
                 <%= link_to admin.name, profile_path(admin), class: "hover:underline" %>
               </td>
-              <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                <%= admin.role.humanize %>
+              <td class="px-4 py-3 font-medium text-white whitespace-nowrap">
+                <span class="px-3 py-1 rounded-full <%= role_color(admin.role.humanize) %>">
+                  <%= admin.role.humanize %>
+                </span>
               </td>
               <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                 <%= admin.created_at.strftime("%b %d, %Y") %>
