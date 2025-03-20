@@ -7,7 +7,7 @@
           Ruby on Rails
         </small>
         <h4 class="h4"><%= article.title %></h4>
-        <p class="p !text-base"><%= truncate(strip_tags(article.content.to_s), length: 140) %></p>
+        <p class="p !text-base"><%= truncate(strip_tags(article.content.to_s), length: 100) %></p>
         <hr class="border-dashed border-gray-200 dark:border-gray-700 my-3">
         <div class="flex justify-between items-center">
           <div class="flex items-center">
