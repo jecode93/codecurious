@@ -31,8 +31,10 @@
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <%= link_to article.author.name, profile_path(article.author), class: " hover:underline" %>
                 </td>
-                <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <%= article.status.humanize %>
+                <td class="px-4 py-3 font-medium text-white whitespace-nowrap">
+                  <span class="px-3 py-1 rounded-full <%= article_status_color(article.status.humanize) %>">
+                    <%= article.status.humanize %>
+                  </span>
                 </td>
                 <td class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                   <%= show_date(article) %>
