@@ -3,8 +3,4 @@
   <%= link_to "New Article", new_admin_article_path, class: "button" %>
 </div>
 
-<%= render "layouts/admin_shared/base/hr" %>
-
-<%= render "admin/articles/article", articles: @articles %>
-
-<%= render "layouts/shared/pagy" %>
+<%= render "layouts/admin_shared/articles_tab", resources: @articles.published, draft_resources: @articles.draft, archived_resources: @articles.archived %>
