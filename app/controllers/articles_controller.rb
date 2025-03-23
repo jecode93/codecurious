@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @related_articles = Article.where.not(id: @article.id).descending_order.limit(4)
+    @related_articles = Article.published.where.not(id: @article.id).descending_order.limit(4)
     @article.increment!(:read_count)
   end
 
