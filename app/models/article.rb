@@ -19,7 +19,7 @@ class Article < ApplicationRecord
   extend FriendlyId
 
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
-  has_many :article_categories
+  has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
 
   has_one_attached :featured_image
