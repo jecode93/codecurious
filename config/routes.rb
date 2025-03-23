@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     scope module: "admin" do
       root "dashboard#index", as: "admin_dashboard"
       resources :profiles
+      resources :categories
+      resources :articles, as: "admin_articles"
       resources :articles, as: "admin_articles"
     end
   end
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   constraints subdomain: /^www$|^$/ do
     root "articles#index" # Main blog homepage
+    resources :categories, only: %i[show]
     resources :articles, only: %i[index show]
     resources :authors, only: %i[show]
   end
