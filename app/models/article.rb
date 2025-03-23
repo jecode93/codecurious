@@ -19,6 +19,9 @@ class Article < ApplicationRecord
   extend FriendlyId
 
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
+  has_many :article_categories
+  has_many :categories, through: :article_categories
+
   has_one_attached :featured_image
   has_rich_text :content
 
@@ -41,7 +44,7 @@ class Article < ApplicationRecord
   scope :descending_order, -> { order(created_at: :desc) }
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "title", "slug" ]
+    ["title", "slug"]
   end
 
   def self.ransackable_associations(auth_object = nil)
