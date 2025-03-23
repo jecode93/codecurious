@@ -33,3 +33,7 @@ puts "Done creating admin user"
 #   end
 # end
 # puts "Done creating new articles"
+
+["Ruby on Rails", "GitHub", "JavaScript", "TypeScript", "React", "Next.js"].each do |name|
+  Category.create(name: name)
+end
