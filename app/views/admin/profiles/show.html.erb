@@ -8,7 +8,7 @@
         <%= @admin.bio %>
       </p>
       <div class="mt-3">
-        <%= render "layouts/shared/social_links", whatsapp: @admin.whatsapp_number, github: @admin.github, linkedin: @admin.linkedin, facebook: @admin.facebook, instagram: @admin.instagram %>
+        <%= render "layouts/shared/socials", resource: @admin %>
       </div>
     </div>
     <% if policy(@admin).manage? %>
