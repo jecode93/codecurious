@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_15_030617) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_22_051733) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -77,6 +77,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_15_030617) do
     t.index ["slug"], name: "index_admins_on_slug", unique: true
   end
 
+  create_table "article_categories", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_categories_on_article_id"
+    t.index ["category_id"], name: "index_article_categories_on_category_id"
+  end
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -87,6 +96,16 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_15_030617) do
     t.string "status", default: "draft"
     t.index ["author_id"], name: "index_articles_on_author_id"
     t.index ["slug"], name: "index_articles_on_slug", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -102,5 +121,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_15_030617) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "article_categories", "articles"
+  add_foreign_key "article_categories", "categories"
   add_foreign_key "articles", "admins", column: "author_id"
 end
