@@ -19,6 +19,7 @@ class Admin::ProfilesController < Admin::AdminController
     authorize current_admin, :super_admin?
     @admin = Admin.new(set_params)
     if @admin.save
+      AdminMailer.welcome_email(@admin).deliver_later
       redirect_to profiles_path, notice: "Admin was successfully created."
     else
       render :new, status: :unprocessable_entity
