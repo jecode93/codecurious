@@ -1,27 +1,31 @@
 <article>
-  <%= link_to article_path(article), data: { turbo: false } do %>
-    <div class="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden hover:shadow-sm transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+  <div class="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden hover:shadow-sm transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+    <%= link_to article_path(article), data: { turbo: false } do %>
       <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-64" %>
-      <div class="p-4 dark:text-white">
-        <small class="badge">
-          Ruby on Rails
-        </small>
-        <h4 class="h4"><%= article.title %></h4>
-        <p class="p !text-base"><%= truncate(strip_tags(article.content.to_s), length: 100) %></p>
-        <hr class="border-dashed border-gray-200 dark:border-gray-700 my-3">
-        <div class="flex justify-between items-center">
-          <div class="flex items-center">
+    <% end %>
+    <div class="p-4 dark:text-white">
+
+      <!-- Category-->
+      <%= render "layouts/article_category", resource: article %>
+      <!-- End Category-->
+
+      <h4 class="h4"><%= link_to article.title, article, data: { turbo: false } %></h4>
+      <p class="p !text-base"><%= truncate(strip_tags(article.content.to_s), length: 100) %></p>
+      <hr class="border-dashed border-gray-200 dark:border-gray-700 my-3">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center">
+          <%= link_to author_path(article.author) do %>
             <%= render "layouts/shared/profile_picture", resource: article.author, other_classes: "w-6 h-6 mr-3 rounded-full" %>
-            <div class="text-sm">
-              <h6 class="h6 dark:text-white"><%= article.author.name %></h6>
-              <span class="text-gray-500 dark:text-white text-xs"><%= show_date(article) %></span>
-            </div>
+          <% end %>
+          <div class="text-sm">
+            <h6 class="h6 dark:text-white"><%= link_to article.author.name, author_path(article.author) %></h6>
+            <span class="text-gray-500 dark:text-white text-xs"><%= show_date(article) %></span>
           </div>
-          <div>
-            <%= link_to "Read more...", article_path(article), class: "text-primary dark:text-gray-300 hover:text-secondary text-sm" %>
-          </div>
+        </div>
+        <div>
+          <%= link_to "Read more...", article_path(article), data: { turbo: false }, class: "text-primary dark:text-gray-300 hover:text-secondary text-sm" %>
         </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </article>
