@@ -11,6 +11,8 @@ class Admin < ApplicationRecord
   has_many :articles, foreign_key: "author_id", dependent: :destroy
   has_one_attached :profile_picture
 
+  validates :name, presence: true, length: { maximum: 50 }
+
   validates :whatsapp_number, format: {
     with: /\A\+?[0-9]{10,15}\z/,
     message: "should be a valid WhatsApp number (only digits, optionally starting with '+')"
