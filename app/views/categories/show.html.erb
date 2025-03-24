@@ -1,4 +1,17 @@
 <div>
-  <h1 class="font-bold text-4xl">Categories#show</h1>
-  <p>Find me in app/views/categories/show.html.erb</p>
+  <h1 class="font-bold text-4xl container mx-auto"><%= @category.name %></h1>
+  <% content_for :primary_content do %>
+    <div class="space-y-16">
+      <% @category_articles.each do |article| %>
+        <%= render "layouts/article_lists", article: article %>
+      <% end %>
+      <%= render "layouts/shared/pagy" %>
+    </div>
+  <% end %>
+
+  <% content_for :secondary_content do %>
+    <%= render "layouts/shared/services" %>
+  <% end %>
+
+  <%= render 'layouts/shared/basic_layout' %>
 </div>
