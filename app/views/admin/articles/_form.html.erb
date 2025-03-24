@@ -35,6 +35,13 @@
         <%= form.select :status, Article.statuses.keys.map { |status| [status.humanize, status] }, {}, class: "form-input" %>
       </div>
 
+      <div class="my-10">
+        <%= form.label "Categories", class: "form-label" %>
+        <div class="space-x-4">
+          <%= form.collection_checkboxes :category_ids, Category.all, :id, :name, {}, { multiple: true, class: "checkbox" } %>
+        </div>
+      </div>
+
       <!--      Write Content-->
       <div class="my-10 w-full">
         <%= form.label "Write an article", class: "form-label" %>
