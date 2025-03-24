@@ -60,7 +60,7 @@ pre {
 }
 
 .checkbox {
-    @apply h-4 w-4 text-secondary border-third rounded focus:ring-secondary
+    @apply h-3 w-3 text-secondary border-third rounded focus:ring-secondary mr-1
 }
 
 .checkbox-label {
@@ -147,4 +147,11 @@ trix-editor ol, .trix-content ol {
 
 trix-editor a, .trix-content a {
     text-decoration: underline;
+}
+
+trix-editor blockquote, .trix-content blockquote {
+    border: 0 solid #ccc;
+    border-left-width: 0.3em;
+    margin-left: 0.3em;
+    padding-left: 0.6em;
 }
