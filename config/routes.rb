@@ -8,8 +8,7 @@ Rails.application.routes.draw do
     scope module: "admin" do
       root "dashboard#index", as: "admin_dashboard"
       resources :profiles
-      resources :categories
-      resources :articles, as: "admin_articles"
+      resources :categories, as: "admin_categories"
       resources :articles, as: "admin_articles"
     end
   end
@@ -18,9 +17,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   constraints subdomain: /^www$|^$/ do
     root "articles#index" # Main blog homepage
-    resources :categories, only: %i[show]
+    resources :categories, only: %i[show], as: "category", path: "category"
     resources :articles, only: %i[index show]
-    resources :authors, only: %i[show]
+    resources :authors, only: %i[show], path: "author"
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
