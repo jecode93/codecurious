@@ -49,7 +49,7 @@ class Admin::ArticlesController < Admin::AdminController
   end
 
   def article_params
-    params.require(:article).permit(:title, :featured_image, :content, :status)
+    params.require(:article).permit(:title, :featured_image, :content, :status, category_ids: [])
   end
 
   def pundit_user
