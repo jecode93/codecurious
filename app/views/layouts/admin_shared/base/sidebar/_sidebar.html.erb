@@ -50,9 +50,13 @@
 <aside id="logo-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen pt-20 transition-transform -translate-x-full bg-white border-r border-gray-200 sm:translate-x-0 dark:bg-gray-800 dark:border-gray-700" aria-label="Sidebar">
   <div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
     <ul class="space-y-2 font-medium">
+
+      <!-- Dashboard-->
       <%= render "layouts/admin_shared/base/sidebar/sidebar_link",
                  path: admin_dashboard_path, text: "Dashboard",
                  icon: render("layouts/admin_shared/base/icons/dashboard") %>
+
+      <!-- Articles Dropdown-->
       <%= render "layouts/admin_shared/base/sidebar/sidebar_dropdown_link",
                  link_name: "Articles",
                  submenus:
@@ -61,6 +65,18 @@
                      { path: admin_articles_path, text: "View All Articles" }
                    ]
       %>
+
+      <!-- Categories Dropdown-->
+      <%= render "layouts/admin_shared/base/sidebar/sidebar_dropdown_link",
+                 link_name: "Categories",
+                 submenus:
+                   [
+                     { path: new_admin_category_path, text: "Add New Category" },
+                     { path: admin_categories_path, text: "View All Categories" },
+                   ]
+      %>
+
+      <!-- User-->
       <%= render "layouts/admin_shared/base/sidebar/sidebar_link",
                  path: profiles_path, text: "Users",
                  icon: render("layouts/admin_shared/base/icons/author_icon") %>
