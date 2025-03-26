@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_22_051733) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_26_032731) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -104,6 +104,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_22_051733) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "admin_id", null: false
+    t.index ["admin_id"], name: "index_categories_on_admin_id"
     t.index ["name"], name: "index_categories_on_name", unique: true
     t.index ["slug"], name: "index_categories_on_slug", unique: true
   end
@@ -124,4 +126,5 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_22_051733) do
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
   add_foreign_key "articles", "admins", column: "author_id"
+  add_foreign_key "categories", "admins"
 end
