@@ -10,6 +10,7 @@ class Admin < ApplicationRecord
 
   has_many :articles, foreign_key: "author_id", dependent: :destroy
   has_one_attached :profile_picture
+  has_many :categories
 
   validates :name, presence: true, length: { maximum: 50 }
 
