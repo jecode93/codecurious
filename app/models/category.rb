@@ -8,11 +8,13 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  admin_id    :integer          not null
 #
 # Indexes
 #
-#  index_categories_on_name  (name) UNIQUE
-#  index_categories_on_slug  (slug) UNIQUE
+#  index_categories_on_admin_id  (admin_id)
+#  index_categories_on_name      (name) UNIQUE
+#  index_categories_on_slug      (slug) UNIQUE
 #
 
 class Category < ApplicationRecord
@@ -24,6 +26,7 @@ class Category < ApplicationRecord
     slug.blank? || name_changed?
   end
 
+  belongs_to :admin
   has_many :article_categories, dependent: :destroy
   has_many :articles, through: :article_categories
 
