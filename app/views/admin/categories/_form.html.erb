@@ -1,0 +1,38 @@
+<section class="category_form">
+  <div class="lg:py-16">
+
+    <%= form_with model: [:admin, @category] do |form| %>
+
+      <!-- Display errors-->
+      <div class="mb-5">
+        <% if form.object.errors.any? %>
+          <div class="p-4 border border-red-500 bg-red-100 rounded-md">
+            <% form.object.errors.full_messages.each do |message| %>
+              <p class="text-base text-red-600 dark:text-red-500"><%= message %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Category Title-->
+      <div class="my-10">
+        <%= form.label :name, class: "form-label" %>
+        <%= form.text_field :name, class: "form-input", placeholder: "Enter category name", autofocus: true %>
+      </div>
+
+      <!-- Write Description-->
+      <div class="my-10 w-full">
+        <%= form.label :description, class: "form-label" %>
+        <%= form.text_area :description, rows: 5, placeholder: "Write a description for the category...", class: "form-input" %>
+      </div>
+
+      <!-- Submit button-->
+      <div class="space-x-3">
+        <%= form.submit class: "button" %>
+        <% if @category.persisted? %>
+          <%= link_to "Cancel", admin_categories_path, class: "outline-button" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
