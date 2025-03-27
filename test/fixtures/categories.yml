@@ -8,11 +8,13 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  admin_id    :integer          not null
 #
 # Indexes
 #
-#  index_categories_on_name  (name) UNIQUE
-#  index_categories_on_slug  (slug) UNIQUE
+#  index_categories_on_admin_id  (admin_id)
+#  index_categories_on_name      (name) UNIQUE
+#  index_categories_on_slug      (slug) UNIQUE
 #
 
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
