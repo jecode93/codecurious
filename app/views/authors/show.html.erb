@@ -5,10 +5,10 @@
         <%= render "layouts/shared/profile_picture", resource: @author, w: 26, h: 26, other_classes: "w-26 h-26 rounded-full" %>
       </div>
       <div>
-        <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-6xl dark:text-white">
+        <h1 class="page-heading">
           Articles by <%= @author.name %>
         </h1>
-        <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-2xl dark:text-gray-400">
+        <p class="description">
           <%= @author.bio %>
         </p>
       </div>
