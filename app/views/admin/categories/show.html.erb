@@ -1,39 +1,48 @@
-<% content_for :primary_content do %>
-  <div class="container py-20">
-    <% if @category_articles.present? %>
-      <div class="space-y-10">
-        <% @category_articles.each do |article| %>
-          <article class="flex flex-col md:flex-row items-center rounded-md bg-white dark:bg-gray-800">
-            <div class="w-full mx-auto md:w-1/4">
-              <%= link_to article_path(article), data: { turbo: false } do %>
-                <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-48 rounded-t-md md:rounded-s-md md:rounded-e-none" %>
-              <% end %>
-            </div>
-            <div class="space-y-3 w-full px-5 my-5 md:my-0 md:w-3/4">
-              <div class="content">
-                <%= link_to article_path(article), data: { turbo: false } do %>
-                  <h3 class="h3"><%= article.title %></h3>
-                <% end %>
-                <p class="p !text-[18px] !m-0"><%= truncate(strip_tags(article.content.to_s), length: 100) %></p>
-              </div>
-              <div>
-                <%= render "admin/categories/admin_article_category", resource: article %>
-              </div>
-              <div class="flex items-center">
-                <%= link_to profile_path(article.author) do %>
-                  <%= render "layouts/shared/profile_picture", resource: article.author, w: 6, h: 6, other_classes: "w-6 h-6 mr-2 rounded-full" %>
-                <% end %>
-                <p class="p">By <%= link_to article.author.name.titleize, profile_path(article.author), class: "text-primary" %>
-                  • <%= show_date(article) %></p>
-              </div>
-            </div>
-          </article>
-        <% end %>
-    <% else %>
-      <p>No article yet for this category</p>
-      </div>
-    <% end %>
+<% if policy(@category).manage? %>
+  <div class="flex justify-between">
+    <%= link_to "View Categories", admin_categories_path, class: "button" %>
+    <%= link_to "Edit Category", edit_admin_category_path(@category), class: "button" %>
   </div>
 <% end %>
 
-<%= render 'layouts/shared/basic_layout' %>
+<%= render "layouts/admin_shared/base/hr" %>
+
+<div class="mx-auto w-[60%]">
+  <% if @category_articles.present? %>
+    <div class="space-y-10">
+      <% @category_articles.each do |article| %>
+        <article class="flex flex-col md:flex-row items-center rounded-md bg-white dark:bg-gray-800">
+          <div class="w-full mx-auto md:w-1/4">
+            <%= link_to article_path(article), data: { turbo: false } do %>
+              <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-48 rounded-t-md md:rounded-s-md md:rounded-e-none" %>
+            <% end %>
+          </div>
+          <div class="space-y-3 w-full px-5 my-5 md:my-0 md:w-3/4">
+            <div class="content">
+              <%= link_to article_path(article), data: { turbo: false } do %>
+                <h3 class="h3"><%= article.title %></h3>
+              <% end %>
+              <p class="p !text-[18px] !m-0"><%= truncate(strip_tags(article.content.to_s), length: 100) %></p>
+            </div>
+            <div>
+              <%= render "admin/categories/admin_article_category", resource: article %>
+            </div>
+            <div class="flex items-center">
+              <%= link_to profile_path(article.author) do %>
+                <%= render "layouts/shared/profile_picture", resource: article.author, w: 6, h: 6, other_classes: "w-6 h-6 mr-2 rounded-full" %>
+              <% end %>
+              <p class="p">By <%= link_to article.author.name.titleize, profile_path(article.author), class: "text-primary" %>
+                • <%= show_date(article) %></p>
+            </div>
+          </div>
+        </article>
+      <% end %>
+    </div>
+  <% else %>
+    <!--    <p>No article yet for this category</p>-->
+    <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <h5 class="mb-5 text-3xl font-bold text-gray-900 dark:text-white">No article yet for this category?</h5>
+      <%= link_to "Start creating", new_admin_article_path, class: "button" %>
+    </div>
+  <% end %>
+</div>
