@@ -23,9 +23,11 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def edit
+    authorize @category, :manage?
   end
 
   def update
+    authorize @category, :manage?
     if @category.update(category_params)
       redirect_to admin_categories_path, notice: 'Category was successfully updated.'
     else
@@ -34,6 +36,7 @@ class Admin::CategoriesController < Admin::AdminController
   end
 
   def destroy
+    authorize @category, :manage?
     @category.destroy
     redirect_to admin_categories_path, notice: 'Category was successfully destroyed.'
   end
@@ -48,5 +51,9 @@ class Admin::CategoriesController < Admin::AdminController
 
   def category_params
     params.require(:category).permit(:name, :description)
+  end
+
+  def pundit_user
+    current_admin
   end
 end
