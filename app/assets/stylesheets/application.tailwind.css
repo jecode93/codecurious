@@ -115,6 +115,13 @@ pre {
     @apply px-6 py-4 font-semibold text-gray-900 dark:text-white text-[14px]
 }
 
+.page-heading {
+    @apply max-w-3xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white
+}
+
+.description {
+    @apply max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400
+}
 
 /* TRIX EDITOR CSS Overriding tailwind defaults */
 
