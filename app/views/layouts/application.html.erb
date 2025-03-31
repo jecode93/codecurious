@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="description" content="CodeCurious is a blog where a full-stack software engineer shares insights, tutorials, and answers to common programming questions. Learn Ruby on Rails, JavaScript, React, and more through real-world experiences and practical solutions.">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -27,13 +28,13 @@
 
 <body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-900 antialiased">
 <div>
-  <% unless devise_controller? && controller_name == "sessions" && action_name == "new" %>
-    <%= render "layouts/shared/nav" %>
-  <% end %>
+  <%= render "layouts/shared/nav" %>
   <div class="flash">
     <%= render "layouts/shared/flash_messages" %>
   </div>
+  <!--  <div class="xl:px-10 2xl:px-24">-->
   <%= yield %>
+  <!--  </div>-->
   <%= render "layouts/shared/footer" %>
 </div>
 </body>
