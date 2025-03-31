@@ -17,9 +17,12 @@ class Admin::ProfilesController < Admin::AdminController
 
   def create
     authorize current_admin, :super_admin?
-    @admin = Admin.new(set_params)
+
+    generated_password = Devise.friendly_token.first(8)
+    @admin = Admin.new(set_params.merge(password: generated_password))
+
     if @admin.save
-      AdminMailer.welcome_email(@admin).deliver_later
+      AdminMailer.welcome_email(@admin, generated_password).deliver_later
       redirect_to profiles_path, notice: "Admin was successfully created."
     else
       render :new, status: :unprocessable_entity
@@ -40,10 +43,22 @@ class Admin::ProfilesController < Admin::AdminController
       # If a regular admin is trying to change the role, strip it from the params
       @admin.assign_attributes(set_params.except(:role))
 
-      if @admin.save
-        redirect_to profiles_path, notice: "Profile updated successfully."
+      # Handle password update securely
+      if password_params[:password].present? && password_params[:password_confirmation].present?
+        # Check if the current password is correct before updating
+        if @admin.update_with_password(password_params)
+          bypass_sign_in(@admin) # Keep the admin logged in after password change
+          redirect_to profiles_path, notice: "Profile updated successfully, password changed."
+        else
+          render :edit, status: :unprocessable_entity
+        end
       else
-        render :edit, status: :unprocessable_entity
+        # If no password fields, update without changing password
+        if @admin.save
+          redirect_to profiles_path, notice: "Profile updated successfully."
+        else
+          render :edit, status: :unprocessable_entity
+        end
       end
     end
   end
@@ -61,7 +76,11 @@ class Admin::ProfilesController < Admin::AdminController
   end
 
   def set_params
-    params.require(:admin).permit(:email, :password, :name, :bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram, :role)
+    params.require(:admin).permit(:email, :name, :bio, :profile_picture, :website, :whatsapp_number, :github, :linkedin, :facebook, :instagram, :role)
+  end
+
+  def password_params
+    params.require(:admin).permit(:current_password, :password, :password_confirmation)
   end
 
   def pundit_user
