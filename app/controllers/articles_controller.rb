@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @q = Article.ransack(params[:q])
-    @pagy, @articles = pagy(@q.result.includes(:author, :article_categories).published.descending_order)
+    @pagy, @articles = pagy(@q.result.includes(:author, :article_categories).published.descending_order, limit: 18)
 
     # Handle the case when there is no record found
     if @articles.empty?
