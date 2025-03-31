@@ -1,7 +1,7 @@
 <article>
-  <div class="bg-white dark:bg-gray-800 dark:text-white rounded overflow-hidden hover:shadow-sm transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
+  <div class="bg-white dark:bg-gray-800 dark:text-white rounded-lg overflow-hidden hover:shadow-sm transition-shadow duration-300 border border-gray-200 dark:border-gray-700">
     <%= link_to article_path(article), data: { turbo: false } do %>
-      <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-64" %>
+      <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-55" %>
     <% end %>
     <div class="p-4 dark:text-white">
 
