@@ -28,6 +28,22 @@
     <%= f.text_area :bio, cols: "50", rows: "5", class: "form-input" %>
   </div>
 
+  <div class="flex flex-col">
+    <%= f.label "Current Password", class: "form-label" %>
+    <%= f.password_field :current_password, class: "form-input" %>
+    <small>(Required to update password)</small>
+  </div>
+
+  <div class="flex flex-col">
+    <%= f.label "New Password", class: "form-label" %>
+    <%= f.password_field :password, class: "form-input" %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= f.label "Confirm New Password", class: "form-label" %>
+    <%= f.password_field :password_confirmation, class: "form-input" %>
+  </div>
+
   <% if policy(@admin).super_admin? %>
     <div class="flex flex-col">
       <%= f.label :role, class: "form-label" %>
