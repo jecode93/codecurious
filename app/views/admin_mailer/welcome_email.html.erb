@@ -1,11 +1,9 @@
 <h1>Welcome to codecurious.com, <%= @admin.name %></h1>
-<p>
-  You have successfully signed up to codecurious.com,<br>
-</p>
-<p>
-  You can use this email address to connect to your account: <%= @admin.email %>.
-</p>
-<p>
-  To log in to the site, just follow this link: <%= link_to 'Login', @url %>.
-</p>
+<p>Your account has been created successfully.</p>
+<p><strong>Email:</strong> <%= @admin.email %></p>
+<p><strong>Temporary Password:</strong> <%= @password %></p>
+
+<p>Please log in and update your password as soon as possible.</p>
+
+<p><%= link_to 'Login Here', @url %>.</p>
 <p>Thanks for joining and have a great day!</p>
