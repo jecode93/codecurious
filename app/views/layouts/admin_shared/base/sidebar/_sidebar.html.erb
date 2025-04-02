@@ -12,8 +12,9 @@
       </div>
       <div class="flex items-center">
         <div class="flex items-center mx-3">
-          <div>
-            <span class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
+          <div class="flex items-center">
+            <%= render "layouts/dark_mode_toggle" %>
+            <span class="flex text-sm cursor-pointer rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ml-3" aria-expanded="false" data-dropdown-toggle="dropdown-user">
               <span class="sr-only">Open user menu</span>
               <span class="flex justify-center items-center">
                 <p class="description !mb-0 mr-3 !text-sm">Howdy, <%= current_admin.name %></p>
