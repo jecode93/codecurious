@@ -63,6 +63,7 @@
       <!-- Articles Dropdown-->
       <%= render "layouts/admin_shared/base/sidebar/sidebar_dropdown_link",
                  link_name: "Articles",
+                 icon: render("layouts/admin_shared/base/icons/article_menu_icon"),
                  submenus:
                    [
                      { path: new_admin_article_path, text: "Add New Article" },
@@ -73,6 +74,7 @@
       <!-- Categories Dropdown-->
       <%= render "layouts/admin_shared/base/sidebar/sidebar_dropdown_link",
                  link_name: "Categories",
+                 icon: render("layouts/admin_shared/base/icons/category_menu_icon"),
                  submenus:
                    [
                      { path: new_admin_category_path, text: "Add New Category" },
