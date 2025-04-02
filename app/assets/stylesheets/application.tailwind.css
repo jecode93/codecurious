@@ -8,6 +8,7 @@
 @import "tailwindcss";
 
 @tailwind utilities;
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
     --color-primary: #ec3535;
@@ -130,16 +131,16 @@ trix-editor h1, .trix-content h1 {
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 0.5rem;
-    color: light-dark(var(--light-code), var(--dark-code));
+    color: var(--color);
 }
 
 trix-editor strong, .trix-content strong {
-    color: light-dark(var(--light-code), var(--dark-code));
+    color: var(--color);
 }
 
 .trix-content {
     font-size: 1.2rem;
-    color: light-dark(var(--light-color), var(--dark-color));
+    color: var(--color);
 }
 
 trix-editor ul, .trix-content ul {
