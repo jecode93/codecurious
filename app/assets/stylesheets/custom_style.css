@@ -1,12 +1,24 @@
 :root {
-    /* this has to be set to switch between light or dark */
+    /* Enables native dark/light mode support */
     color-scheme: light dark;
 
+    /* Default Light Theme */
+    --bg: var(--light-bg);
+    --color: var(--light-color);
+    --code: var(--light-code);
+
     --light-bg: #f3f4f6;
-    --light-color: #4b5563;
+    --light-color: #111827;
     --light-code: #111827;
 
     --dark-bg: #374151;
     --dark-color: #d1d5db;
     --dark-code: #ffffff;
+}
+
+/* Dark Theme */
+.dark {
+    --bg: var(--dark-bg);
+    --color: var(--dark-color);
+    --code: var(--dark-code);
 }
