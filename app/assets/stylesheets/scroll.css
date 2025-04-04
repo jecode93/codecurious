@@ -1,0 +1,24 @@
+:root {
+    --secondary: #111827;
+    --dark-primary: #ec3535;
+}
+
+/* Scrollbar Styles */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--dark-primary) var(--secondary);
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--dark-primary);
+    border: 3px solid var(--secondary);
+    border-radius: 10px;
+}
