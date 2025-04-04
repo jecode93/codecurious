@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <title><%= content_for(:title) || "Code Curious" %></title>
+  <title>
+    <% if content_for(:title).present? %>
+      <%= "#{content_for(:title)} - CodeCurious" %>
+    <% else %>
+      <%= "CodeCurious" %>
+    <% end %>
+  </title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="title" content="CodeCurious – Practical Guides & Insights for Software Developers">
   <meta name="description" content="CodeCurious is a blog where a full-stack software engineer shares insights, tutorials, and answers to common programming questions. Learn Ruby on Rails, JavaScript, React, and more through real-world experiences and practical solutions.">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
@@ -15,7 +22,6 @@
   <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
   <link rel="icon" href="/icon.png" type="image/png">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/icon.png">
 
   <%# Includes all stylesheet files in app/assets/stylesheets %>
