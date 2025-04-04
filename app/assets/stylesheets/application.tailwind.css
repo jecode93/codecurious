@@ -5,6 +5,7 @@
 @import "./animations.css";
 @import "./flash.css";
 @import "./custom_style.css";
+@import "./scroll.css";
 @import "tailwindcss";
 
 @tailwind utilities;
