@@ -124,6 +124,11 @@ pre {
     @apply max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400
 }
 
+::selection {
+    background: var(--color-primary);
+    color: white;
+}
+
 /* TRIX EDITOR CSS Overriding tailwind defaults */
 
 trix-editor h1, .trix-content h1 {
