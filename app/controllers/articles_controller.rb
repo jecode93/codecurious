@@ -18,6 +18,10 @@ class ArticlesController < ApplicationController
   def show
     @related_articles = Article.published.where.not(id: @article.id).descending_order.limit(4)
     @article.increment!(:read_count)
+
+    set_meta_tags title: @article.title, description: @article.content.to_s, og: {
+      title: :title, description: :description, image: @article.featured_image, url: article_url(@article)
+    }, type: "article"
   end
 
   private
