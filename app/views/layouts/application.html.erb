@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <title>
-    <% if content_for(:title).present? %>
-      <%= "#{content_for(:title)} - CodeCurious" %>
-    <% else %>
-      <%= "CodeCurious" %>
-    <% end %>
-  </title>
+
+  <%= display_meta_tags site: "CodeCurious",
+                        title: "Practical Guides & Insights for Software Developers",
+                        description: "CodeCurious is a blog where a full-stack software engineer shares insights, tutorials, and answers to common programming questions. Learn Ruby on Rails, JavaScript, React, and more through real-world experiences and practical solutions.",
+                        icon: [
+                          { href: "/icon.png" },
+                          { href: "/apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" }],
+                        author: "Jean Emmanuel Cadet", keywords: %w[Ruby Ruby-on-Rails Rails JavaScript React Next.js TypeScript Software-Development Programming Web-Development Backend Frontend Tutorials Code Blog Dev Full-Stack],
+                        image: asset_url("og-image.png"),
+                        og: {
+                          title: :title,
+                          type: "Website",
+                          description: :description,
+                          url: request.original_url,
+                          image: asset_url("og-image.png"),
+                        }
+
+  %>
+
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="title" content="CodeCurious – Practical Guides & Insights for Software Developers">
-  <meta name="description" content="CodeCurious is a blog where a full-stack software engineer shares insights, tutorials, and answers to common programming questions. Learn Ruby on Rails, JavaScript, React, and more through real-world experiences and practical solutions.">
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -21,8 +31,6 @@
   <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
   <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-  <link rel="icon" href="/icon.png" type="image/png">
-  <link rel="apple-touch-icon" href="/icon.png">
 
   <%# Includes all stylesheet files in app/assets/stylesheets %>
   <%#= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
