@@ -25,7 +25,7 @@
   <div class="p-7 w-80 rounded-lg shadow-md bg-[#D9FAE7] dark:bg-gray-800">
     <%= render "layouts/admin_shared/base/icons/read_icon" %>
     <div>
-      <p class="p md:!text-lg font-semibold">Articles read</p>
+      <p class="p md:!text-lg font-semibold">Article reads</p>
       <h3 class="text-xl md:text-4xl dark:text-white font-extrabold mb-3"><%= @total_articles_read %></h3>
     </div>
   </div>
@@ -39,12 +39,18 @@
     </div>
   </div>
 </div>
+<%= render "layouts/admin_shared/base/hr" %>
+
+<div>
+  <h2 class="h2 !text-left">Reads Over the Last 3 Months</h2>
+  <%= line_chart ArticleReadCount.group_by_day(:read_at, range: 3.month.ago..Time.current).count, colors: %w[#ec3535] %>
+</div>
 
 <%= render "layouts/admin_shared/base/hr" %>
 
 <div>
   <div class="flex items-center justify-between mb-5">
-    <h2 class="h2 !text-left">6 most recent articles</h2>
+    <h2 class="h2 !text-left">6 Most Recent Articles</h2>
     <div class="space-x-4">
       <%= link_to "List Articles", admin_articles_path, class: "outline-button" %>
       <%= link_to "New Article", new_admin_article_path, class: "button" %>
