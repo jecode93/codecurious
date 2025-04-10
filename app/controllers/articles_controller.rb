@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show]
+  before_action :set_article, only: [ :show ]
 
   def index
     @q = Article.ransack(params[:q])
@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
 
   def show
     @related_articles = Article.published.where.not(id: @article.id).descending_order.limit(4)
+    @article.article_read_counts.create(read_at: Time.current)
     @article.increment!(:read_count)
 
     set_meta_tags title: @article.title, description: @article.content.to_s, og: {
