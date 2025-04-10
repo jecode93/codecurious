@@ -21,6 +21,7 @@ class Article < ApplicationRecord
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
   has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
+  has_many :article_read_counts, dependent: :destroy
 
   has_one_attached :featured_image
   has_rich_text :content
