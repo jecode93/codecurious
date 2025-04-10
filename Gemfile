@@ -84,3 +84,7 @@ gem "inline_svg", "~> 1.10"
 gem "pundit", "~> 2.4"
 
 gem "meta-tags", "~> 2.22"
+
+gem "chartkick", "~> 5.1"
+
+gem "groupdate", "~> 6.5"
