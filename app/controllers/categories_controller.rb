@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
+  before_action :set_category, only: [ :show ]
 
   def show
     @pagy, @category_articles = pagy(@category.articles.published.descending_order)
