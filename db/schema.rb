@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_26_032731) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_10_014359) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -86,6 +86,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_26_032731) do
     t.index ["category_id"], name: "index_article_categories_on_category_id"
   end
 
+  create_table "article_read_counts", force: :cascade do |t|
+    t.integer "article_id", null: false
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_article_read_counts_on_article_id"
+  end
+
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -125,6 +133,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_26_032731) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "article_categories", "articles"
   add_foreign_key "article_categories", "categories"
+  add_foreign_key "article_read_counts", "articles"
   add_foreign_key "articles", "admins", column: "author_id"
   add_foreign_key "categories", "admins"
 end
