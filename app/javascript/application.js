@@ -4,6 +4,7 @@ import "./controllers"
 
 import "trix"
 import "@rails/actiontext"
+import "chartkick/chart.js"
 
 document.addEventListener("turbo:load", function () {
   var themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
