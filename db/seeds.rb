@@ -34,6 +34,6 @@ puts "Done creating admin user"
 # end
 # puts "Done creating new articles"
 
-["Ruby on Rails", "GitHub", "JavaScript", "TypeScript", "React", "Next.js"].each do |name|
+[ "Ruby on Rails", "GitHub", "JavaScript", "TypeScript", "React", "Next.js" ].each do |name|
   Category.create(name: name, admin_id: Admin.first.id)
 end
