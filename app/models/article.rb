@@ -23,7 +23,7 @@ class Article < ApplicationRecord
   has_many :categories, through: :article_categories
   has_many :article_read_counts, dependent: :destroy
 
-  has_one_attached :featured_image
+  has_one_attached :featured_image, dependent: :destroy
   has_rich_text :content
 
   enum :status, { published: "published", draft: "draft", archived: "archived" }, default: :draft
@@ -45,7 +45,7 @@ class Article < ApplicationRecord
   scope :descending_order, -> { order(created_at: :desc) }
 
   def self.ransackable_attributes(auth_object = nil)
-    [ "title", "slug" ]
+    ["title", "slug"]
   end
 
   def self.ransackable_associations(auth_object = nil)
