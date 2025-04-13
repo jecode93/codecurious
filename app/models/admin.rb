@@ -9,7 +9,7 @@ class Admin < ApplicationRecord
   enum :role, { super_admin: "super_admin", admin: "admin", editor: "editor" }, default: :editor
 
   has_many :articles, foreign_key: "author_id", dependent: :destroy
-  has_one_attached :profile_picture
+  has_one_attached :profile_picture, dependent: :destroy
   has_many :categories
 
   validates :name, presence: true, length: { maximum: 50 }
