@@ -54,7 +54,7 @@ class Admin::ProfilesController < Admin::AdminController
         end
       else
         # If no password fields, update without changing password
-        if @admin.save
+        if @admin.update(set_params.except(:role))
           redirect_to profiles_path, notice: "Profile updated successfully."
         else
           render :edit, status: :unprocessable_entity
