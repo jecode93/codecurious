@@ -1,6 +1,8 @@
 class Admin < ApplicationRecord
   extend FriendlyId
 
+  ADMIN_PROFILE_PICTURE_TYPES = [:png, :webp, :jpeg].freeze
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :trackable,
@@ -13,6 +15,7 @@ class Admin < ApplicationRecord
   has_many :categories
 
   validates :name, presence: true, length: { maximum: 50 }
+  validates :profile_picture, content_type: ADMIN_PROFILE_PICTURE_TYPES, size: { less_than_or_equal_to: 2.megabytes }
 
   validates :whatsapp_number, format: {
     with: /\A\+?[0-9]{10,15}\z/,
