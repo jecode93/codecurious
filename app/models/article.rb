@@ -18,6 +18,8 @@
 class Article < ApplicationRecord
   extend FriendlyId
 
+  ARTICLE_FEATURED_IMAGE_TYPES = [:png, :webp, :jpeg].freeze
+
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
   has_many :article_categories, dependent: :destroy
   has_many :categories, through: :article_categories
@@ -28,13 +30,10 @@ class Article < ApplicationRecord
 
   enum :status, { published: "published", draft: "draft", archived: "archived" }, default: :draft
 
-  scope :published, -> { where(status: "published") }
-  scope :draft, -> { where(status: "draft") }
-  scope :archived, -> { where(status: "archived") }
-
   validates :title, :author, :slug, :content, presence: true
   validates :title, uniqueness: true
   validates :title, length: { maximum: 60, too_long: "%{count} characters is the maximum allowed" }
+  validates :featured_image, content_type: ARTICLE_FEATURED_IMAGE_TYPES, size: { less_than_or_equal_to: 1.megabytes }
 
   friendly_id :title, use: %i[slugged history finders]
 
