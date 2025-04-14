@@ -88,3 +88,5 @@ gem "meta-tags", "~> 2.22"
 gem "chartkick", "~> 5.1"
 
 gem "groupdate", "~> 6.5"
+
+gem "active_storage_validations", "~> 2.0"
