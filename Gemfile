@@ -74,7 +74,7 @@ gem "friendly_id", "~> 5.5"
 gem "annotate", "~> 2.6"
 gem "faker", "~> 3.5"
 
-gem "tailwindcss-ruby", "~> 4.0"
+gem "tailwindcss-ruby", "~> 4.1"
 gem "tailwindcss-rails", "~> 4.0"
 
 gem "font-awesome-sass", "~> 6.7"
