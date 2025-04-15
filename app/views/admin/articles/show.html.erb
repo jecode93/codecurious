@@ -1,0 +1,9 @@
+<% if policy(@article).manage? %>
+  <div>
+    <%= link_to "Edit Article", edit_admin_article_path(@article), class: "button" %>
+  </div>
+<% end %>
+
+<%= render "layouts/admin_shared/base/hr" %>
+
+<%= render 'layouts/show_article_template' %>

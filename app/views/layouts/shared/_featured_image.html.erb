@@ -1,0 +1,7 @@
+<% other_classes = other_classes || "" %>
+
+<% if resource.featured_image.attached? %>
+  <%= image_tag resource.featured_image, class: "object-cover #{other_classes}", alt: resource.title %>
+<% else %>
+  <%= image_tag "placeholder.png", class: "object-cover #{other_classes}", alt: resource.title %>
+<% end %>

@@ -1,5 +1,26 @@
 Rails.application.routes.draw do
+  get "errors/not_found"
+  get "/about", to: "pages#about"
+  get "/contact", to: "pages#contact"
+
+  constraints subdomain: "admin" do
+    devise_for :admins, path: "", path_names: { sign_in: "login", sign_out: "logout" }
+    scope module: "admin" do
+      root "dashboard#index", as: "admin_dashboard"
+      resources :profiles
+      resources :categories, as: "admin_categories"
+      resources :articles, as: "admin_articles"
+    end
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  # Defines the root path route ("/")
+  constraints subdomain: /^www$|^$/ do
+    root "articles#index" # Main blog homepage
+    resources :categories, only: %i[show], as: "category", path: "category"
+    resources :articles, only: %i[index show]
+    resources :authors, only: %i[show], path: "author"
+  end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
@@ -9,6 +30,7 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
-  # Defines the root path route ("/")
-  # root "posts#index"
+  match "*path", to: "errors#not_found", via: :all, constraints: lambda { |req|
+    !req.path.start_with?("/assets", "/rails/active_storage")
+  }
 end

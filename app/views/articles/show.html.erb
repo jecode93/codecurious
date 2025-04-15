@@ -1,0 +1,22 @@
+<% content_for :title, "#{@article.title}" %>
+
+<% content_for :primary_content do %>
+  <%= render 'layouts/show_article_template' %>
+<% end %>
+
+<% content_for :secondary_content do %>
+  <%= render "layouts/shared/services" %>
+<% end %>
+
+<%= render 'layouts/shared/basic_layout' %>
+
+<aside aria-label="Related articles" class="py-8 lg:py-24 bg-gray-50 dark:bg-gray-800">
+  <div class="container px-5 mx-auto xl:px-10 2xl:px-24">
+    <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Related articles</h2>
+    <div class="grid gap-15 sm:grid-cols-2 lg:grid-cols-4">
+      <% @related_articles.each do |related| %>
+        <%= render "articles/related", article: related %>
+      <% end %>
+    </div>
+  </div>
+</aside>

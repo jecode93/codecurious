@@ -1,0 +1,30 @@
+<section class="bg-white dark:bg-gray-800">
+  <div class="text-center lg:text-start container px-4 py-15 lg:py-26 xl:px-10 2xl:px-24 mx-auto" style="background-image: url('<%= asset_path("noise-bg.webp") %>');">
+    <div class="space-y-5">
+      <h1 class="mb-4 text-2xl font-extrabold tracking-tight leading-none md:text-4xl xl:text-6xl dark:text-white">
+        <%= @category.name %> - Articles
+      </h1>
+      <p class="description">
+        Explore articles on software engineering, web development, coding best practices, and more. Find the topics that
+        interest you and keep learning!
+      </p>
+    </div>
+  </div>
+</section>
+
+<div>
+  <% content_for :primary_content do %>
+    <div class="space-y-16">
+      <% @category_articles.each do |article| %>
+        <%= render "layouts/article_lists", article: article %>
+      <% end %>
+      <%= render "layouts/shared/pagy" %>
+    </div>
+  <% end %>
+
+  <% content_for :secondary_content do %>
+    <%= render "layouts/shared/services" %>
+  <% end %>
+
+  <%= render 'layouts/shared/basic_layout' %>
+</div>

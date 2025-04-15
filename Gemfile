@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.1"
+gem "rails", "~> 8.0.2"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
@@ -40,7 +40,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -56,6 +56,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "hotwire-spark", "~> 0.1.12"
+  gem "letter_opener", "~> 1.10"
 end
 
 group :test do
@@ -63,3 +65,28 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "devise", "~> 4.9"
+gem "ransack", "~> 4.2"
+gem "pagy", "~> 9.3"
+gem "dotenv-rails", "~> 3.1"
+gem "friendly_id", "~> 5.5"
+gem "annotate", "~> 2.6"
+gem "faker", "~> 3.5"
+
+gem "tailwindcss-ruby", "~> 4.0"
+gem "tailwindcss-rails", "~> 4.0"
+
+gem "font-awesome-sass", "~> 6.7"
+
+gem "inline_svg", "~> 1.10"
+
+gem "pundit", "~> 2.4"
+
+gem "meta-tags", "~> 2.22"
+
+gem "chartkick", "~> 5.1"
+
+gem "groupdate", "~> 6.5"
+
+gem "active_storage_validations", "~> 2.0"

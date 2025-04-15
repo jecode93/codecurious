@@ -1,0 +1,25 @@
+<article class="flex flex-col md:flex-row items-center rounded-md bg-white dark:bg-gray-800">
+  <div class="w-full mx-auto md:w-1/4">
+    <%= link_to article_path(article), data: { turbo: false } do %>
+      <%= render "layouts/shared/featured_image", resource: article, other_classes: "w-full h-48 rounded-t-md md:rounded-s-md md:rounded-e-none" %>
+    <% end %>
+  </div>
+  <div class="space-y-3 w-full px-5 my-5 md:my-0 md:w-3/4">
+    <div class="content">
+      <%= link_to article_path(article), data: { turbo: false } do %>
+        <h3 class="h3"><%= article.title %></h3>
+      <% end %>
+      <p class="p !text-[18px] !m-0"><%= truncate(strip_tags(article.content.to_s), length: 100) %></p>
+    </div>
+    <div>
+      <%= render "layouts/article_category", resource: article %>
+    </div>
+    <div class="flex items-center">
+      <%= link_to author_path(article.author) do %>
+        <%= render "layouts/shared/profile_picture", resource: article.author, w: 6, h: 6, other_classes: "w-6 h-6 mr-2 rounded-full" %>
+      <% end %>
+      <p class="p">By <%= link_to article.author.name.titleize, author_path(article.author), class: "text-primary" %>
+        • <%= show_date(article) %></p>
+    </div>
+  </div>
+</article>

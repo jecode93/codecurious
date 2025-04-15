@@ -1,0 +1,8 @@
+<div>
+  <div class="flex justify-between items-center">
+    <h1 class="h1 !mb-0">Category</h1>
+    <%= link_to "New Category", new_admin_category_path, class: "button" %>
+  </div>
+  <%= render "layouts/admin_shared/base/hr" %>
+  <%= render "admin/categories/category", categories: @categories %>
+</div>

@@ -1,0 +1,32 @@
+<% content_for :form_wrap do %>
+  <div class="w-full max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg">
+    <h2 class="h2">Sign in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="mb-4">
+        <%= f.label :email, class: "form-label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-input", placeholder: "Enter your email address" %>
+      </div>
+
+      <div class="mb-4">
+        <%= f.label :password, class: "form-label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-input", placeholder: "Enter your password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="mb-4 flex items-center">
+          <%= f.check_box :remember_me, class: "checkbox" %>
+          <%= f.label :remember_me, class: "checkbox-label" %>
+        </div>
+      <% end %>
+
+      <div>
+        <%= f.submit "Sign in", class: "button" %>
+      </div>
+    <% end %>
+
+    <%= render "admins/shared/links" %>
+  </div>
+<% end %>
+
+<%= render "layouts/shared/form_wrap" %>

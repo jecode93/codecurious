@@ -1,0 +1,60 @@
+<div>
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="h1">Dashboard</h2>
+    <%= link_to "New user account", new_profile_path, class: "button" %>
+  </div>
+</div>
+
+<div class="flex space-x-10">
+  <div class="p-7 w-80 rounded-lg shadow-md bg-[#FEEEF1] dark:bg-gray-800">
+    <%= render "layouts/admin_shared/base/icons/article" %>
+    <div>
+      <p class="p md:!text-lg font-semibold">Total articles</p>
+      <h3 class="text-xl md:text-4xl dark:text-white font-extrabold mb-3"><%= @article_count %></h3>
+    </div>
+  </div>
+
+  <div class="p-7 w-80 rounded-lg shadow-md bg-[#FEF2DC] dark:bg-gray-800">
+    <%= render "layouts/admin_shared/base/icons/profile_icon" %>
+    <div>
+      <p class="p md:!text-lg font-semibold">Total authors</p>
+      <h3 class="text-xl md:text-4xl dark:text-white font-extrabold mb-3"><%= @author_count %></h3>
+    </div>
+  </div>
+
+  <div class="p-7 w-80 rounded-lg shadow-md bg-[#D9FAE7] dark:bg-gray-800">
+    <%= render "layouts/admin_shared/base/icons/read_icon" %>
+    <div>
+      <p class="p md:!text-lg font-semibold">Article reads</p>
+      <h3 class="text-xl md:text-4xl dark:text-white font-extrabold mb-3"><%= @total_articles_read %></h3>
+    </div>
+  </div>
+
+  <div class="p-7 w-80 rounded-lg shadow-md bg-[#D4DFFB] dark:bg-gray-800">
+    <%= render "layouts/admin_shared/base/icons/chart_icon" %>
+    <div>
+      <p class="p md:!text-lg font-semibold">Most article read</p>
+      <h3 class="text-xl md:text-4xl dark:text-white font-extrabold mb-3"><%= @highest_read_count %> Times</h3>
+      <p class="p md:!text-[13px]">Article: <%= @most_read_articles.join(", ") %></p>
+    </div>
+  </div>
+</div>
+<%= render "layouts/admin_shared/base/hr" %>
+
+<div>
+  <h2 class="h2 !text-left">Reads Over the Last 3 Months</h2>
+  <%= line_chart ArticleReadCount.group_by_day(:read_at, range: 3.month.ago..Time.current).count, colors: %w[#ec3535] %>
+</div>
+
+<%= render "layouts/admin_shared/base/hr" %>
+
+<div>
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="h2 !text-left">6 Most Recent Articles</h2>
+    <div class="space-x-4">
+      <%= link_to "List Articles", admin_articles_path, class: "outline-button" %>
+      <%= link_to "New Article", new_admin_article_path, class: "button" %>
+    </div>
+  </div>
+  <%= render "admin/articles/article", articles: @articles %>
+</div>
