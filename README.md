@@ -42,18 +42,30 @@ To get a local copy up and running, you can follow these simple example steps:
 
 ### Usage
 
-To run the project, if exists, copy the `.env.example` file to a `.env` file that you create and fill in the necessary
+To run the project, if it exists, copy the `.env.example` file to a `.env` file that you create and fill in the necessary
 values, after that run the following command:
 
 ```sh
   bin/setup
 ```
 
+Then run
+
+```sh
+  bin/dev
+```
+
 And navigate to the provided URL (Don't forget to verify your port)
 
 ```sh
-  Example: http://localhost:3000
+  Users
+    - http://lvh.me:3000
+
+  Admin Dashboard
+    - http://admin.lvh.me:3000
 ```
+
+**Notice:** You have to create an admin account to access the admin dashboard – you can use the `rails console` command to do that
 
 ### Deployment
 
