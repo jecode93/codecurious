@@ -79,7 +79,7 @@ gem "tailwindcss-rails", "~> 4.0"
 
 gem "font-awesome-sass", "~> 6.7"
 
-gem "pundit", "~> 2.4"
+gem "pundit", "~> 2.5"
 
 gem "meta-tags", "~> 2.22"
 
