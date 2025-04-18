@@ -15,15 +15,6 @@ trix-toolbar * {
   box-sizing: border-box;
 }
 
-trix-toolbar {
-  position: sticky;
-  top: 65px;
-  z-index: 50;
-  border-radius: 8px;
-  padding: 20px 10px 10px 10px;;
-  background: var(--color);
-}
-
 trix-toolbar .trix-button-row {
   display: flex;
   flex-wrap: nowrap;
