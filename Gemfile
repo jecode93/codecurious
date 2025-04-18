@@ -88,3 +88,5 @@ gem "chartkick", "~> 5.1"
 gem "groupdate", "~> 6.5"
 
 gem "active_storage_validations", "~> 2.0"
+
+gem "inline_svg", "~> 1.10"
