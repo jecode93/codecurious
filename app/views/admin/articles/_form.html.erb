@@ -17,7 +17,7 @@
       <!--      Article Title-->
       <div class="my-10">
         <%= form.label :title, class: "form-label" %>
-        <%= form.text_field :title, class: "form-input", placeholder: "Enter article title", autofocus: true %>
+        <%= form.text_field :title, class: "form-input", required: true, placeholder: "Enter article title", autofocus: true %>
       </div>
 
       <!--      File Upload-->
@@ -47,7 +47,7 @@
       <!--      Write Content-->
       <div class="my-10 w-full">
         <%= form.label "Write an article", class: "form-label" %>
-        <%= form.rich_text_area :content, placeholder: "Write an article...", class: "form-textarea" %>
+        <%= form.rich_text_area :content, required: true, placeholder: "Write an article...", class: "form-textarea" %>
       </div>
 
       <!--      Submit button-->
