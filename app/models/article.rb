@@ -48,6 +48,6 @@ class Article < ApplicationRecord
   end
 
   def self.ransackable_associations(auth_object = nil)
-    []
+    ["categories"]
   end
 end
