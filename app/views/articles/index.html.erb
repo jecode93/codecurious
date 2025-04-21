@@ -1,10 +1,14 @@
 <%= render "hero" %>
 
-<div class="bg-gray-100 dark:bg-gray-900">
-  <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 py-18 px-4 xl:px-10 2xl:px-24">
-    <% @articles.each do |article| %>
-      <%= render article %>
-    <% end %>
+<% if @articles.any? %>
+  <div class="bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10 py-18 px-4 xl:px-10 2xl:px-24">
+      <% @articles.each do |article| %>
+        <%= render article %>
+      <% end %>
+    </div>
+    <%= render "layouts/shared/pagy" %>
   </div>
-  <%= render "layouts/shared/pagy" %>
-</div>
+<% else %>
+  <%= render "articles/no_articles" %>
+<% end %>
