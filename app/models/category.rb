@@ -31,4 +31,8 @@ class Category < ApplicationRecord
   has_many :articles, through: :article_categories
 
   validates :name, :slug, presence: true, uniqueness: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["name"]
+  end
 end
