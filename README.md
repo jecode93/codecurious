@@ -1,3 +1,11 @@
+# Notice
+
+> ⚠️ This repository is provided for personal reference and inspiration only.  
+> Forking, copying, redistributing, or reusing any part of this code is **strictly prohibited** without explicit written
+> permission from the author.
+
+© Jean Emmanuel Cadet – All Rights Reserved.
+
 # Codecurious
 
 ## Answers to My Coding Curiosities
@@ -42,7 +50,8 @@ To get a local copy up and running, you can follow these simple example steps:
 
 ### Usage
 
-To run the project, if it exists, copy the `.env.example` file to a `.env` file that you create and fill in the necessary
+To run the project, if it exists, copy the `.env.example` file to a `.env` file that you create and fill in the
+necessary
 values, after that run the following command:
 
 ```sh
@@ -65,7 +74,8 @@ And navigate to the provided URL (Don't forget to verify your port)
     - http://admin.lvh.me:3000
 ```
 
-**Notice:** You have to create an admin account to access the admin dashboard – you can use the `rails console` command to do that
+**Notice:** You have to create an admin account to access the admin dashboard – you can use the `rails console` command
+to do that.
 
 ### Deployment
 
@@ -98,4 +108,6 @@ Give a ⭐️ if you like this project!
 
 ### 📝 License
 
-This project is [MIT](./LICENSE) licensed.
+This project is not open source and is provided under a custom license.
+All rights are reserved by the author.
+See the [LICENSE](./LICENSE) file for details.
