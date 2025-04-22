@@ -13,7 +13,7 @@
       <!-- Handle search for an article -->
       <div class="w-[90%] lg:w-2/3 my-10 mx-auto lg:mx-0 dark:text-white">
         <%= search_form_for @q, url: root_path, html: { class: "flex space-x-2", role: "search" } do |f| %>
-          <%= f.search_field :title_or_slug_cont, class: "flex-1 p-2 border border-third rounded-md focus:ring focus:ring-blue-300", placeholder: "Ex: Ruby on Rails, Github, Docker", aria: { label: "Search" } %>
+          <%= f.search_field :title_or_slug_or_categories_name_cont, class: "flex-1 p-2 border border-third rounded-md focus:ring focus:ring-blue-300", placeholder: "Ex: Ruby on Rails, Github, Docker", aria: { label: "Search" } %>
           <%= f.submit "Search", class: "outline-button" %>
         <% end %>
       </div>
