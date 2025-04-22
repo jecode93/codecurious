@@ -27,8 +27,8 @@ To get a local copy up and running, you can follow these simple example steps:
 
 ### ✅ Prerequisites
 
-- Visual Studio Code must be installed on your computer | Download Visual Studio
-  Code [VSCode](https://code.visualstudio.com/)
+- Visual Studio Code must be installed on your computer. | Download [Visual Studio
+  Code](https://code.visualstudio.com/)
 - Git must be installed on your computer | Download [Git](https://git-scm.com/downloads)
 - Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 - Install [Ruby on Rails](https://guides.rubyonrails.org/install_ruby_on_rails.html)
@@ -115,6 +115,8 @@ You can deploy this project using:
 ### 🔭 Future Features <a name="future-features"></a>
 
 - [ ] Real-Time Interactions with Turbo (Coming soon)
+- [ ] Newsletter System
+- [ ] Searchable Q&A posts
 
 ### 🛡 Custom License
 
