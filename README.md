@@ -1,31 +1,31 @@
-# Notice
+# 🧠 CodeCurious – A Personal Coding Journal
 
-> ⚠️ This repository is provided for personal reference and inspiration only.  
-> Forking, copying, redistributing, or reusing any part of this code is **strictly prohibited** without explicit written
-> permission from the author.
-
-© Jean Emmanuel Cadet – All Rights Reserved.
-
-# Codecurious
-
-## Answers to My Coding Curiosities
+**Answers to My Coding Curiosities**
 
 Welcome to my personal coding journal!
 Here, I share answers to the questions I’ve faced on my coding journey. It’s my way of keeping track of lessons learned,
 and I hope it becomes a helpful guide for beginners and curious coders alike.
 
-### Built With
+## 🔒 Notice
+
+> ⚠️ This project is shared for personal reference and inspiration only.  
+> Copying, redistributing, or reusing any part of this codebase is **strictly prohibited** without the author's written
+> permission.
+
+© Jean Emmanuel Cadet — All rights reserved.
+
+### 🖥️ Built With
 
 - Ruby on Rails
 - Hotwire (Turbo + Stimulus)
 - SQLite
 - Tailwind CSS
 
-### Getting Started
+### 📚 Getting Started
 
 To get a local copy up and running, you can follow these simple example steps:
 
-### Prerequisites
+### ✅ Prerequisites
 
 - Visual Studio Code must be installed on your computer | Download Visual Studio
   Code [VSCode](https://code.visualstudio.com/)
@@ -33,7 +33,7 @@ To get a local copy up and running, you can follow these simple example steps:
 - Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 - Install [Ruby on Rails](https://guides.rubyonrails.org/install_ruby_on_rails.html)
 
-### Setup
+### 💻 Setup
 
 - Clone the repository using
 
@@ -48,7 +48,15 @@ To get a local copy up and running, you can follow these simple example steps:
   bundle install
 ```
 
-### Usage
+### ✨ Features
+
+- Blog-style journal to share code-related answers
+- Categorization and filtering by topic
+- Admin dashboard for post and user management
+- Real-time interactions with Turbo
+- Custom domain support (`lvh.me`)
+
+### 👨‍💻 Usage
 
 To run the project, if it exists, copy the `.env.example` file to a `.env` file that you create and fill in the
 necessary
@@ -66,18 +74,26 @@ Then run
 
 And navigate to the provided URL (Don't forget to verify your port)
 
+**To create an admin account:**  
+Run `rails console` and enter:
+
+```ruby
+Admin.create!(email: 'admin@example.com', password: 'securepassword')
+```
+
+Then visit http://admin.lvh.me:3000 and log in.
+
+**Important:**
+
 ```sh
-  Users
+  Public link
     - http://lvh.me:3000
 
   Admin Dashboard
     - http://admin.lvh.me:3000
 ```
 
-**Notice:** You have to create an admin account to access the admin dashboard – you can use the `rails console` command
-to do that.
-
-### Deployment
+### 🚀 Deployment
 
 You can deploy this project using:
 
@@ -96,17 +112,11 @@ You can deploy this project using:
 - Instagram: [@jecode93](https://instagram.com/jecode93)
 - Twitter: [@jecode93](https://twitter.com/jecode93)
 
-### 🤝 Contributing
+### 🔭 Future Features <a name="future-features"></a>
 
-Contributions, issues, and feature requests are welcome!
+- [ ] Real-Time Interactions with Turbo (Coming soon)
 
-Feel free to check the [issues page](../../issues/).
-
-### Show your support
-
-Give a ⭐️ if you like this project!
-
-### 📝 License
+### 🛡 Custom License
 
 This project is not open source and is provided under a custom license.
 All rights are reserved by the author.
