@@ -28,9 +28,9 @@ To get a local copy up and running, you can follow these simple example steps:
 ### ✅ Prerequisites
 
 - Visual Studio Code must be installed on your computer. | Download [Visual Studio
-  Code](https://code.visualstudio.com/)
+  Code](https://code.visualstudio.com)
 - Git must be installed on your computer | Download [Git](https://git-scm.com/downloads)
-- Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+- Install [Ruby](https://www.ruby-lang.org/en/documentation/installation)
 - Install [Ruby on Rails](https://guides.rubyonrails.org/install_ruby_on_rails.html)
 
 ### 💻 Setup
@@ -97,29 +97,29 @@ Then visit http://admin.lvh.me:3000 and log in.
 
 You can deploy this project using:
 
-- [Digital Ocean](https://www.digitalocean.com/)
-- [Fly.io](https://fly.io/)
-- [Heroku](https://www.heroku.com/)
-- [Render](https://render.com/)
+- [Digital Ocean](https://www.digitalocean.com)
+- [Fly.io](https://fly.io)
+- [Heroku](https://www.heroku.com)
+- [Render](https://render.com)
 
 ### Authors
 
 👤 **Jean Emmanuel Cadet**
 
 - GitHub: [@jecode93](https://github.com/jecode93)
-- LinkedIn: [jean-emmanuel-cadet](https://www.linkedin.com/in/jean-emmanuel-cadet/)
-- Facebook: [@jecode93](https://www.facebook.com/jecode93)
+- LinkedIn: [jean-emmanuel-cadet](https://linkedin.com/in/jean-emmanuel-cadet)
+- Facebook: [@jecode93](https://facebook.com/jecode93)
 - Instagram: [@jecode93](https://instagram.com/jecode93)
 - Twitter: [@jecode93](https://twitter.com/jecode93)
 
 ### 🔭 Future Features <a name="future-features"></a>
 
-- [ ] Real-Time Interactions with Turbo (Coming soon)
+- [ ] Real-Time Interactions with Turbo
 - [ ] Newsletter System
 - [ ] Searchable Q&A posts
 
 ### 🛡 Custom License
 
 This project is not open source and is provided under a custom license.
-All rights are reserved by the author.
-See the [LICENSE](./LICENSE) file for details.
+The author reserves all rights.
+Please take a look at the [LICENSE](./LICENSE) file for details.
