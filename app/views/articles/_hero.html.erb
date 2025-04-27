@@ -3,7 +3,7 @@
     <div class="mr-auto place-self-center lg:col-span-7">
       <% hero_text.each do |hero| %>
         <h1 class="page-heading">
-          <%= hero[:title].gsub('Coding', '<span class="text-primary">Coding</span>').html_safe %>
+          <%= highlight_keywords(hero[:title], ["Coding"]) %>
         </h1>
         <p class="description">
           <%= hero[:description] %>
