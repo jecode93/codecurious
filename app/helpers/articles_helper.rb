@@ -7,17 +7,13 @@ module ArticlesHelper
   ]
 
   def links = [
-    # {
-    #   title: "Home",
-    #   link: root_path
-    # },
     {
       title: "About",
-      link: "/about"
+      link: about_path
     },
     {
       title: "Contact",
-      link: "/contact"
+      link: contact_path
     }
   ]
 
