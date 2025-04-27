@@ -16,4 +16,12 @@ module ApplicationHelper
     when "Archived" then "bg-gray-600"
     end
   end
+
+  def highlight_keywords(text, keywords, css_class: "text-primary")
+    keywords.reduce(text) do |result, keyword|
+      result.gsub(/(#{Regexp.escape(keyword)})/i) do |match|
+        "<span class=\"#{css_class}\">#{match}</span>"
+      end
+    end.html_safe
+  end
 end
