@@ -94,11 +94,11 @@ pre {
 }
 
 .p {
-  @apply text-gray-900 dark:text-gray-400 text-sm md:text-base my-3
+  @apply text-gray-700 dark:text-gray-300 text-sm md:text-base my-3
 }
 
 .hero-p {
-  @apply text-gray-600 dark:text-white text-sm my-3 md:text-lg
+  @apply text-gray-700 dark:text-white text-sm my-3 md:text-lg
 }
 
 .badge {
