@@ -1,0 +1,41 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md min-h-[900]">
+    <% contact_page.each do |contact| %>
+      <div class="text-center mb-10">
+        <h1 class="h1"><%= contact[:title] %></h1>
+        <p class="p"><%= contact[:description] %></p>
+      </div>
+    <% end %>
+    <%= form_with model: @contact do |form| %>
+      <% if @contact.errors.any? %>
+        <div class="mb-5 p-3 bg-red-200 rounded">
+          <div id="error_explanation">
+            <h4 class="h4 !text-red-500"><%= pluralize(@contact.errors.count, "error") %> errors prohibited this message
+              from being
+              sent:</h4>
+            <ul>
+              <% @contact.errors.full_messages.each do |message| %>
+                <li class="text-red-400">— <%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+      <div class="mb-3">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-input", required: true %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :subject, class: "form-label" %>
+        <%= form.text_field :subject, class: "form-input", required: true %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :message, class: "form-label" %>
+        <%= form.textarea :message, rows: 6, class: "form-input", required: true %>
+      </div>
+      <div class="mb-3">
+        <%= form.submit "Send Message", class: "button" %>
+      </div>
+    <% end %>
+  </div>
+</section>
