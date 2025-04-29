@@ -13,7 +13,7 @@ module ArticlesHelper
     },
     {
       title: "Contact",
-      link: contact_path
+      link: new_contact_path
     }
   ]
 
