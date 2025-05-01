@@ -1,24 +1,23 @@
 .flash {
-    position: fixed;
-    top: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem; /* Example value for --space-s */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* Example value for --space-s */
 
-    max-width: 100%;
-    width: max-content;
-    padding: 0 1rem; /* Example value for --space-m */
+  max-width: 100%;
+  width: max-content;
+  padding: 0 1rem; /* Example value for --space-m */
 }
 
 .flash__message {
-    font-size: 0.875rem; /* Example value for --font-size-s */
-    color: rgba(0, 0, 255, 0.5); /* Example value for --color-white */
-    padding: 0.25rem 1rem; /* Example values for --space-xs and --space-m */
-    background-color: #fff; /* Example value for --color-dark */
-    animation: appear-then-fade 5s both;
-    border-radius: 10px;
+  font-size: 0.875rem; /* Example value for --font-size-s */
+  color: rgba(0, 0, 255, 0.5); /* Example value for --color-white */
+  background-color: #fff; /* Example value for --color-dark */
+  animation: appear-then-fade 5s both;
+  border-radius: 10px;
 }

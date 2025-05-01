@@ -50,8 +50,8 @@ module ArticlesHelper
 
   def tailwind_class_for(flash_type)
     case flash_type
-    when "notice" then "bg-green-100 text-green-800"
-    when "alert" then "bg-red-100 text-red-800"
+    when "notice" then "bg-green-50 text-green-900 shadow rounded"
+    when "alert" then "bg-red-50 text-red-900 shadow rounded"
     end
   end
 
