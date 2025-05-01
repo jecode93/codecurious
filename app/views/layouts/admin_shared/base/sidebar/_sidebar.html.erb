@@ -17,7 +17,9 @@
             <span class="flex text-sm cursor-pointer rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 ml-3" aria-expanded="false" data-dropdown-toggle="dropdown-user">
               <span class="sr-only">Open user menu</span>
               <span class="flex justify-center items-center">
-                <p class="description !mb-0 mr-3 !text-sm">Howdy, <%= current_admin.name %></p>
+                <div class="hidden md:block">
+                  <p class="description !mb-0 mr-3 !text-sm">Howdy, <%= current_admin.name %></p>
+                </div>
                 <%= render "layouts/shared/profile_picture", resource: current_admin, other_classes: "w-10 h-10 rounded-full cursor-pointer" %>
               </span>
             </span>
