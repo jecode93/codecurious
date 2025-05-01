@@ -33,7 +33,7 @@ class Article < ApplicationRecord
   validates :title, :author, :slug, :content, presence: true
   validates :title, uniqueness: true
   validates :title, length: { maximum: 60, too_long: "%{count} characters is the maximum allowed" }
-  validates :featured_image, content_type: ARTICLE_FEATURED_IMAGE_TYPES, size: { less_than_or_equal_to: 1.megabytes }
+  validates :featured_image, content_type: ARTICLE_FEATURED_IMAGE_TYPES, size: { less_than_or_equal_to: 500.kilobyte }
 
   friendly_id :title, use: %i[slugged history finders]
 

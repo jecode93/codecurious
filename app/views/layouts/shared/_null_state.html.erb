@@ -1,0 +1,8 @@
+<% resource_path = resource_path || "" %>
+
+<div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+  <h5 class="mb-5 text-3xl font-bold text-gray-900 dark:text-white">No <%= resource_name %> yet!</h5>
+  <% if resource_path.present? %>
+    <%= link_to "Start creating", resource_path, class: "button" %>
+  <% end %>
+</div>

@@ -85,9 +85,6 @@
     </div>
   </section>
 <% else %>
-  <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-gray-800 dark:border-gray-700">
-    <h5 class="mb-5 text-3xl font-bold text-gray-900 dark:text-white">No category yet?</h5>
-    <%= link_to "New Category", new_admin_category_path, class: "button" %>
-  </div>
+  <%= render "layouts/shared/null_state", resource_name: "category", resource_path: new_admin_category_path %>
 <% end %>
 <!-- End Current Admin Category Table-->
