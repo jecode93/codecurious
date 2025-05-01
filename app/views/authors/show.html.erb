@@ -1,0 +1,35 @@
+<section class="bg-white dark:bg-gray-800">
+  <div class="text-center lg:text-start container px-4 py-15 lg:py-26 xl:px-10 2xl:px-24 mx-auto" style="background-image: url('<%= asset_path("noise-bg.webp") %>');">
+    <div class="space-y-5">
+      <div class="flex justify-center lg:block">
+        <%= render "layouts/shared/profile_picture", resource: @author, w: 26, h: 26, other_classes: "w-26 h-26 rounded-full" %>
+      </div>
+      <div>
+        <h1 class="page-heading">
+          Articles by <%= @author.name %>
+        </h1>
+        <p class="description">
+          <%= @author.bio %>
+        </p>
+      </div>
+      <div class="flex justify-center lg:block">
+        <%= render "layouts/shared/socials", resource: @author %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% content_for :primary_content do %>
+  <div class="space-y-16">
+    <% @articles.each do |article| %>
+      <%= render "layouts/article_lists", article: article %>
+    <% end %>
+    <%= render "layouts/shared/pagy" %>
+  </div>
+<% end %>
+
+<% content_for :secondary_content do %>
+  <%= render "layouts/shared/services" %>
+<% end %>
+
+<%= render 'layouts/shared/basic_layout' %>

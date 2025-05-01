@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+
+  <%= display_meta_tags site: "CodeCurious",
+                        title: "Practical Guides & Insights for Software Developers",
+                        description: "CodeCurious is a blog where a full-stack software engineer shares insights, tutorials, and answers to common programming questions. Learn Ruby on Rails, JavaScript, React, and more through real-world experiences and practical solutions.",
+                        icon: [
+                          { href: "/icon.png" },
+                          { href: "/apple-touch-icon.png", rel: "apple-touch-icon", sizes: "180x180" }],
+                        author: "Jean Emmanuel Cadet", keywords: %w[Ruby Ruby-on-Rails Rails JavaScript React Next.js TypeScript Software-Development Programming Web-Development Backend Frontend Tutorials Code Blog Dev Full-Stack],
+                        image: asset_url("og-image.png"),
+                        og: {
+                          title: :title,
+                          type: "Website",
+                          description: :description,
+                          url: request.original_url,
+                          image: asset_url("og-image.png"),
+                        }
+
+  %>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= yield :head %>
+
+  <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+  <%= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+
+  <%# Includes all stylesheet files in app/assets/stylesheets %>
+  <%#= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.turbo.min.js"></script>
+
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  </script>
+</head>
+
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white text-gray-900 antialiased tracking-wider">
+<div>
+  <%= render "layouts/shared/nav" %>
+  <div class="flash">
+    <%= render "layouts/shared/flash_messages" %>
+  </div>
+  <%= yield %>
+  <%= render "layouts/shared/footer" %>
+</div>
+</body>
+</html>

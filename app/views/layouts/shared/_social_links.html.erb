@@ -1,0 +1,39 @@
+<div class="flex items-center space-x-4">
+  <% if whatsapp.present? || github.present? || linkedin.present? || facebook.present? || instagram.present? %>
+    <p class="text-lg font-bold text-gray-900 dark:text-white">
+      Let's connect on:
+    </p>
+  <% end %>
+
+  <div class="flex gap-3">
+    <% if github.present? %>
+      <a href="https://github.com/<%= github %>" target="_blank">
+        <%= inline_svg_tag "icons/github.svg", size: "20px*20px", class: 'text-primary hover:text-fourth w-6' %>
+      </a>
+    <% end %>
+
+    <% if whatsapp.present? %>
+      <a href="https://wa.me/<%= whatsapp %>" target="_blank">
+        <%= inline_svg_tag "icons/whatsapp.svg", size: "20px*20px", class: 'text-primary hover:text-green-600 w-6' %>
+      </a>
+    <% end %>
+
+    <% if linkedin.present? %>
+      <a href="https://linkedin.com/in/<%= linkedin %>" target="_blank">
+        <%= inline_svg_tag "icons/linkedin.svg", size: "20px*20px", class: 'text-primary hover:text-blue-700 w-6' %>
+      </a>
+    <% end %>
+
+    <% if facebook.present? %>
+      <a href="https://facebook.com/<%= facebook %>" target="_blank">
+        <%= inline_svg_tag "icons/facebook.svg", size: "20px*20px", class: 'text-primary hover:text-blue-700 w-6' %>
+      </a>
+    <% end %>
+
+    <% if instagram.present? %>
+      <a href="https://instagram.com/<%= instagram %>" target="_blank">
+        <%= inline_svg_tag "icons/instagram.svg", size: "20px*20px", class: 'text-primary hover:text-pink-600 w-6' %>
+      </a>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<main class="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-white dark:bg-gray-900 antialiased">
+  <div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
+    <div class="mx-auto w-full max-w-3xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert text-center space-y-10">
+      <% about_page.each do |text| %>
+        <h1 class="h1 !my-10"><%= text[:title] %></h1>
+        <% text[:contents].each do |content| %>
+          <div>
+            <h2 class="h2 !mb-3"><%= content[:title] %></h2>
+            <p class="p tracking-wider"><%= content[:description] %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</main>

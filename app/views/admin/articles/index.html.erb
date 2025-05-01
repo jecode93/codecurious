@@ -1,0 +1,6 @@
+<div class="flex justify-between items-center">
+  <h1 class="h1 !mb-0">Articles</h1>
+  <%= link_to "New Article", new_admin_article_path, class: "button" %>
+</div>
+
+<%= render "layouts/admin_shared/articles_tab", resources: @articles.published, draft_resources: @articles.draft, archived_resources: @articles.archived %>

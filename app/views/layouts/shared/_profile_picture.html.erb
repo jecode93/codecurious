@@ -1,0 +1,11 @@
+<% other_classes = other_classes || "" %>
+
+<% if resource.persisted? && resource.profile_picture.attached? %>
+  <% begin %>
+    <%= image_tag resource.profile_picture.variant(resize_to_limit: [300, 300]), class: "#{other_classes}", alt: resource.name %>
+  <% rescue => e %>
+    <%= image_tag "user.jpg", class: "#{other_classes}" %>
+  <% end %>
+<% else %>
+  <%= image_tag "user.jpg", class: "#{other_classes}" %>
+<% end %>
