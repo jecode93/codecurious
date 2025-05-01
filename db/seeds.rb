@@ -13,6 +13,7 @@ admin = Admin.where(email: Rails.application.credentials.dig(:admin, :email)).fi
 admin.update!(
   password: Rails.application.credentials.dig(:admin, :password),
   password_confirmation: Rails.application.credentials.dig(:admin, :password),
+  role: Rails.application.credentials.dig(:admin, :role),
   name: "Jean Emmanuel Cadet",
   bio: "I specialize in designing, building, and deploying innovative software solutions for businesses."
 )
