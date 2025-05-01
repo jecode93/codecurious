@@ -14,12 +14,16 @@
 
 <div>
   <% content_for :primary_content do %>
-    <div class="space-y-16">
-      <% @category_articles.each do |article| %>
-        <%= render "layouts/article_lists", article: article %>
-      <% end %>
-      <%= render "layouts/shared/pagy" %>
-    </div>
+    <% if @category_articles.present? %>
+      <div class="space-y-16">
+        <% @category_articles.each do |article| %>
+          <%= render "layouts/article_lists", article: article %>
+        <% end %>
+        <%= render "layouts/shared/pagy" %>
+      </div>
+    <% else %>
+      <%= render "layouts/shared/null_state", resource_name: "article" %>
+    <% end %>
   <% end %>
 
   <% content_for :secondary_content do %>
