@@ -7,7 +7,7 @@ class Admin::ProfilesController < Admin::AdminController
 
   def show
     @articles = Article.includes(:author).descending_order
-    @pagy, @admin_articles = pagy(@articles.where(author_id: @admin.id), limit: 10)
+    @pagy, @admin_articles = pagy(@articles.where(author_id: @admin.id), limit: 15)
   end
 
   def new
