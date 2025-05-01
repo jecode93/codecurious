@@ -5,8 +5,8 @@ class ArticlesController < ApplicationController
     @q = Article.ransack(params[:q])
     @pagy, @articles = pagy(@q.result(distinct: true).includes(:author, :article_categories).published.descending_order, limit: 18)
 
-    # Handle the case when there is no record found
-    if @articles.empty?
+    # Only redirect if this was a search AND there are no results
+    if @articles.empty? && params[:q].present?
       flash[:alert] = "No article found for your search criteria."
       redirect_to root_path
     end
