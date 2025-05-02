@@ -20,8 +20,9 @@ class ArticlesController < ApplicationController
     @article.article_read_counts.create(read_at: Time.current)
     @article.increment!(:read_count)
 
+    image_url = @article.featured_image.attached? ? url_for(@article.featured_image) : nil
     set_meta_tags title: @article.title, description: @article.content.to_s, og: {
-      title: :title, description: :description, image: @article.featured_image, url: article_url(@article)
+      title: :title, description: :description, image: image_url, url: article_url(@article)
     }, type: "article"
   end
 
