@@ -6,11 +6,11 @@
 
         <!-- Address section-->
         <address class="flex items-center mb-6 not-italic">
-          <div class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+          <div class="flex flex-col md:flex-row md:items-center mr-3 text-sm text-gray-900 dark:text-white">
 
             <!-- Author profile picture-->
             <%= link_to author_path(@article.author) do %>
-              <%= render "layouts/shared/profile_picture", resource: @article.author, other_classes: "w-16 h-16 mr-5 rounded-full" %>
+              <%= render "layouts/shared/profile_picture", resource: @article.author, other_classes: "w-16 h-16 mr-5 rounded-full mb-3" %>
             <% end %>
             <!-- End author profile picture-->
 
