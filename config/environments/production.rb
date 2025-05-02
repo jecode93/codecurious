@@ -88,7 +88,7 @@ Rails.application.configure do
   config.hosts = [
     "codecurious.dev", # Allow requests from example.com
     "admin.codecurious.dev",
-  # /.*\.codecurious\.dev/ # Allow requests from subdomains like `www.example.com`
+    "www.codecurious.dev" # Allow requests from subdomains like `www.example.com`
   ]
   #
   # Skip DNS rebinding protection for the default health check endpoint.
