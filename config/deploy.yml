@@ -21,6 +21,7 @@ proxy:
   ssl: true
   hosts:
     - codecurious.dev
+    - www.codecurious.dev
     - admin.codecurious.dev
 
 # Credentials for your image host.
