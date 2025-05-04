@@ -6,14 +6,14 @@ module ArticlesHelper
     }
   ]
 
-  def links = [
+  def menu_links = [
     {
-      title: "About",
-      link: about_path
+      item: "About",
+      path: about_path
     },
     {
-      title: "Contact",
-      link: new_contact_path
+      item: "Contact",
+      path: new_contact_path
     }
   ]
 
