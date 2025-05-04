@@ -20,7 +20,8 @@
               <p class="text-base text-gray-500 dark:text-gray-400"><%= @article.author.bio %></p>
               <p class="text-sm text-gray-500 dark:text-gray-400">
                 <%= reading_time(@article.content) %> read •
-                <time pubdate datetime="<%= show_date(@article) %>" title="<%= show_date(@article) %>"><%= show_date(@article) %></time>
+                <time pubdate datetime="<%= show_date(@article) %>" title="<%= show_date(@article) %>">Last
+                  updated: <%= show_date(@article) %></time>
               </p>
             </div>
             <!-- End author bio & article data -->
