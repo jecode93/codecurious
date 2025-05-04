@@ -18,7 +18,7 @@
 class Article < ApplicationRecord
   extend FriendlyId
 
-  ARTICLE_FEATURED_IMAGE_TYPES = [:png, :webp, :jpeg].freeze
+  ARTICLE_FEATURED_IMAGE_TYPES = [:webp].freeze
 
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
   has_many :article_categories, dependent: :destroy

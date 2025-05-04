@@ -15,7 +15,9 @@
   <div class="flex flex-col">
     <%= render "layouts/shared/profile_picture", resource: @admin, other_classes: "w-20 h-20 rounded-full" %>
     <%= f.label :profile_picture, class: "form-label mt-4" %>
-    <%= f.file_field :profile_picture, accept: Admin::ADMIN_PROFILE_PICTURE_TYPES.join(","), direct_upload: true, class: "form-input" %>
+    <%= f.file_field :profile_picture, accept: "image/webp", direct_upload: true, class: "form-input" %>
+    <p class="text-sm text-gray-500 mt-1">Only <strong>.webp</strong> images are allowed. Please upload an optimized
+      WebP file.</p>
   </div>
 
   <div class="flex flex-col">

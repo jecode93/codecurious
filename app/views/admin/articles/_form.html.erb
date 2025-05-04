@@ -29,7 +29,9 @@
             <%= image_tag @article.featured_image.variant(resize_to_limit: [300, 300]), class: "my-5 rounded" %>
           <% end %>
         </div>
-        <%= form.file_field :featured_image, accept: Article::ARTICLE_FEATURED_IMAGE_TYPES.join(","), direct_upload: true, class: "form-input", id: "file_input" %>
+        <%= form.file_field :featured_image, accept: "image/webp", direct_upload: true, class: "form-input", id: "file_input" %>
+        <p class="text-sm text-gray-500 mt-1">Only <strong>.webp</strong> images are allowed. Please upload an optimized
+          WebP file.</p>
       </div>
 
       <div class="my-10">

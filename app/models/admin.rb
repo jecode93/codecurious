@@ -1,7 +1,7 @@
 class Admin < ApplicationRecord
   extend FriendlyId
 
-  ADMIN_PROFILE_PICTURE_TYPES = [:png, :webp, :jpeg].freeze
+  ADMIN_PROFILE_PICTURE_TYPES = [:webp].freeze
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
