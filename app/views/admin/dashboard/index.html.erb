@@ -58,7 +58,10 @@
 
 <div>
   <h2 class="h2 !text-left">Reads Over the Last 3 Months</h2>
-  <%= line_chart ArticleReadCount.group_by_day(:read_at, range: 3.month.ago..Time.current).count, colors: %w[#ec3535] %>
+  <%= line_chart @articles.map { |article|
+    { name: article.title, data: article.article_read_counts.group_by_day(:read_at, range: 3.month.ago..Time.current).count }
+  }
+  %>
 </div>
 
 <%= render "layouts/admin_shared/base/hr" %>
