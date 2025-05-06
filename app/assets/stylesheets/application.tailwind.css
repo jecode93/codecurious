@@ -185,3 +185,13 @@ trix-editor blockquote, .trix-content blockquote {
   margin-left: 0.3em;
   padding-left: 0.6em;
 }
+
+.trix-content img {
+  max-width: 100% !important;
+  height: auto;
+}
+
+.trix-content .attachment__caption {
+  text-align: center;
+  font-size: 0.875rem;
+}
