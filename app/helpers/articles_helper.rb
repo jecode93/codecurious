@@ -48,6 +48,10 @@ module ArticlesHelper
     article_date.updated_at.strftime("%b %d, %Y")
   end
 
+  def article_created_date(article_created_date)
+    article_created_date.created_at.strftime("%b %d, %Y")
+  end
+
   def tailwind_class_for(flash_type)
     case flash_type
     when "notice" then "bg-green-50 text-green-900 shadow rounded"
