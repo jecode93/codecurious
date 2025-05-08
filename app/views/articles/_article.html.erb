@@ -19,7 +19,7 @@
           <% end %>
           <div class="text-sm">
             <p class="h6 dark:text-white"><%= link_to article.author.name, author_path(article.author) %></p>
-            <span class="text-gray-500 dark:text-white text-xs">Last updated: <%= show_date(article) %></span>
+            <span class="text-gray-500 dark:text-white text-xs">Published on: <%= article_created_date(article) %></span>
           </div>
         </div>
         <div>
