@@ -18,6 +18,8 @@
 class Article < ApplicationRecord
   extend FriendlyId
 
+  before_save :set_published_at, if: :status_changed_to_published?
+
   ARTICLE_FEATURED_IMAGE_TYPES = [:webp].freeze
 
   belongs_to :author, class_name: "Admin", foreign_key: "author_id"
@@ -49,5 +51,15 @@ class Article < ApplicationRecord
 
   def self.ransackable_associations(auth_object = nil)
     ["categories"]
+  end
+
+  private
+
+  def status_changed_to_published?
+    status_changed? && published?
+  end
+
+  def set_published_at
+    self.published_at ||= Time.current
   end
 end
