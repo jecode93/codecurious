@@ -44,12 +44,16 @@ module ArticlesHelper
     }
   ]
 
-  def show_date(article_date)
+  def show_updated_date(article_date)
     article_date.updated_at.strftime("%b %d, %Y")
   end
 
   def article_created_date(article_created_date)
     article_created_date.created_at.strftime("%b %d, %Y")
+  end
+
+  def article_published_date(article_published_date)
+    article_published_date.published_at.strftime("%b %d, %Y")
   end
 
   def tailwind_class_for(flash_type)
